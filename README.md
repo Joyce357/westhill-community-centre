@@ -88,7 +88,7 @@ Since the active production site is standard HTML/CSS/JavaScript, it should be d
 1. **Via Hostinger Git Deployment (Continuous Integration)**:
    * Go to your **Hostinger hPanel > Website > Git**.
    * Link your GitHub repository (`westhill-community-centre`).
-   * Set the **Branch** to `main`.
+   * Set the **Branch** to `develop` (since the website is under active design and content development, changes pushed here are deployed automatically).
    * Set the **Install Directory** to `public_html`.
    * Since the static site resides in the `westhill-static/` subdirectory, configure your deployment script or deployment path in Hostinger to point to `westhill-static/` so that its contents map directly to `public_html/`. (Alternatively, if using Hostinger's standard Git panel, pull the repo and configure your domain's document root to point to `/public_html/westhill-static`).
 2. **Via FTP / File Manager (Manual)**:
