@@ -1,14 +1,45 @@
-# West Hill Community Centre — Web Platform
+# West Hill Community Centre
 
-This repository serves as the unified codebase for the West Hill Community Centre website platform. It is designed to accommodate the current production-ready static website and prepare the organization for its future migration to a WordPress-based content management system.
+West Hill Community Centre is a community-focused organization serving Scarborough-West Hill through programs, advocacy, volunteer engagement, community partnerships, events, and support services.
+
+This repository contains:
+
+- Static production website
+- WordPress theme architecture
+- Community service content structure
+- Deployment documentation
+- Future member portal roadmap
+
+## Project Tracks
+
+### Track A
+Static website for immediate deployment.
+
+### Track B
+WordPress + Elementor Pro implementation.
+
+### Track C
+Future digital platform expansion including volunteer, program registration, community engagement, and member services.
+
+## Technology Stack
+
+- HTML5
+- CSS3
+- JavaScript
+- WordPress
+- Elementor Pro
+- GitHub
+- Hostinger
+
+## Status
+
+Active Development
 
 ---
 
-## 1. Project Overview & Architecture
+## 1. Project Architecture & Repository Structure
 
-To maintain high development velocity and ensure seamless content scalability, the project follows a two-track architectural strategy:
-* **Track A (Static Website - Active Production)**: A fast, lightweight, and responsive static website served directly to visitors.
-* **Track B (WordPress Platform - Future Migration)**: Ready-to-deploy WordPress custom components (theme, custom post types, and Elementor templates) maintained in the same project without interfering with the static production code.
+To maintain high development velocity and ensure seamless content scalability, the project is organized into three tracks (Track A for immediate static deployment, Track B for WordPress migration components, and Track C for future platform roadmapping).
 
 ### Repository Structure
 
