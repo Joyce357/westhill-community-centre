@@ -171,6 +171,11 @@ img {
     text-decoration: none;
 }
 
+.btn-sm {
+    padding: 8px 20px;
+    font-size: 0.88rem;
+}
+
 .btn-primary {
     background-color: var(--wh-orange-accent);
     color: var(--wh-bg-white);

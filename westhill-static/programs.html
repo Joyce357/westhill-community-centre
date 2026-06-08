@@ -77,7 +77,7 @@
     </section>
 
     <!-- MAIN PROGRAMS CONTENT -->
-    <section class="section" aria-label="Browse Programs">
+    <section class="section" id="browse-programs-section" aria-label="Browse Programs">
         <div class="container">
             <div class="section-header wh-reveal active">
                 <h2>Browse Our Programs</h2>
@@ -100,43 +100,51 @@
             </div>
 
             <!-- Program Registration Info Section -->
-            <div class="section-alt" style="border-radius: var(--wh-radius-lg); padding: 50px;">
+            <div class="section-alt" style="border-radius: var(--wh-radius-lg); padding: 40px 30px;">
                 <div class="grid-2" style="gap: 45px; align-items: center;">
                     <div>
-                        <h3 style="color: var(--wh-blue-primary); font-size: 1.8rem; margin-bottom: 20px;">How to Register</h3>
-                        <p style="margin-bottom: 15px; line-height: 1.6;">Most of our programs are free of charge for local residents of Scarborough-West Hill, Morningside, and surrounding areas. To sign up for our sessions, please choose one of the options below:</p>
-                        <ul style="list-style-type: none; margin-bottom: 25px;">
-                            <li style="margin-bottom: 10px; display: flex; align-items: start; gap: 10px;"><i class="fas fa-check-circle" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span><strong>Online Inquiry:</strong> Use our Contact page form to request enrollment.</span></li>
-                            <li style="margin-bottom: 10px; display: flex; align-items: start; gap: 10px;"><i class="fas fa-check-circle" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span><strong>In-Person:</strong> Visit our admin desk at Lawrence Avenue East during center hours.</span></li>
-                            <li style="display: flex; align-items: start; gap: 10px;"><i class="fas fa-check-circle" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span><strong>Phone:</strong> Speak with a program coordinator at (416) 555-0199.</span></li>
+                        <h3 style="color: var(--wh-blue-primary); font-size: 1.8rem; margin-bottom: 20px;">How to Join a Program</h3>
+                        <p style="margin-bottom: 20px; line-height: 1.6; color: var(--wh-text-body);">Whether you're interested in youth activities, family support services, community events, volunteer opportunities, or community resources, our team is here to help you get connected.</p>
+                        <ul style="list-style-type: none; margin-bottom: 25px; padding-left: 0;">
+                            <li style="margin-bottom: 12px; display: flex; align-items: start; gap: 10px;"><i class="fas fa-check" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span style="color: var(--wh-text-body); font-weight: 500;">Visit us at the Centre</span></li>
+                            <li style="margin-bottom: 12px; display: flex; align-items: start; gap: 10px;"><i class="fas fa-check" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span style="color: var(--wh-text-body); font-weight: 500;">Call our team directly</span></li>
+                            <li style="margin-bottom: 12px; display: flex; align-items: start; gap: 10px;"><i class="fas fa-check" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span style="color: var(--wh-text-body); font-weight: 500;">Complete the registration form</span></li>
+                            <li style="display: flex; align-items: start; gap: 10px;"><i class="fas fa-check" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span style="color: var(--wh-text-body); font-weight: 500;">Attend a community information session</span></li>
                         </ul>
-                        <div style="display: flex; gap: 15px;">
-                            <a href="contact.html" class="btn btn-secondary">Contact Admin Desk</a>
-                            <a href="resources.html" class="btn btn-outline" style="background-color: var(--wh-bg-white);">Download Registration Guide</a>
+                        <div style="display: flex; gap: 12px;">
+                            <a href="#browse-programs-section" class="btn btn-secondary btn-sm">View Programs</a>
+                            <a href="contact.html" class="btn btn-outline btn-sm" style="background-color: var(--wh-bg-white);">Contact Us</a>
                         </div>
                     </div>
                     <div>
                         <div style="background-color: var(--wh-bg-white); border-radius: var(--wh-radius-md); padding: 30px; border: 1px solid rgba(15, 59, 106, 0.05); box-shadow: var(--wh-shadow-soft);">
-                            <h4 style="color: var(--wh-blue-primary); margin-bottom: 15px; font-family: var(--wh-font-primary);">Enrollment Assistance</h4>
-                            <p style="font-size: 0.9rem; margin-bottom: 20px; color: var(--wh-text-body);">Do you have questions about child care benefits, eligibility check packets, or local transportation tokens? Let us know and we will guide you.</p>
-                            <form onsubmit="event.preventDefault(); alert('Thank you! Your program enrollment inquiry has been submitted. An coordinator will contact you shortly.'); this.reset();">
-                                <div style="margin-bottom: 15px;">
-                                    <input type="text" placeholder="Your Name" required style="width: 100%; padding: 10px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none;">
+                            <h4 style="color: var(--wh-blue-primary); margin-bottom: 10px; font-family: var(--wh-font-primary); font-size: 1.25rem;">Need Help Registering?</h4>
+                            <p style="font-size: 0.9rem; margin-bottom: 20px; color: var(--wh-text-body); line-height: 1.5;">Not sure where to start? Complete the form below and a member of our team will contact you to discuss available programs, upcoming events, volunteer opportunities, and support services.</p>
+                            <form onsubmit="event.preventDefault(); alert('Thank you! A member of our team will contact you shortly to discuss programs and registration options.'); this.reset();">
+                                <div style="margin-bottom: 12px;">
+                                    <input type="text" placeholder="Full Name" required style="width: 100%; padding: 10px 12px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none; font-size: 0.9rem; font-family: inherit;">
                                 </div>
-                                <div style="margin-bottom: 15px;">
-                                    <input type="email" placeholder="Your Email Address" required style="width: 100%; padding: 10px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none;">
+                                <div style="margin-bottom: 12px;">
+                                    <input type="tel" placeholder="Phone Number" required style="width: 100%; padding: 10px 12px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none; font-size: 0.9rem; font-family: inherit;">
                                 </div>
-                                <div style="margin-bottom: 15px;">
-                                    <select required style="width: 100%; padding: 10px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none; background-color: white;">
-                                        <option value="" disabled selected>Select Program Category</option>
-                                        <option value="youth">Youth Hub / Leadership</option>
-                                        <option value="seniors">Seniors Wellness</option>
-                                        <option value="family">Family & Settlement Support</option>
-                                        <option value="career">Employment Aid & Resumes</option>
-                                        <option value="advocacy">Community Advocacy</option>
+                                <div style="margin-bottom: 12px;">
+                                    <input type="email" placeholder="Email Address" required style="width: 100%; padding: 10px 12px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none; font-size: 0.9rem; font-family: inherit;">
+                                </div>
+                                <div style="margin-bottom: 12px;">
+                                    <select required style="width: 100%; padding: 10px 12px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none; font-size: 0.9rem; font-family: inherit; background-color: white;">
+                                        <option value="" disabled selected>Area of Interest</option>
+                                        <option value="youth">Youth Programs</option>
+                                        <option value="family">Family Support Services</option>
+                                        <option value="senior">Senior Programs</option>
+                                        <option value="volunteer">Volunteer Opportunities</option>
+                                        <option value="events">Community Events</option>
+                                        <option value="general">General Inquiry</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 10px;">Submit Inquiry</button>
+                                <div style="margin-bottom: 15px;">
+                                    <textarea placeholder="Message" rows="3" required style="width: 100%; padding: 10px 12px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none; resize: vertical; font-family: inherit; font-size: 0.9rem;"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-secondary btn-sm" style="width: 100%;">Request Assistance</button>
                             </form>
                         </div>
                     </div>
