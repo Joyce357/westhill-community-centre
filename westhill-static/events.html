@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -155,17 +155,15 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- NEWSLETTER SIGNUP -->
+    </section>    <!-- NEWSLETTER SIGNUP -->
     <section class="newsletter" aria-label="Newsletter Signup">
         <div class="container newsletter-content">
             <div class="newsletter-text">
                 <h3>Stay Connected With West Hill</h3>
-                <p>Subscribe to our newsletter to receive program registration dates, updates, and community alerts.</p>
+                <p>Receive updates about programs, events, volunteer opportunities, community initiatives, and important announcements.</p>
             </div>
             <div class="newsletter-form">
-                <form id="newsletter-form-elt" style="display: flex; width: 100%; gap: 15px;">
+                <form id="newsletter-form-elt" onsubmit="event.preventDefault(); alert('Thank you for subscribing to our newsletter!'); this.reset();" style="display: flex; width: 100%; gap: 15px;">
                     <label for="newsletter-email" class="sr-only">Email Address</label>
                     <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
                     <button type="submit" class="btn btn-primary" style="padding: 10px 25px;">Subscribe</button>
@@ -177,45 +175,71 @@
     <!-- FOOTER -->
     <footer id="colophon">
         <div class="container footer-top">
+            <!-- Column 1: About -->
             <div class="footer-about">
                 <div class="footer-logo">
                     <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
                 </div>
-                <p>A welcoming Scarborough neighborhood hub supporting the growth, engagement, and well-being of families and residents.</p>
+                <p>West Hill Community Centre is a welcoming community hub dedicated to connecting residents, supporting families, promoting inclusion, and creating opportunities for people of all ages.</p>
+                <div class="social-links" style="margin-top: 20px;">
+                    <a href="https://facebook.com/westhill" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/westhill" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/westhill" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://youtube.com/westhill" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
             
+            <!-- Column 2: Quick Links -->
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="programs.html">Programs & Services</a></li>
-                    <li><a href="events.html">Events Calendar</a></li>
-                    <li><a href="volunteer.html">Volunteer Portal</a></li>
-                    <li><a href="donate.html">Donate Now</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="resources.html">Community Resources</a></li>
+                    <li><a href="volunteer.html">Volunteer Opportunities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             
+            <!-- Column 3: Contact Info -->
             <div class="footer-contact">
                 <h4>Contact Us</h4>
-                <p><i class="fas fa-map-marker-alt"></i> 123 West Hill Road, Scarborough, ON</p>
-                <p><i class="fas fa-phone"></i> (416) 555-0199</p>
-                <p><i class="fas fa-envelope"></i> info@westhillcommunity.org</p>
+                <p style="align-items: flex-start;"><i class="fas fa-map-marker-alt" style="margin-top: 4px;"></i> <span>West Hill Community Centre<br>4234 Lawrence Avenue East<br>Units 2–3<br>Scarborough, Ontario</span></p>
+                <p><i class="fas fa-phone"></i> <span>(416) 555-0199</span></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@westhillcommunitycentre.ca" style="color: inherit; text-decoration: none;">info@westhillcommunitycentre.ca</a></p>
             </div>
             
+            <!-- Column 4: Hours & Info -->
             <div class="footer-hours">
-                <h4>Center Hours</h4>
-                <p><i class="fas fa-clock"></i> Mon - Fri: 8:30 AM - 8:00 PM</p>
-                <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 4:00 PM</p>
-                <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+                <h4>Centre Hours</h4>
+                <p><i class="fas fa-clock"></i> <span>Mon – Fri: 9:00 AM – 6:00 PM</span></p>
+                <p><i class="fas fa-calendar-alt"></i> <span>Saturday: By Program Schedule</span></p>
+                <p><i class="fas fa-ban"></i> <span>Sunday: Closed</span></p>
+                
+                <div class="accessibility-info" style="margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px;">
+                    <p style="font-size: 0.85rem; margin-bottom: 8px; color: #A0AEC0; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-universal-access" style="color: var(--wh-green-primary); width: 16px; text-align: center;"></i> Accessible Facility</p>
+                    <p style="font-size: 0.85rem; margin-bottom: 8px; color: #A0AEC0; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-wheelchair" style="color: var(--wh-green-primary); width: 16px; text-align: center;"></i> Wheelchair Accessible</p>
+                    <p style="font-size: 0.85rem; margin-bottom: 0; color: #A0AEC0; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-square-parking" style="color: var(--wh-green-primary); width: 16px; text-align: center;"></i> Free Community Parking</p>
+                </div>
             </div>
         </div>
         
-        <div class="container footer-bottom">
-            <p>&copy; 2026 West Hill Community Centre. All rights reserved. | <a href="privacy.html" style="color: #718096; margin-left: 10px;">Privacy Policy</a></p>
-            <div class="social-links">
-                <a href="https://facebook.com/westhill" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com/westhill" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/westhill" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <!-- Bottom Footer Bar -->
+        <div class="footer-bottom-bar" style="margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 25px 0 0;">
+            <div class="container footer-bottom-container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                <div class="footer-bottom-left" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <span style="color: #718096; font-size: 0.85rem;">&copy; 2026 West Hill Community Centre. All Rights Reserved.</span>
+                    <div class="bottom-links" style="display: flex; gap: 15px;">
+                        <a href="privacy.html" style="color: #718096; font-size: 0.85rem; text-decoration: none; transition: var(--wh-transition);">Privacy Policy</a>
+                        <a href="terms.html" style="color: #718096; font-size: 0.85rem; text-decoration: none; transition: var(--wh-transition);">Terms of Use</a>
+                        <a href="accessibility.html" style="color: #718096; font-size: 0.85rem; text-decoration: none; transition: var(--wh-transition);">Accessibility Statement</a>
+                    </div>
+                </div>
+                <div class="footer-bottom-right">
+                    <span style="color: #718096; font-size: 0.85rem; font-style: italic;">Designed for Community Impact.</span>
+                </div>
             </div>
         </div>
     </footer>
