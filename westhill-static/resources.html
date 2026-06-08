@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Downloads | West Hill Community Centre</title>
+    
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="Download program guides, flyer schedules, volunteer packets, and find community resources in Scarborough-West Hill.">
+    <meta name="keywords" content="community resources, flyer download, Scarborough, West Hill, PDF pamphlet, program guides">
+    <meta name="author" content="West Hill Community Centre">
+    
+    <!-- Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="announcement-bar" id="announcement-bar-elt">
+        <div class="container bar-container">
+            <span class="bar-tag">Alert</span>
+            <span class="bar-message">Summer Youth Programs registration is now open! <a href="programs.html" class="bar-link">Register today</a></span>
+            <button class="bar-close" aria-label="Close announcement" onclick="document.getElementById('announcement-bar-elt').style.display='none'"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header id="masthead">
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="West Hill Community Centre Home">
+                <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
+            </a>
+            
+            <button class="mobile-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="primary-navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="about.html" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">About <i class="fas fa-chevron-down dropdown-caret"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="partners.html">Community Builders</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="resources.html" class="nav-link active">Resources</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <!-- Mobile CTAs inside the drawer -->
+                    <li class="mobile-cta-item"><a href="volunteer.html" class="btn btn-outline mobile-nav-btn">Get Involved</a></li>
+                    <li class="mobile-cta-item"><a href="donate.html" class="btn btn-secondary mobile-nav-btn">Donate</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-ctas">
+                <a href="volunteer.html" class="btn btn-outline header-cta">Get Involved</a>
+                <a href="donate.html" class="btn btn-secondary header-cta">Donate</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER BANNER -->
+    <section class="section" style="background-color: var(--wh-blue-dark); color: var(--wh-bg-white); padding: 50px 0; text-align: center;" aria-label="Page Title">
+        <div class="container">
+            <h1 style="color: var(--wh-bg-white); font-size: 2.5rem; margin-bottom: 10px;">Resources & Downloads</h1>
+            <p style="color: var(--wh-bg-alt); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Access program flyers, registration packets, community calendars, and support guides directly.</p>
+        </div>
+    </section>
+
+    <!-- MAIN RESOURCES CONTENT -->
+    <section class="section" aria-label="Resource Documents">
+        <div class="container">
+            <div class="section-header wh-reveal active" style="margin-bottom: 50px;">
+                <h2>Latest Resource Flyers</h2>
+                <p>Download and print informational schedules and guides for West Hill programs and services. Tapping the download button will initiate your download.</p>
+            </div>
+
+            <!-- Resource Cards Grid (hooks into main.js triggerFlyerDownload) -->
+            <div class="grid-3 flyer-grid" style="margin-bottom: 70px;">
+                <!-- Card 1 -->
+                <div class="flyer-card wh-reveal active">
+                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
+                    <div class="flyer-info">
+                        <h3>Summer Program Flyer</h3>
+                        <p>PDF | 1.8 MB | Added Jun 02</p>
+                    </div>
+                    <button class="flyer-btn" aria-label="Download Program Flyer"><i class="fas fa-download"></i></button>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flyer-card wh-reveal active">
+                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
+                    <div class="flyer-info">
+                        <h3>Youth Hub Registration Packet</h3>
+                        <p>PDF | 450 KB | Added May 15</p>
+                    </div>
+                    <button class="flyer-btn" aria-label="Download Registration Form"><i class="fas fa-download"></i></button>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flyer-card wh-reveal active">
+                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
+                    <div class="flyer-info">
+                        <h3>West Hill Day Participant Guide</h3>
+                        <p>PDF | 2.1 MB | Added Jun 01</p>
+                    </div>
+                    <button class="flyer-btn" aria-label="Download Guide"><i class="fas fa-download"></i></button>
+                </div>
+
+                <!-- Card 4 (New resource!) -->
+                <div class="flyer-card wh-reveal active">
+                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
+                    <div class="flyer-info">
+                        <h3>Seniors Social Calendar</h3>
+                        <p>PDF | 850 KB | Added Jun 05</p>
+                    </div>
+                    <button class="flyer-btn" aria-label="Download Seniors Calendar"><i class="fas fa-download"></i></button>
+                </div>
+
+                <!-- Card 5 (New resource!) -->
+                <div class="flyer-card wh-reveal active">
+                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
+                    <div class="flyer-info">
+                        <h3>Volunteer Handbook</h3>
+                        <p>PDF | 1.2 MB | Added May 20</p>
+                    </div>
+                    <button class="flyer-btn" aria-label="Download Volunteer Handbook"><i class="fas fa-download"></i></button>
+                </div>
+
+                <!-- Card 6 (New resource!) -->
+                <div class="flyer-card wh-reveal active">
+                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
+                    <div class="flyer-info">
+                        <h3>Partnership Proposal Guide</h3>
+                        <p>PDF | 3.1 MB | Added May 10</p>
+                    </div>
+                    <button class="flyer-btn" aria-label="Download Proposal Pack"><i class="fas fa-download"></i></button>
+                </div>
+            </div>
+
+            <!-- External Helpful links Section -->
+            <div class="section-alt" style="border-radius: var(--wh-radius-lg); padding: 50px;">
+                <h3 style="color: var(--wh-blue-primary); font-size: 1.6rem; margin-bottom: 25px; text-align: center; font-family: var(--wh-font-primary);">Helpful Community Connections</h3>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; line-height: 1.6;">If you need assistance beyond our current offerings, check out these local Scarborough and Toronto services:</p>
+                
+                <div class="grid-3" style="gap: 30px;">
+                    <div style="background-color: var(--wh-bg-white); padding: 25px; border-radius: var(--wh-radius-md); border: 1px solid rgba(15, 59, 106, 0.04);">
+                        <h4 style="color: var(--wh-blue-primary); margin-bottom: 12px; font-family: var(--wh-font-primary); font-size: 1.15rem;"><i class="fas fa-landmark" style="color: var(--wh-orange-accent); margin-right: 8px;"></i> Toronto 211</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; color: var(--wh-text-body);">Free, confidential service connecting you to government and community programs across Toronto.</p>
+                        <a href="https://211toronto.ca" target="_blank" style="font-size: 0.85rem; font-weight: 600; color: var(--wh-blue-primary);">Visit Website <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a>
+                    </div>
+                    
+                    <div style="background-color: var(--wh-bg-white); padding: 25px; border-radius: var(--wh-radius-md); border: 1px solid rgba(15, 59, 106, 0.04);">
+                        <h4 style="color: var(--wh-blue-primary); margin-bottom: 12px; font-family: var(--wh-font-primary); font-size: 1.15rem;"><i class="fas fa-book-open" style="color: var(--wh-orange-accent); margin-right: 8px;"></i> Toronto Public Library</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; color: var(--wh-text-body);">The Morningside and Port Union library branches provide book lending, study spaces, and child learning groups.</p>
+                        <a href="https://www.torontopubliclibrary.ca" target="_blank" style="font-size: 0.85rem; font-weight: 600; color: var(--wh-blue-primary);">Visit Website <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a>
+                    </div>
+                    
+                    <div style="background-color: var(--wh-bg-white); padding: 25px; border-radius: var(--wh-radius-md); border: 1px solid rgba(15, 59, 106, 0.04);">
+                        <h4 style="color: var(--wh-blue-primary); margin-bottom: 12px; font-family: var(--wh-font-primary); font-size: 1.15rem;"><i class="fas fa-hands-holding" style="color: var(--wh-orange-accent); margin-right: 8px;"></i> Settlement Services</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; color: var(--wh-text-body);">Connect with settlement counseling, English language learning (LINC), and housing referral helpers in Scarborough.</p>
+                        <a href="https://settlement.org" target="_blank" style="font-size: 0.85rem; font-weight: 600; color: var(--wh-blue-primary);">Visit Website <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER SIGNUP -->
+    <section class="newsletter" aria-label="Newsletter Signup">
+        <div class="container newsletter-content">
+            <div class="newsletter-text">
+                <h3>Stay Connected With West Hill</h3>
+                <p>Subscribe to our newsletter to receive program registration dates, updates, and community alerts.</p>
+            </div>
+            <div class="newsletter-form">
+                <form id="newsletter-form-elt" style="display: flex; width: 100%; gap: 15px;">
+                    <label for="newsletter-email" class="sr-only">Email Address</label>
+                    <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 25px;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="colophon">
+        <div class="container footer-top">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
+                </div>
+                <p>A welcoming Scarborough neighborhood hub supporting the growth, engagement, and well-being of families and residents.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Services</a></li>
+                    <li><a href="events.html">Events Calendar</a></li>
+                    <li><a href="volunteer.html">Volunteer Portal</a></li>
+                    <li><a href="donate.html">Donate Now</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 West Hill Road, Scarborough, ON</p>
+                <p><i class="fas fa-phone"></i> (416) 555-0199</p>
+                <p><i class="fas fa-envelope"></i> info@westhillcommunity.org</p>
+            </div>
+            
+            <div class="footer-hours">
+                <h4>Center Hours</h4>
+                <p><i class="fas fa-clock"></i> Mon - Fri: 8:30 AM - 8:00 PM</p>
+                <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 4:00 PM</p>
+                <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 West Hill Community Centre. All rights reserved. | <a href="privacy.html" style="color: #718096; margin-left: 10px;">Privacy Policy</a></p>
+            <div class="social-links">
+                <a href="https://facebook.com/westhill" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/westhill" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/westhill" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

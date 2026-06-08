@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | West Hill Community Centre</title>
+    
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="Learn about the origin, mission, values, and leadership of the West Hill Community Centre, a community-led initiative supporting families in Scarborough.">
+    <meta name="keywords" content="community centre, Scarborough, West Hill, mission, leadership, Coach John Emore, family support, advocacy">
+    <meta name="author" content="West Hill Community Centre">
+    
+    <!-- Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="announcement-bar" id="announcement-bar-elt">
+        <div class="container bar-container">
+            <span class="bar-tag">Alert</span>
+            <span class="bar-message">Summer Youth Programs registration is now open! <a href="programs.html" class="bar-link">Register today</a></span>
+            <button class="bar-close" aria-label="Close announcement" onclick="document.getElementById('announcement-bar-elt').style.display='none'"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header id="masthead">
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="West Hill Community Centre Home">
+                <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
+            </a>
+            
+            <button class="mobile-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="primary-navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="about.html" class="nav-link dropdown-toggle active" aria-haspopup="true" aria-expanded="false">About <i class="fas fa-chevron-down dropdown-caret"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html" class="active">Our Story</a></li>
+                            <li><a href="partners.html">Community Builders</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="programs.html" class="nav-link">Programs</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <!-- Mobile CTAs inside the drawer -->
+                    <li class="mobile-cta-item"><a href="volunteer.html" class="btn btn-outline mobile-nav-btn">Get Involved</a></li>
+                    <li class="mobile-cta-item"><a href="donate.html" class="btn btn-secondary mobile-nav-btn">Donate</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-ctas">
+                <a href="volunteer.html" class="btn btn-outline header-cta">Get Involved</a>
+                <a href="donate.html" class="btn btn-secondary header-cta">Donate</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER BANNER -->
+    <section class="section" style="background-color: var(--wh-blue-dark); color: var(--wh-bg-white); padding: 50px 0; text-align: center;" aria-label="Page Title">
+        <div class="container">
+            <h1 style="color: var(--wh-bg-white); font-size: 2.5rem; margin-bottom: 10px;">Our Story</h1>
+            <p style="color: var(--wh-bg-alt); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">A community-led initiative built on years of neighbourhood advocacy, leadership, and family support in Scarborough.</p>
+        </div>
+    </section>
+
+    <!-- MAIN ABOUT US CONTENT -->
+    <section class="section" aria-label="About the Centre">
+        <div class="container">
+            <div class="grid-2" style="gap: 50px; margin-bottom: 70px;">
+                <div class="wh-reveal active">
+                    <h2 style="color: var(--wh-blue-primary); margin-bottom: 20px; font-size: 2rem;">A Vision Brought to Life</h2>
+                    <p style="margin-bottom: 18px; font-size: 1.05rem; line-height: 1.7;">The West Hill Community Centre is a newly established community hub located at 4234 Lawrence Avenue East. Although the physical facility represents a new chapter, the Centre is built upon a strong foundation of local resident advocacy and neighbourhood leadership that has worked to support Scarborough families for many years.</p>
+                    <p style="margin-bottom: 18px; font-size: 1.05rem; line-height: 1.7;">Created to meet the growing need for accessible, free programs in East Scarborough, our Centre brings together youth mentoring, family support services, advocacy programs, and local partnerships under one roof. We strive to provide a positive, welcoming environment where everyone belongs.</p>
+                    <p style="font-size: 1.05rem; line-height: 1.7;">Working alongside local associations, residents, and sponsors, we offer resources that help youth develop leadership skills, enable seniors to maintain vital social connections, and connect families with critical social support networks.</p>
+                </div>
+                <div class="wh-reveal active">
+                    <img src="images/hero_community.png" alt="Diverse community gathering in Scarborough" style="border-radius: var(--wh-radius-lg); box-shadow: var(--wh-shadow-soft); width: 100%; height: auto;">
+                </div>
+            </div>
+
+            <!-- Mission, Vision, Values Block -->
+            <div class="section-alt" style="border-radius: var(--wh-radius-lg); padding: 50px; margin-bottom: 70px;">
+                <div class="grid-2" style="gap: 40px; margin-bottom: 40px; align-items: start;">
+                    <div>
+                        <h3 style="color: var(--wh-blue-primary); font-size: 1.6rem; margin-bottom: 15px;">Our Mission</h3>
+                        <p style="font-size: 1.05rem; line-height: 1.6; color: var(--wh-text-body);">To foster an inclusive, welcoming, and supportive community where residents of all ages can access resources, develop skills, build meaningful relationships, and thrive together.</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--wh-blue-primary); font-size: 1.6rem; margin-bottom: 15px;">Our Vision</h3>
+                        <p style="font-size: 1.05rem; line-height: 1.6; color: var(--wh-text-body);">A vibrant and connected West Hill community where every resident has the opportunity to belong, contribute, and thrive.</p>
+                    </div>
+                </div>
+                
+                <h4 style="color: var(--wh-blue-primary); font-size: 1.25rem; margin-bottom: 25px; text-align: center; border-top: 1px solid rgba(15, 59, 106, 0.1); padding-top: 30px;">Our Core Values</h4>
+                <div class="grid-4" style="gap: 20px; text-align: center;">
+                    <div>
+                        <h5 style="color: var(--wh-green-primary); font-size: 1.1rem; margin-bottom: 8px;">Inclusion</h5>
+                        <p style="font-size: 0.9rem; color: var(--wh-text-body);">Everyone belongs and has a place at our table.</p>
+                    </div>
+                    <div>
+                        <h5 style="color: var(--wh-green-primary); font-size: 1.1rem; margin-bottom: 8px;">Respect</h5>
+                        <p style="font-size: 0.9rem; color: var(--wh-text-body);">Every voice matters and contributes to our growth.</p>
+                    </div>
+                    <div>
+                        <h5 style="color: var(--wh-green-primary); font-size: 1.1rem; margin-bottom: 8px;">Collaboration</h5>
+                        <p style="font-size: 0.9rem; color: var(--wh-text-body);">Working together with residents and local partners.</p>
+                    </div>
+                    <div>
+                        <h5 style="color: var(--wh-green-primary); font-size: 1.1rem; margin-bottom: 8px;">Empowerment</h5>
+                        <p style="font-size: 0.9rem; color: var(--wh-text-body);">Supporting residents to reach their full potential.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leadership Section (Coach John Message) -->
+            <div class="grid-2" style="gap: 50px; align-items: center; margin-bottom: 60px;">
+                <div>
+                    <img src="images/coach_john_emore.jpeg" alt="Coach John Emore - President of West Hill Community Association" style="border-radius: var(--wh-radius-lg); box-shadow: var(--wh-shadow-soft); width: 100%; max-height: 480px; object-fit: cover; object-position: center top;">
+                </div>
+                <div>
+                    <h3 style="color: var(--wh-blue-primary); font-size: 1.8rem; margin-bottom: 15px;">President's Message</h3>
+                    <h4 style="color: var(--wh-orange-accent); font-size: 1.1rem; font-weight: 500; margin-bottom: 20px;">Coach John Emore - President, West Hill Community Association</h4>
+                    <div style="font-style: italic; border-left: 3px solid var(--wh-orange-accent); padding-left: 20px; margin-bottom: 20px; color: var(--wh-blue-primary); font-family: var(--wh-font-primary); font-size: 1.1rem;">
+                        "West Hill Community Centre was created to be a place where residents can connect, belong, and thrive. Together, we are building opportunities and strengthening our community for generations to come."
+                    </div>
+                    <p style="margin-bottom: 15px; font-size: 1rem; line-height: 1.6;">Our goal is to ensure that every youth, senior, and family in Scarborough-West Hill has a place to study, find job assistance, share in social recreation, and feel at home. I invite you to visit our new space, register for our programs, or join us as a volunteer."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER SIGNUP -->
+    <section class="newsletter" aria-label="Newsletter Signup">
+        <div class="container newsletter-content">
+            <div class="newsletter-text">
+                <h3>Stay Connected With West Hill</h3>
+                <p>Subscribe to our newsletter to receive program registration dates, updates, and community alerts.</p>
+            </div>
+            <div class="newsletter-form">
+                <form id="newsletter-form-elt" style="display: flex; width: 100%; gap: 15px;">
+                    <label for="newsletter-email" class="sr-only">Email Address</label>
+                    <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 25px;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="colophon">
+        <div class="container footer-top">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
+                </div>
+                <p>A welcoming Scarborough neighborhood hub supporting the growth, engagement, and well-being of families and residents.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Services</a></li>
+                    <li><a href="events.html">Events Calendar</a></li>
+                    <li><a href="volunteer.html">Volunteer Portal</a></li>
+                    <li><a href="donate.html">Donate Now</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 West Hill Road, Scarborough, ON</p>
+                <p><i class="fas fa-phone"></i> (416) 555-0199</p>
+                <p><i class="fas fa-envelope"></i> info@westhillcommunity.org</p>
+            </div>
+            
+            <div class="footer-hours">
+                <h4>Center Hours</h4>
+                <p><i class="fas fa-clock"></i> Mon - Fri: 8:30 AM - 8:00 PM</p>
+                <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 4:00 PM</p>
+                <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 West Hill Community Centre. All rights reserved. | <a href="privacy.html" style="color: #718096; margin-left: 10px;">Privacy Policy</a></p>
+            <div class="social-links">
+                <a href="https://facebook.com/westhill" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/westhill" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/westhill" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

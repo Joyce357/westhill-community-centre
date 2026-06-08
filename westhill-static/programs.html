@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs & Services | West Hill Community Centre</title>
+    
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="Browse our educational, family, senior, career, and youth development programs at West Hill Community Centre in Scarborough.">
+    <meta name="keywords" content="community programs, youth hub, senior support, Scarborough, West Hill, career help, settlement assistance">
+    <meta name="author" content="West Hill Community Centre">
+    
+    <!-- Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="announcement-bar" id="announcement-bar-elt">
+        <div class="container bar-container">
+            <span class="bar-tag">Alert</span>
+            <span class="bar-message">Summer Youth Programs registration is now open! <a href="programs.html" class="bar-link">Register today</a></span>
+            <button class="bar-close" aria-label="Close announcement" onclick="document.getElementById('announcement-bar-elt').style.display='none'"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- NAVIGATION HEADER -->
+    <header id="masthead">
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="West Hill Community Centre Home">
+                <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
+            </a>
+            
+            <button class="mobile-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="primary-navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="about.html" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">About <i class="fas fa-chevron-down dropdown-caret"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="partners.html">Community Builders</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="programs.html" class="nav-link active">Programs</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <!-- Mobile CTAs inside the drawer -->
+                    <li class="mobile-cta-item"><a href="volunteer.html" class="btn btn-outline mobile-nav-btn">Get Involved</a></li>
+                    <li class="mobile-cta-item"><a href="donate.html" class="btn btn-secondary mobile-nav-btn">Donate</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-ctas">
+                <a href="volunteer.html" class="btn btn-outline header-cta">Get Involved</a>
+                <a href="donate.html" class="btn btn-secondary header-cta">Donate</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER BANNER -->
+    <section class="section" style="background-color: var(--wh-blue-dark); color: var(--wh-bg-white); padding: 50px 0; text-align: center;" aria-label="Page Title">
+        <div class="container">
+            <h1 style="color: var(--wh-bg-white); font-size: 2.5rem; margin-bottom: 10px;">Programs & Services</h1>
+            <p style="color: var(--wh-bg-alt); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Free, community-focused initiatives supporting Scarborough families, youth, seniors, and career builders.</p>
+        </div>
+    </section>
+
+    <!-- MAIN PROGRAMS CONTENT -->
+    <section class="section" aria-label="Browse Programs">
+        <div class="container">
+            <div class="section-header wh-reveal active">
+                <h2>Browse Our Programs</h2>
+                <p>Use the tabs below to filter programs by department and discover resources designed to support you.</p>
+            </div>
+
+            <!-- Filter tabs (hooks into main.js) -->
+            <div class="filter-menu wh-reveal active" role="tablist" aria-label="Filter programs by category" style="margin-bottom: 45px;">
+                <button class="filter-btn active" role="tab" aria-selected="true" data-filter="All">All Programs</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Youth Services">Youth Services</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Support Services">Support Services</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Family Services">Family Services</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Career Services">Career Services</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Advocacy">Advocacy</button>
+            </div>
+            
+            <!-- Injected from main.js programs loop -->
+            <div class="grid-3 programs-grid" id="dynamic-programs-grid" style="margin-bottom: 70px;">
+                <p style="grid-column: 1 / -1; text-align: center; color: var(--wh-text-muted);">Loading programs directory...</p>
+            </div>
+
+            <!-- Program Registration Info Section -->
+            <div class="section-alt" style="border-radius: var(--wh-radius-lg); padding: 50px;">
+                <div class="grid-2" style="gap: 45px; align-items: center;">
+                    <div>
+                        <h3 style="color: var(--wh-blue-primary); font-size: 1.8rem; margin-bottom: 20px;">How to Register</h3>
+                        <p style="margin-bottom: 15px; line-height: 1.6;">Most of our programs are free of charge for local residents of Scarborough-West Hill, Morningside, and surrounding areas. To sign up for our sessions, please choose one of the options below:</p>
+                        <ul style="list-style-type: none; margin-bottom: 25px;">
+                            <li style="margin-bottom: 10px; display: flex; align-items: start; gap: 10px;"><i class="fas fa-check-circle" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span><strong>Online Inquiry:</strong> Use our Contact page form to request enrollment.</span></li>
+                            <li style="margin-bottom: 10px; display: flex; align-items: start; gap: 10px;"><i class="fas fa-check-circle" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span><strong>In-Person:</strong> Visit our admin desk at Lawrence Avenue East during center hours.</span></li>
+                            <li style="display: flex; align-items: start; gap: 10px;"><i class="fas fa-check-circle" style="color: var(--wh-green-primary); margin-top: 4px;"></i> <span><strong>Phone:</strong> Speak with a program coordinator at (416) 555-0199.</span></li>
+                        </ul>
+                        <div style="display: flex; gap: 15px;">
+                            <a href="contact.html" class="btn btn-secondary">Contact Admin Desk</a>
+                            <a href="resources.html" class="btn btn-outline" style="background-color: var(--wh-bg-white);">Download Registration Guide</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="background-color: var(--wh-bg-white); border-radius: var(--wh-radius-md); padding: 30px; border: 1px solid rgba(15, 59, 106, 0.05); box-shadow: var(--wh-shadow-soft);">
+                            <h4 style="color: var(--wh-blue-primary); margin-bottom: 15px; font-family: var(--wh-font-primary);">Enrollment Assistance</h4>
+                            <p style="font-size: 0.9rem; margin-bottom: 20px; color: var(--wh-text-body);">Do you have questions about child care benefits, eligibility check packets, or local transportation tokens? Let us know and we will guide you.</p>
+                            <form onsubmit="event.preventDefault(); alert('Thank you! Your program enrollment inquiry has been submitted. An coordinator will contact you shortly.'); this.reset();">
+                                <div style="margin-bottom: 15px;">
+                                    <input type="text" placeholder="Your Name" required style="width: 100%; padding: 10px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none;">
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <input type="email" placeholder="Your Email Address" required style="width: 100%; padding: 10px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none;">
+                                </div>
+                                <div style="margin-bottom: 15px;">
+                                    <select required style="width: 100%; padding: 10px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none; background-color: white;">
+                                        <option value="" disabled selected>Select Program Category</option>
+                                        <option value="youth">Youth Hub / Leadership</option>
+                                        <option value="seniors">Seniors Wellness</option>
+                                        <option value="family">Family & Settlement Support</option>
+                                        <option value="career">Employment Aid & Resumes</option>
+                                        <option value="advocacy">Community Advocacy</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 10px;">Submit Inquiry</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER SIGNUP -->
+    <section class="newsletter" aria-label="Newsletter Signup">
+        <div class="container newsletter-content">
+            <div class="newsletter-text">
+                <h3>Stay Connected With West Hill</h3>
+                <p>Subscribe to our newsletter to receive program registration dates, updates, and community alerts.</p>
+            </div>
+            <div class="newsletter-form">
+                <form id="newsletter-form-elt" style="display: flex; width: 100%; gap: 15px;">
+                    <label for="newsletter-email" class="sr-only">Email Address</label>
+                    <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 25px;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="colophon">
+        <div class="container footer-top">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
+                </div>
+                <p>A welcoming Scarborough neighborhood hub supporting the growth, engagement, and well-being of families and residents.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Services</a></li>
+                    <li><a href="events.html">Events Calendar</a></li>
+                    <li><a href="volunteer.html">Volunteer Portal</a></li>
+                    <li><a href="donate.html">Donate Now</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 West Hill Road, Scarborough, ON</p>
+                <p><i class="fas fa-phone"></i> (416) 555-0199</p>
+                <p><i class="fas fa-envelope"></i> info@westhillcommunity.org</p>
+            </div>
+            
+            <div class="footer-hours">
+                <h4>Center Hours</h4>
+                <p><i class="fas fa-clock"></i> Mon - Fri: 8:30 AM - 8:00 PM</p>
+                <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 4:00 PM</p>
+                <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 West Hill Community Centre. All rights reserved. | <a href="privacy.html" style="color: #718096; margin-left: 10px;">Privacy Policy</a></p>
+            <div class="social-links">
+                <a href="https://facebook.com/westhill" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/westhill" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/westhill" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

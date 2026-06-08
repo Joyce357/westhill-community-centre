@@ -453,7 +453,7 @@ header.scrolled .logo img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=1920');
+    background-image: url('../../images/hero_community.png');
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -499,17 +499,17 @@ header.scrolled .logo img {
 }
 
 .hero h1 {
-    font-size: clamp(2.4rem, 6.5vw, 3.8rem);
+    font-size: clamp(2.0rem, 5.0vw, 3.2rem); /* Reduced headline size slightly */
     color: var(--wh-bg-white);
-    margin-bottom: 22px;
+    margin-bottom: 28px; /* Increased bottom spacing */
     line-height: 1.15;
     animation-delay: 0.3s;
 }
 
 .hero p {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
     color: var(--wh-bg-alt);
-    margin-bottom: 35px;
+    margin-bottom: 40px; /* Increased bottom spacing */
     line-height: 1.6;
     animation-delay: 0.5s;
 }
