@@ -683,7 +683,7 @@ header.scrolled .logo img {
     overflow: hidden;
     height: 100%;
     min-height: 380px;
-    background-image: url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=800');
+    background-image: url('../../images/hero_community.png');
     background-size: cover;
     background-position: center;
     box-shadow: var(--wh-shadow-soft);

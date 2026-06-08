@@ -33,7 +33,7 @@ const LOCAL_PROGRAMS_DATA = [
     "category": "Family Services",
     "description": "Providing safe support networks, parenting classes, counseling, and maternal resources for mothers and families.",
     "icon": "fas fa-child",
-    "image": "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=600",
+    "image": "images/family_support.png",
     "link": "programs.html?id=women-family"
   },
   {
@@ -60,7 +60,7 @@ const LOCAL_PROGRAMS_DATA = [
     "category": "Support Services",
     "description": "Guiding families in housing crises with emergency shelter referrals, landlord dispute info, and social housing forms.",
     "icon": "fas fa-home",
-    "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=600",
+    "image": "images/housing_support.png",
     "link": "programs.html?id=housing-support"
   },
   {
@@ -69,7 +69,7 @@ const LOCAL_PROGRAMS_DATA = [
     "category": "Career Services",
     "description": "One-on-one employment counselling, resume writing clinics, cover letter reviews, and mock interview practice.",
     "icon": "fas fa-briefcase",
-    "image": "https://images.unsplash.com/photo-1521791136368-1a8df3d95b35?auto=format&fit=crop&q=80&w=600",
+    "image": "images/employment_support.png",
     "link": "programs.html?id=employment-resume"
   },
   {
@@ -87,7 +87,7 @@ const LOCAL_PROGRAMS_DATA = [
     "category": "Advocacy",
     "description": "Empowering Scarborough residents to advocate for transit equity, tenant rights, local jobs, and neighborhood resources.",
     "icon": "fas fa-users",
-    "image": "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=600",
+    "image": "images/community_advocacy.png",
     "link": "programs.html?id=community-advocacy"
   }
 ];
