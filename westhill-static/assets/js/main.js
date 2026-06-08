@@ -42,7 +42,7 @@ const LOCAL_PROGRAMS_DATA = [
     "category": "Support Services",
     "description": "Customized, inclusive life-skill sessions and social recreation designed to empower individuals with special needs.",
     "icon": "fas fa-wheelchair",
-    "image": "https://images.unsplash.com/photo-1531206715517-5c0ba140e2b8?auto=format&fit=crop&q=80&w=600",
+    "image": "images/disability_support.png",
     "link": "programs.html?id=disability-services"
   },
   {
