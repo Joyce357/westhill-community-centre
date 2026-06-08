@@ -74,39 +74,56 @@ When the organization is ready to switch to WordPress:
 
 ---
 
-## 4. Git Version Control & GitHub Setup
+## 4. Repository Branching Model & GitHub Setup
 
-Follow these commands to connect your local repository to a new GitHub repository and deploy it.
+This repository uses a structured branching strategy to isolate stable production-ready code from active features and future migration efforts:
 
-### Step 1: Initialize Git and Commit Locally
+* **`main`**: Production-ready code. Matches the live environment.
+* **`develop`**: Active website design, coding, and content development.
+* **`future-wordpress`**: Ongoing WordPress migration work (theme adjustments, core CPT updates).
+* **`future-portal`**: Long-term digital roadmap plans.
+
+---
+
+### Step 1: Initialize Git and Branch Structure
 *(These steps have already been completed on your local machine)*
 ```bash
 # Initialize repository
 git init
 
-# Add all files to staging
-git add .
+# Rename default branch and create structure
+git branch -M main
+git checkout -b develop
+git branch future-wordpress
+git branch future-portal
 
-# Create initial commit
+# Add files and commit (active development workspace remains on develop branch)
+git add .
 git commit -m "Initial commit: Reorganize project structure, add README, gitignore, and migration roadmap"
 ```
 
-### Step 2: Push to GitHub
-To push your local repository to a new remote repository on GitHub:
+---
 
-1. Create a new repository on GitHub named: **`westhill-community-centre`** (Leave it empty: do not initialize with a README, license, or `.gitignore` since we already have them).
-2. Run the following commands in your local command line (replace `YOUR_GITHUB_USERNAME` with your actual username):
+### Step 2: Push to GitHub
+To push your local repository branches to a new remote repository on GitHub:
+
+1. Create a new repository on GitHub named: **`westhill-community-centre`** (Leave it empty: do not initialize with a README, license, or `.gitignore`).
+2. Run the following commands in your local terminal (replace `YOUR_GITHUB_USERNAME` with your actual username):
 
 ```bash
-# Rename the default branch to main
-git branch -M main
-
 # Link local repository to GitHub remote
 git remote add origin https://github.com/YOUR_GITHUB_USERNAME/westhill-community-centre.git
 
-# Push the codebase to the main branch
+# Push the develop branch to GitHub first (where active work is)
+git push -u origin develop
+
+# Push other branches to preserve the repository structure
 git push -u origin main
+git push -u origin future-wordpress
+git push -u origin future-portal
 ```
+
+3. In your **GitHub Repository Settings > Branches**, set the **Default Branch** to `develop`. This ensures that anyone contributing or opening the repository lands on the active development branch. All Pull Requests should be targeted to `develop` before being merged into `main` for release.
 
 ---
 
