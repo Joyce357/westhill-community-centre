@@ -1736,9 +1736,9 @@ footer {
 }
 .leadership-img {
     width: 100%;
-    height: auto;
-    max-height: 480px;
+    height: 540px;
     object-fit: cover;
+    object-position: center top;
 }
 .leadership-badge {
     position: absolute;
@@ -1992,5 +1992,8 @@ footer {
     }
     .leadership-badge {
         padding: 16px;
+    }
+    .leadership-img {
+        height: 400px;
     }
 }
