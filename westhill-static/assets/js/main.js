@@ -198,6 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. MODALS
     initModal();
 
+    // 7.5. COUNTDOWN TIMER
+    initOpeningCountdown();
+
     // 8. INTERACTIVE SUBMISSION HANDLERS
     initNewsletterForm();
     initFlyerDownloadTriggers();
@@ -633,4 +636,40 @@ function initWestHillDayTriggers() {
             alert("Thank you! Opening the West Hill Day 2026 Corporate Sponsorship Pack...");
         });
     }
+}
+
+/* ==========================================================================
+   OPENING CEREMONY COUNTDOWN TIMER
+   ========================================================================== */
+function initOpeningCountdown() {
+    const countdownElt = document.getElementById('opening-countdown-elt');
+    if (!countdownElt) return;
+
+    // Target: June 9, 2026 at 10:00 AM EST (simulated local date is June 8)
+    const targetDate = new Date('2026-06-09T10:00:00-04:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            countdownElt.innerHTML = `<h4>Welcome!</h4><p style="color: var(--wh-orange-accent); font-weight:600; margin-top: 15px;">The West Hill Community Centre is now officially open!</p>`;
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+        const dElt = document.getElementById('countdown-days');
+        const hElt = document.getElementById('countdown-hours');
+        const mElt = document.getElementById('countdown-mins');
+
+        if (dElt) dElt.innerText = days.toString().padStart(2, '0');
+        if (hElt) hElt.innerText = hours.toString().padStart(2, '0');
+        if (mElt) mElt.innerText = mins.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000); // Update every minute
 }
