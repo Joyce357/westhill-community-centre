@@ -47,3 +47,7 @@ wp-content/backups/
 .htaccess
 sitemap.xml
 sitemap.xml.gz
+
+# Deployment packages
+*.zip
+westhill-static-deploy.zip
