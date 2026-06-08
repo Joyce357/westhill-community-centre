@@ -1,0 +1,187 @@
+/*
+Theme Name: West Hill Community Theme
+Theme URI: https://westhillcommunity.org
+Author: Antigravity
+Description: A modern, lightweight, custom WordPress theme designed to work flawlessly with Elementor Pro. Features global design tokens, optimized WebP support, and utility classes for scalable design.
+Version: 1.0.0
+Text Domain: westhill
+*/
+
+/* ==========================================================================
+   GLOBAL DESIGN SYSTEM (CSS VARIABLES)
+   ========================================================================== */
+:root {
+    /* Brand Colors */
+    --wh-blue-primary: #0F3B6A; /* Deep Community Blue */
+    --wh-blue-light: #1A5492;
+    --wh-blue-dark: #0A2645;
+
+    --wh-green-primary: #2B8E56; /* Community Green */
+    --wh-green-light: #3CB06D;
+    --wh-green-dark: #1E6B3F;
+
+    --wh-orange-accent: #F4A222; /* Warm Orange / Golden Yellow */
+    --wh-orange-light: #F6B74E;
+
+    /* Neutrals & Backgrounds */
+    --wh-bg-white: #FFFFFF;
+    --wh-bg-soft: #F8F9FA;
+    --wh-bg-alt: #F0F4F8;
+    
+    --wh-text-dark: #212529;
+    --wh-text-body: #4A5568;
+    --wh-text-muted: #718096;
+
+    /* Typography */
+    --wh-font-primary: 'Poppins', sans-serif;
+    --wh-font-secondary: 'Inter', sans-serif;
+
+    /* Spacing System */
+    --wh-space-xs: 0.5rem;
+    --wh-space-sm: 1rem;
+    --wh-space-md: 2rem;
+    --wh-space-lg: 4rem;
+    --wh-space-xl: 6rem;
+
+    /* Radii & Shadows (for modern soft cards) */
+    --wh-radius-sm: 8px;
+    --wh-radius-md: 16px;
+    --wh-radius-lg: 24px;
+    --wh-radius-full: 9999px;
+
+    --wh-shadow-soft: 0 10px 25px rgba(15, 59, 106, 0.05);
+    --wh-shadow-hover: 0 15px 35px rgba(15, 59, 106, 0.1);
+    
+    /* Transitions */
+    --wh-transition: all 0.3s ease-in-out;
+}
+
+/* ==========================================================================
+   GLOBAL STYLES & RESET
+   ========================================================================== */
+body {
+    font-family: var(--wh-font-secondary);
+    color: var(--wh-text-body);
+    background-color: var(--wh-bg-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--wh-font-primary);
+    color: var(--wh-text-dark);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--wh-space-sm);
+}
+
+a {
+    color: var(--wh-blue-primary);
+    transition: var(--wh-transition);
+}
+
+a:hover {
+    color: var(--wh-blue-light);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   UTILITY CLASSES (FOR ELEMENTOR)
+   ========================================================================== */
+
+/* Typography Utilities */
+.wh-text-blue { color: var(--wh-blue-primary); }
+.wh-text-green { color: var(--wh-green-primary); }
+.wh-text-orange { color: var(--wh-orange-accent); }
+
+/* Backgrounds */
+.wh-bg-soft { background-color: var(--wh-bg-soft); }
+.wh-bg-blue { background-color: var(--wh-blue-primary); color: var(--wh-bg-white); }
+.wh-bg-green { background-color: var(--wh-green-primary); color: var(--wh-bg-white); }
+
+/* Buttons */
+.wh-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: var(--wh-radius-full);
+    font-family: var(--wh-font-primary);
+    font-weight: 600;
+    transition: var(--wh-transition);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.wh-btn-primary {
+    background-color: var(--wh-blue-primary);
+    color: var(--wh-bg-white);
+}
+
+.wh-btn-primary:hover {
+    background-color: var(--wh-blue-light);
+    transform: translateY(-2px);
+    box-shadow: var(--wh-shadow-hover);
+    color: var(--wh-bg-white);
+}
+
+.wh-btn-secondary {
+    background-color: var(--wh-green-primary);
+    color: var(--wh-bg-white);
+}
+
+.wh-btn-secondary:hover {
+    background-color: var(--wh-green-light);
+    transform: translateY(-2px);
+    box-shadow: var(--wh-shadow-hover);
+    color: var(--wh-bg-white);
+}
+
+.wh-btn-accent {
+    background-color: var(--wh-orange-accent);
+    color: var(--wh-bg-white);
+}
+
+.wh-btn-accent:hover {
+    background-color: var(--wh-orange-light);
+    transform: translateY(-2px);
+    box-shadow: var(--wh-shadow-hover);
+    color: var(--wh-bg-white);
+}
+
+/* Modern Card Layout */
+.wh-card {
+    background: var(--wh-bg-white);
+    border-radius: var(--wh-radius-md);
+    padding: var(--wh-space-md);
+    box-shadow: var(--wh-shadow-soft);
+    transition: var(--wh-transition);
+    height: 100%;
+}
+
+.wh-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--wh-shadow-hover);
+}
+
+/* Image Optimization Utilities */
+.wh-img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--wh-radius-md);
+}
+
+/* Elementor Flexbox Container Overrides / Utilities */
+.wh-section-padding {
+    padding-top: var(--wh-space-lg);
+    padding-bottom: var(--wh-space-lg);
+}
+
+@media (min-width: 768px) {
+    .wh-section-padding {
+        padding-top: var(--wh-space-xl);
+        padding-bottom: var(--wh-space-xl);
+    }
+}

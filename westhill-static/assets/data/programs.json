@@ -1,0 +1,92 @@
+[
+  {
+    "id": "youth-hub",
+    "title": "Youth Hub",
+    "category": "Youth Services",
+    "description": "A welcoming drop-in space for Scarborough youth to study, access technology, and build positive peer relationships.",
+    "icon": "fas fa-laptop-code",
+    "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=youth-hub"
+  },
+  {
+    "id": "seniors-support",
+    "title": "Seniors Support",
+    "category": "Support Services",
+    "description": "Promoting wellness and active social connections among Scarborough seniors with lunch programs and wellness checking.",
+    "icon": "fas fa-heartbeat",
+    "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=seniors-support"
+  },
+  {
+    "id": "youth-leadership",
+    "title": "Youth Development & Leadership",
+    "category": "Youth Services",
+    "description": "Empowering young leaders with formal leadership workshops, community service opportunities, and peer tutoring roles.",
+    "icon": "fas fa-graduation-cap",
+    "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=youth-leadership"
+  },
+  {
+    "id": "women-family",
+    "title": "Women & Family Support",
+    "category": "Family Services",
+    "description": "Providing safe support networks, parenting classes, counseling, and maternal resources for mothers and families.",
+    "icon": "fas fa-child",
+    "image": "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=women-family"
+  },
+  {
+    "id": "disability-services",
+    "title": "Disability Support Services",
+    "category": "Support Services",
+    "description": "Customized, inclusive life-skill sessions and social recreation designed to empower individuals with special needs.",
+    "icon": "fas fa-wheelchair",
+    "image": "https://images.unsplash.com/photo-1531206715517-5c0ba140e2b8?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=disability-services"
+  },
+  {
+    "id": "benefits-support",
+    "title": "Benefits Support",
+    "category": "Support Services",
+    "description": "Assisting residents with navigating government benefits applications, taxation queries, child benefits, and pensions.",
+    "icon": "fas fa-file-invoice-dollar",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=benefits-support"
+  },
+  {
+    "id": "housing-support",
+    "title": "Housing Referrals & Support",
+    "category": "Support Services",
+    "description": "Guiding families in housing crises with emergency shelter referrals, landlord dispute info, and social housing forms.",
+    "icon": "fas fa-home",
+    "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=housing-support"
+  },
+  {
+    "id": "employment-resume",
+    "title": "Employment & Resume Support",
+    "category": "Career Services",
+    "description": "One-on-one employment counselling, resume writing clinics, cover letter reviews, and mock interview practice.",
+    "icon": "fas fa-briefcase",
+    "image": "https://images.unsplash.com/photo-1521791136368-1a8df3d95b35?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=employment-resume"
+  },
+  {
+    "id": "community-engagement",
+    "title": "Community Engagement",
+    "category": "Advocacy",
+    "description": "Organizing clean-up days, Scarborough block parties, community asset mapping, and positive civic participation projects.",
+    "icon": "fas fa-bullhorn",
+    "image": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=community-engagement"
+  },
+  {
+    "id": "community-advocacy",
+    "title": "Community Advocacy",
+    "category": "Advocacy",
+    "description": "Empowering Scarborough residents to advocate for transit equity, tenant rights, local jobs, and neighborhood resources.",
+    "icon": "fas fa-users",
+    "image": "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=600",
+    "link": "programs.html?id=community-advocacy"
+  }
+]

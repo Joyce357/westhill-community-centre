@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Hill Community Centre | Connecting Communities, Supporting Families</title>
+    
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="West Hill Community Centre brings people together through community programs, family support services, youth development initiatives, and local advocacy in Scarborough.">
+    <meta name="keywords" content="community centre, Scarborough, West Hill, youth programs, seniors support, community services, nonprofit, family support, employment aid, housing referrals, volunteer, advocacy">
+    <meta name="author" content="West Hill Community Centre">
+    
+    <!-- Open Graph Social Metadata -->
+    <meta property="og:title" content="West Hill Community Centre | Connecting Communities, Supporting Families">
+    <meta property="og:description" content="Explore our community support programs, attend upcoming local events, or get involved as a partner or volunteer. Supporting the growth and vitality of West Hill.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts: Poppins (Headers) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome v6 CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- 1. NAVIGATION HEADER -->
+    <header id="masthead">
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="West Hill Community Centre Home">
+                <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
+            </a>
+            
+            <button class="mobile-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="primary-navigation">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="programs.html" class="nav-link">Programs & Services</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="partners.html" class="nav-link">Community Partners</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
+                    <li><a href="donate.html" class="nav-link">Donate</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="volunteer.html" class="btn btn-secondary header-cta">Get Involved</a>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero" aria-label="Welcome Banner">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-container">
+                <span class="hero-tagline">Building on a strong foundation of community engagement</span>
+                <h1>Connecting Communities.<br>Supporting Families.<br>Building a Stronger West Hill.</h1>
+                <p>West Hill Community Centre brings people together through community programs, family support services, youth development initiatives, volunteer opportunities, advocacy, and meaningful local partnerships.</p>
+                <div class="hero-actions">
+                    <a href="#programs-section" class="btn btn-primary">Explore Programs</a>
+                    <a href="volunteer.html" class="btn btn-outline-white">Get Involved</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('quick-access-section').scrollIntoView();" role="button" aria-label="Scroll down to content">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- 3. QUICK ACCESS SECTION -->
+    <section class="quick-access" id="quick-access-section" aria-label="Quick Access Portal">
+        <div class="container">
+            <div class="section-header wh-reveal">
+                <h2>How Can We Help You?</h2>
+                <p>Discover pathways to participate, seek support, access files, or connect with our team.</p>
+            </div>
+            
+            <div class="quick-grid">
+                <!-- Card 1 -->
+                <div class="quick-card wh-reveal">
+                    <div class="quick-icon"><i class="fas fa-hand-holding-hand"></i></div>
+                    <h3>Programs & Services</h3>
+                    <p>Find educational classes, support services, career coaching, and active recreation tailored for all ages.</p>
+                    <a href="#programs-section" class="quick-card-btn">Explore Programs <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="quick-card wh-reveal">
+                    <div class="quick-icon"><i class="fas fa-calendar-days"></i></div>
+                    <h3>Community Events</h3>
+                    <p>Attend our neighborhood bbq, job fairs, workshops, and planning committees in Scarborough.</p>
+                    <a href="#events-section" class="quick-card-btn">View Calendar <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="quick-card wh-reveal">
+                    <div class="quick-icon"><i class="fas fa-people-carry-box"></i></div>
+                    <h3>Volunteer Opportunities</h3>
+                    <p>Share your skills and time to support youth mentoring, senior activities, and neighborhood food security.</p>
+                    <a href="volunteer.html" class="quick-card-btn">Become a Volunteer <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="quick-card wh-reveal">
+                    <div class="quick-icon"><i class="fas fa-folder-open"></i></div>
+                    <h3>Community Resources</h3>
+                    <p>Download program guides, flyer schedules, settlement packets, and volunteer applications.</p>
+                    <a href="resources.html" class="quick-card-btn">Access Resources <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="quick-card wh-reveal">
+                    <div class="quick-icon"><i class="fas fa-circle-dollar-to-slot"></i></div>
+                    <h3>Donate</h3>
+                    <p>Support the ongoing growth and vitality of West Hill by funding free community programs.</p>
+                    <a href="#donation-section" class="quick-card-btn">Support Us <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="quick-card wh-reveal">
+                    <div class="quick-icon"><i class="fas fa-envelope-open-text"></i></div>
+                    <h3>Contact Us</h3>
+                    <p>Reach out to our staff for program inquiries, partner proposals, or general inquiries.</p>
+                    <a href="contact.html" class="quick-card-btn">Get In Touch <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MISSION & VISION SECTION -->
+    <section class="section section-alt" aria-label="Our Mission and Vision">
+        <div class="container">
+            <div class="mission-vision-wrapper">
+                <div class="wh-reveal">
+                    <div class="m-v-block">
+                        <h3>Our Mission</h3>
+                        <p>To foster an inclusive, welcoming, and supportive community where residents of all ages can access resources, develop skills, build meaningful relationships, and thrive together.</p>
+                    </div>
+                    
+                    <div class="m-v-block" style="margin-top: 50px;">
+                        <h3>Our Vision</h3>
+                        <p>A vibrant and connected West Hill community where every resident has the opportunity to belong, contribute, and thrive.</p>
+                    </div>
+                </div>
+                <div class="m-v-img wh-reveal" role="img" aria-label="Scarborough community gathering outdoor"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. VALUES SECTION -->
+    <section class="section" aria-label="Our Values">
+        <div class="container">
+            <div class="section-header wh-reveal">
+                <h2>Our Values</h2>
+                <p>The core principles guiding our interactions, program designs, and partnerships.</p>
+            </div>
+            
+            <div class="grid-4 values-grid">
+                <div class="value-card wh-reveal">
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
+                    <h3>Inclusion</h3>
+                    <p>Everyone belongs.</p>
+                </div>
+                
+                <div class="value-card wh-reveal">
+                    <div class="value-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Respect</h3>
+                    <p>Every voice matters.</p>
+                </div>
+                
+                <div class="value-card wh-reveal">
+                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Collaboration</h3>
+                    <p>Stronger together.</p>
+                </div>
+                
+                <div class="value-card wh-reveal">
+                    <div class="value-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Empowerment</h3>
+                    <p>Helping people reach their potential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. COMMUNITY PRIORITIES SECTION (REPLACES METERS) -->
+    <section class="section section-alt" aria-label="Community Priorities">
+        <div class="container">
+            <div class="section-header wh-reveal">
+                <h2>How We Support Our Community</h2>
+                <p>Continuing a tradition of neighbourhood collaboration and working alongside residents, organizations, and partners to strengthen the community.</p>
+            </div>
+            
+            <div class="grid-4">
+                <div class="priority-card wh-reveal">
+                    <div class="priority-icon" style="color: var(--wh-blue-primary);"><i class="fas fa-child"></i></div>
+                    <h3>Youth Development</h3>
+                    <p>Supporting young people through leadership, mentorship, recreation, and personal growth opportunities.</p>
+                </div>
+                
+                <div class="priority-card wh-reveal">
+                    <div class="priority-icon" style="color: var(--wh-green-primary);"><i class="fas fa-house-chimney-window"></i></div>
+                    <h3>Family Support</h3>
+                    <p>Helping families access programs, services, and resources that strengthen household well-being.</p>
+                </div>
+                
+                <div class="priority-card wh-reveal">
+                    <div class="priority-icon" style="color: var(--wh-orange-accent);"><i class="fas fa-people-group"></i></div>
+                    <h3>Community Engagement</h3>
+                    <p>Creating opportunities for residents to connect, participate, and contribute to neighbourhood life.</p>
+                </div>
+                
+                <div class="priority-card wh-reveal">
+                    <div class="priority-icon" style="color: var(--wh-blue-light);"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Advocacy & Support</h3>
+                    <p>Connecting residents with information, referrals, and services that improve quality of life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PROGRAMS & SERVICES -->
+    <section class="section" id="programs-section" aria-label="Our Programs">
+        <div class="container">
+            <div class="section-header wh-reveal">
+                <h2>Programs & Services</h2>
+                <p>Explore our core service lines built to connect residents, build skills, and provide vital support.</p>
+            </div>
+
+            <!-- Filter tabs -->
+            <div class="filter-menu wh-reveal" role="tablist" aria-label="Filter programs by category">
+                <button class="filter-btn active" role="tab" aria-selected="true" data-filter="All">All Programs</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Youth Services">Youth Services</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Support Services">Support Services</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Family Services">Family Services</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Career Services">Career Services</button>
+                <button class="filter-btn" role="tab" aria-selected="false" data-filter="Advocacy">Advocacy</button>
+            </div>
+            
+            <!-- Injected from main.js programs loop -->
+            <div class="grid-3 programs-grid" id="dynamic-programs-grid">
+                <p style="grid-column: 1 / -1; text-align: center; color: var(--wh-text-muted);">Loading programs...</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 45px;" class="wh-reveal">
+                <a href="programs.html" class="btn btn-blue">Register for a Program</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. UPCOMING EVENTS & CALENDAR -->
+    <section class="section section-alt" id="events-section" aria-label="Upcoming Events and Interactive Calendar">
+        <div class="container">
+            <div class="section-header wh-reveal">
+                <h2>Upcoming Events & Interactive Calendar</h2>
+                <p>Supporting the ongoing growth and vitality of West Hill through local events, classes, and planning sessions.</p>
+            </div>
+
+            <!-- Visual Events Grid -->
+            <div class="events-flex-grid" id="upcoming-events-cards-grid" style="margin-bottom: 50px;">
+                <!-- JS populated event cards -->
+            </div>
+
+            <!-- Interactive Calendar -->
+            <div class="calendar-layout wh-reveal">
+                <div class="calendar-widget">
+                    <div class="calendar-widget-header">
+                        <span class="calendar-month-title" id="calendar-month-name">June 2026</span>
+                    </div>
+                    
+                    <div class="calendar-grid">
+                        <div class="calendar-day-name">Sun</div>
+                        <div class="calendar-day-name">Mon</div>
+                        <div class="calendar-day-name">Tue</div>
+                        <div class="calendar-day-name">Wed</div>
+                        <div class="calendar-day-name">Thu</div>
+                        <div class="calendar-day-name">Fri</div>
+                        <div class="calendar-day-name">Sat</div>
+                    </div>
+                    <div class="calendar-grid" id="calendar-days-grid">
+                        <!-- JS Injected days -->
+                    </div>
+                </div>
+
+                <div class="calendar-events-preview" id="calendar-sidebar-preview">
+                    <h3>Select a Day</h3>
+                    <p style="color: var(--wh-text-muted); font-size: 0.95rem;">Click on a highlighted day in the calendar to view scheduled events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. WEST HILL DAY FEATURE SECTION -->
+    <section class="section" aria-label="West Hill Day Signature Block">
+        <div class="container">
+            <div class="westhill-day-featured wh-reveal">
+                <div class="feat-banner-content">
+                    <h3>West Hill Day</h3>
+                    <div class="feat-subtitle">Celebrating Community Together</div>
+                    <p class="feat-desc">Continuing a tradition of neighbourhood collaboration, West Hill Day brings together residents, partners, and local leaders to celebrate Scarborough's local culture, arts, and community strength. Participate in vendor booths, sports, food trucks, and children's activities.</p>
+                    
+                    <!-- Gallery preview grid -->
+                    <div class="feat-gallery">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=400" alt="Neighborhood picnic">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=400" alt="Volunteers group">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&q=80&w=400" alt="Kids games">
+                        </div>
+                    </div>
+                    
+                    <div class="feat-btn-group">
+                        <button class="btn btn-primary" id="vendor-btn">Become a Vendor</button>
+                        <button class="btn btn-secondary" id="sponsor-btn">Become a Sponsor</button>
+                        <a href="volunteer.html" class="btn btn-blue">Volunteer Opportunities</a>
+                        <a href="events.html" class="btn btn-outline-white">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. LATEST FLYERS & DOWNLOADS -->
+    <section class="section section-alt" aria-label="Latest Flyers and Downloads">
+        <div class="container">
+            <div class="section-header wh-reveal">
+                <h2>Latest Resource Flyers</h2>
+                <p>Download and print informational schedules and guides for West Hill programs and services.</p>
+            </div>
+
+            <div class="grid-3 flyer-grid">
+                <div class="flyer-card wh-reveal">
+                    <div class="flyer-icon"><i class="fas fa-file-pdf"></i></div>
+                    <div class="flyer-info">
+                        <h3>Summer Program Flyer</h3>
+                        <p>PDF | 1.8 MB | Added Jun 02</p>
+                    </div>
+                    <button class="flyer-btn" aria-label="Download Program Flyer"><i class="fas fa-download"></i></button>
+                </div>
+
+                <div class="flyer-card wh-reveal">
+                    <div class="flyer-icon"><i class="fas fa-file-pdf"></i></div>
+                    <div class="flyer-info">
+                        <h3>Youth Hub Registration Packet</h3>
+                        <p>PDF | 450 KB | Added May 15</p>
+                    </div>
+                    <button class="flyer-btn" aria-label="Download Registration Form"><i class="fas fa-download"></i></button>
+                </div>
+
+                <div class="flyer-card wh-reveal">
+                    <div class="flyer-icon"><i class="fas fa-file-pdf"></i></div>
+                    <div class="flyer-info">
+                        <h3>West Hill Day Participant Guide</h3>
+                        <p>PDF | 2.1 MB | Added Jun 01</p>
+                    </div>
+                    <button class="flyer-btn" aria-label="Download Sponsor Pack"><i class="fas fa-download"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. STORIES OF HOPE (TESTIMONIAL SLIDER) -->
+    <section class="section" aria-label="Stories of Hope Testimonials">
+        <div class="container">
+            <div class="section-header wh-reveal">
+                <h2>Stories of Hope</h2>
+                <p>Experiences and voices from volunteers, partners, and community members working together in West Hill.</p>
+            </div>
+            
+            <div class="hope-slider-container wh-reveal">
+                <div class="hope-track">
+                    <!-- Slide 1 -->
+                    <div class="hope-slide">
+                        <div class="hope-card">
+                            <span class="hope-quote-icon"><i class="fas fa-quote-left"></i></span>
+                            <p class="hope-text">"When our neighborhood group needed a place to organize workshops, the staff at West Hill opened their doors immediately. Working alongside residents, organizations, and partners, they have created a welcoming hub where everyone belongs."</p>
+                            <div class="hope-author">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100" alt="Amara K." class="hope-author-img">
+                                <div class="hope-author-info">
+                                    <h4>Amara K.</h4>
+                                    <p>Scarborough Resident & Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="hope-slide">
+                        <div class="hope-card">
+                            <span class="hope-quote-icon"><i class="fas fa-quote-left"></i></span>
+                            <p class="hope-text">"As a mentor in the Youth Hub, I see the impact of our programs daily. Teenagers are developing leadership, learning coding, and building solid friendships. We are continuing a tradition of neighbourhood collaboration to support youth."</p>
+                            <div class="hope-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" alt="Marcus T." class="hope-author-img">
+                                <div class="hope-author-info">
+                                    <h4>Marcus T.</h4>
+                                    <p>Youth Mentorship Volunteer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Indicators -->
+                <div class="hope-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. COMMUNITY NEWS SECTION -->
+    <section class="section section-alt" aria-label="Latest News">
+        <div class="container">
+            <div class="section-header wh-reveal">
+                <h2>Latest News & Announcements</h2>
+                <p>Stay informed about program registrations, volunteer sessions, and partnership news.</p>
+            </div>
+
+            <div class="grid-3 news-grid">
+                <article class="news-card wh-reveal">
+                    <div class="news-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=600" alt="New Laptop Lab at West Hill" loading="lazy">
+                    </div>
+                    <div class="news-body">
+                        <span class="news-date">June 02, 2026</span>
+                        <h3>Youth Hub Registration Opens for Summer</h3>
+                        <p>Enrollment is now open for our Summer Youth Labs, peer tutoring cohorts, and basketball recreation clinics starting July.</p>
+                        <a href="news.html" class="news-link">Read Story <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="news-card wh-reveal">
+                    <div class="news-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1578351612282-57697797d7c6?auto=format&fit=crop&q=80&w=600" alt="Scarborough Food Drive sorting" loading="lazy">
+                    </div>
+                    <div class="news-body">
+                        <span class="news-date">May 25, 2026</span>
+                        <h3>Volunteer Recruitment Drive Launched</h3>
+                        <p>We are seeking volunteer team leaders for the upcoming West Hill Day and food basket distribution networks. Join our team!</p>
+                        <a href="news.html" class="news-link">Read Story <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="news-card wh-reveal">
+                    <div class="news-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=600" alt="Seniors Garden Meeting" loading="lazy">
+                    </div>
+                    <div class="news-body">
+                        <span class="news-date">May 10, 2026</span>
+                        <h3>Westhill Day Partnership Announcements</h3>
+                        <p>We are pleased to welcome five local Scarborough organizations and food coalitions as sponsors for our annual West Hill Day.</p>
+                        <a href="news.html" class="news-link">Read Story <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. COMMUNITY PARTNERS -->
+    <section class="section" aria-label="Partnerships">
+        <div class="container">
+            <div class="partners-wrapper wh-reveal">
+                <div class="section-header" style="margin-bottom: 30px;">
+                    <h2>Building Community Through Partnerships</h2>
+                    <p>We believe meaningful change happens when residents, organizations, businesses, and community leaders work together.</p>
+                </div>
+                
+                <div class="partners-slider">
+                    <img src="https://images.unsplash.com/photo-1594897030264-ab7d87efc473?auto=format&fit=crop&q=80&w=120" alt="Partner Logo 1" class="partner-logo">
+                    <img src="https://images.unsplash.com/photo-1594897030264-ab7d87efc473?auto=format&fit=crop&q=80&w=120" alt="Partner Logo 2" class="partner-logo">
+                    <img src="https://images.unsplash.com/photo-1594897030264-ab7d87efc473?auto=format&fit=crop&q=80&w=120" alt="Partner Logo 3" class="partner-logo">
+                    <img src="https://images.unsplash.com/photo-1594897030264-ab7d87efc473?auto=format&fit=crop&q=80&w=120" alt="Partner Logo 4" class="partner-logo">
+                </div>
+                
+                <a href="partners.html" class="btn btn-blue" style="margin-top: 15px;">Become a Community Partner</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. VOLUNTEER SECTION -->
+    <section class="section section-alt" aria-label="Volunteer Sign Up">
+        <div class="container">
+            <div class="vol-banner wh-reveal">
+                <h3>Make a Difference in Your Community</h3>
+                <p>Working alongside residents, organizations, and partners to strengthen the community. There are multiple ways to share your skills and support local programs.</p>
+                <div class="vol-btn-group">
+                    <a href="volunteer.html" class="btn btn-primary">Become a Volunteer</a>
+                    <a href="volunteer.html#opportunities" class="btn btn-secondary">Volunteer Opportunities</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. DONATION SECTION -->
+    <section class="section" id="donation-section" aria-label="Support Us">
+        <div class="container">
+            <div class="don-banner wh-reveal">
+                <div>
+                    <h3>Support Community Change</h3>
+                    <p>Your support helps strengthen community programs, volunteer initiatives, youth development opportunities, and neighbourhood engagement efforts. Supporting the ongoing growth and vitality of West Hill.</p>
+                    <p style="font-weight: 600; color: var(--wh-blue-primary);"><i class="fas fa-heart" style="color: var(--wh-orange-accent); margin-right: 8px;"></i> 100% of donations directly support West Hill initiatives.</p>
+                </div>
+
+                <div class="don-banner-sidebar">
+                    <h4 class="calculator-title" style="margin-bottom: 20px; font-family: var(--wh-font-primary); color: var(--wh-blue-primary);">Help Support Our Programs</h4>
+                    <div class="calculator-buttons" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px;">
+                        <button class="calc-btn" data-value="25">$25</button>
+                        <button class="calc-btn active" data-value="50">$50</button>
+                        <button class="calc-btn" data-value="100">$100</button>
+                        <button class="calc-btn" data-value="250">$250</button>
+                    </div>
+                    <div class="calculator-custom" style="position: relative; margin-bottom: 20px;">
+                        <span style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-weight: 600; color: var(--wh-text-muted);">$</span>
+                        <input type="number" id="custom-donation-amount" placeholder="Custom" min="1" style="width: 100%; padding: 12px 12px 12px 30px; border-radius: var(--wh-radius-sm); border: 2px solid var(--wh-bg-alt); outline: none;">
+                    </div>
+                    <div class="calculator-impact-preview" id="calc-impact-text" style="font-size: 0.88rem; color: var(--wh-text-body); margin-bottom: 20px; min-height: 45px;">
+                        Funds a hot, nutritious lunch and social outing for seniors at our center.
+                    </div>
+                    <button class="btn btn-secondary" style="width: 100%;" onclick="alert('Redirecting to secure transaction gateway...')">Donate Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16. NEWSLETTER SIGNUP -->
+    <section class="newsletter" aria-label="Newsletter Signup">
+        <div class="container newsletter-content">
+            <div class="newsletter-text">
+                <h3>Stay Connected With West Hill</h3>
+                <p>Subscribe to our newsletter to receive program registration dates, updates, and community alerts.</p>
+            </div>
+            <div class="newsletter-form">
+                <form id="newsletter-form-elt" style="display: flex; width: 100%; gap: 15px;">
+                    <label for="newsletter-email" class="sr-only">Email Address</label>
+                    <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 10px 25px;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. FOOTER -->
+    <footer id="colophon">
+        <div class="container footer-top">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
+                </div>
+                <p>A welcoming Scarborough neighborhood hub supporting the growth, engagement, and well-being of families and residents.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Services</a></li>
+                    <li><a href="events.html">Events Calendar</a></li>
+                    <li><a href="volunteer.html">Volunteer Portal</a></li>
+                    <li><a href="donate.html">Donate Now</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 West Hill Road, Scarborough, ON</p>
+                <p><i class="fas fa-phone"></i> (416) 555-0199</p>
+                <p><i class="fas fa-envelope"></i> info@westhillcommunity.org</p>
+            </div>
+            
+            <div class="footer-hours">
+                <h4>Center Hours</h4>
+                <p><i class="fas fa-clock"></i> Mon - Fri: 8:30 AM - 8:00 PM</p>
+                <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 4:00 PM</p>
+                <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>&copy; 2026 West Hill Community Centre. All rights reserved. | <a href="privacy.html" style="color: #718096; margin-left: 10px;">Privacy Policy</a></p>
+            <div class="social-links">
+                <a href="https://facebook.com/westhill" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/westhill" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/westhill" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 18. DETAILED EVENT DIALOG MODAL -->
+    <div class="modal" id="details-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-elt">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal"><i class="fas fa-times"></i></button>
+            <h3 class="modal-title" id="modal-title-elt">Event Details</h3>
+            <div class="modal-body" id="modal-body-elt">
+                <!-- JS populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JavaScript Logic -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
