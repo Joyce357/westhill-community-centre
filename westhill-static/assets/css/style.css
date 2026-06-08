@@ -257,7 +257,7 @@ header {
 }
 
 header.scrolled {
-    box-shadow: 0 4px 20px rgba(10, 38, 69, 0.05);
+    box-shadow: 0 10px 30px rgba(15, 59, 106, 0.06); /* Subtle shadow when scrolling */
     background-color: rgba(255, 255, 255, 0.99);
 }
 
@@ -265,39 +265,41 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 110px; /* Spacious container for the logo scaling */
+    height: 120px; /* Increased whitespace (120px up from 110px) */
     transition: var(--wh-transition);
 }
 
 header.scrolled .header-container {
-    height: 90px;
+    height: 95px; /* (95px up from 90px) */
 }
 
 .logo img {
-    height: 80px; /* 200% scale from previous 40px-50px heights */
+    height: 92px; /* Logo size increased by 15% (92px up from 80px) */
     width: auto;
     object-fit: contain;
     transition: var(--wh-transition);
 }
 
 header.scrolled .logo img {
-    height: 65px;
+    height: 75px; /* Logo size increased by 15% (75px up from 65px) */
 }
 
 .nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 20px;
+    gap: 28px; /* Spacing between menu items increased (28px up from 20px) */
 }
 
 .nav-link {
-    font-family: var(--wh-font-primary);
-    font-weight: 500;
+    font-family: var(--wh-font-secondary); /* Inter instead of Poppins for cleaner look */
+    font-weight: 500; /* Reduced font weight */
     color: var(--wh-text-dark);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     position: relative;
     padding: 8px 0;
+    display: inline-flex;
+    align-items: center;
 }
 
 .nav-link::after {
@@ -328,6 +330,101 @@ header.scrolled .logo img {
     font-size: 1.8rem;
     color: var(--wh-blue-primary);
     cursor: pointer;
+}
+
+/* Dropdown Menu Desktop Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background-color: var(--wh-bg-white);
+    min-width: 220px;
+    box-shadow: 0 15px 35px rgba(10, 38, 69, 0.1);
+    border: 1px solid rgba(15, 59, 106, 0.05);
+    border-radius: var(--wh-radius-md);
+    padding: 12px 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 1010;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 24px;
+    color: var(--wh-text-dark);
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--wh-font-secondary);
+    transition: var(--wh-transition);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--wh-bg-soft);
+    color: var(--wh-blue-primary);
+    padding-left: 28px;
+}
+
+/* Show on hover or focus-within for desktop */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-menu,
+    .dropdown:focus-within .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+.dropdown-caret {
+    font-size: 0.72rem;
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+}
+
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-caret,
+    .dropdown:focus-within .dropdown-caret {
+        transform: rotate(180deg);
+    }
+}
+
+/* Header CTA Buttons Layout */
+.header-ctas {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-ctas .btn {
+    padding: 10px 22px;
+    font-size: 0.88rem;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--wh-blue-primary);
+    color: var(--wh-blue-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--wh-blue-primary);
+    color: var(--wh-bg-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(15, 59, 106, 0.12);
+}
+
+.mobile-cta-item {
+    display: none;
 }
 
 /* 5. HERO SECTION */
@@ -1591,41 +1688,88 @@ footer {
     
     .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 90px; /* Aligned with mobile header height */
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 90px);
         background-color: var(--wh-bg-white);
         flex-direction: column;
-        padding: 40px 20px;
-        gap: 30px;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        padding: 30px 24px;
+        gap: 20px; /* Reduced vertical spacing to fit CTAs on screen */
+        box-shadow: 0 15px 30px rgba(10, 38, 69, 0.08);
         transition: var(--wh-transition);
         overflow-y: auto;
+        align-items: stretch; /* Stretch items (especially buttons) to full width */
     }
     
     .nav-menu.open {
         left: 0;
     }
     
-    .header-cta {
-        display: none;
+    .header-ctas {
+        display: none; /* Hide desktop CTAs container on mobile */
     }
     
     .logo img {
-        height: 60px;
+        height: 69px; /* Logo size increased by 15% (69px up from 60px) */
     }
     
     header.scrolled .logo img {
-        height: 50px;
+        height: 57px; /* Logo size increased by 15% (57px up from 50px) */
     }
     
     .header-container {
-        height: 80px;
+        height: 90px; /* (90px up from 80px) */
     }
     
     header.scrolled .header-container {
-        height: 70px;
+        height: 75px; /* (75px up from 70px) */
+    }
+    
+    /* Mobile Dropdown styles */
+    .nav-menu .dropdown-menu {
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-left: 3px solid var(--wh-orange-accent);
+        background-color: var(--wh-bg-soft);
+        margin: 10px 0 0 10px;
+        padding: 5px 0;
+        width: calc(100% - 10px);
+        min-width: 0;
+        border-radius: var(--wh-radius-sm);
+    }
+    
+    .nav-menu .dropdown-menu.open {
+        display: block;
+    }
+    
+    .nav-menu .dropdown-menu li a {
+        padding: 10px 20px;
+        font-size: 0.92rem;
+        display: block;
+    }
+    
+    .dropdown-toggle.active-toggle .dropdown-caret {
+        transform: rotate(180deg);
+    }
+    
+    .mobile-cta-item {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    .mobile-nav-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        font-size: 0.95rem;
+        display: block;
     }
     
     .hero {

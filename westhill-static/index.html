@@ -52,18 +52,27 @@
             <nav id="primary-navigation">
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link active">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="about.html" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">About <i class="fas fa-chevron-down dropdown-caret"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="partners.html">Community Builders</a></li>
+                            <li><a href="resources.html">Resources Hub</a></li>
+                        </ul>
+                    </li>
                     <li><a href="programs.html" class="nav-link">Programs & Services</a></li>
                     <li><a href="events.html" class="nav-link">Events</a></li>
-                    <li><a href="partners.html" class="nav-link">Community Partners</a></li>
-                    <li><a href="resources.html" class="nav-link">Resources</a></li>
-                    <li><a href="volunteer.html" class="nav-link">Volunteer</a></li>
-                    <li><a href="donate.html" class="nav-link">Donate</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <!-- Mobile CTAs inside the drawer -->
+                    <li class="mobile-cta-item"><a href="volunteer.html" class="btn btn-outline mobile-nav-btn">Get Involved</a></li>
+                    <li class="mobile-cta-item"><a href="donate.html" class="btn btn-secondary mobile-nav-btn">Donate</a></li>
                 </ul>
             </nav>
             
-            <a href="volunteer.html" class="btn btn-secondary header-cta">Get Involved</a>
+            <div class="header-ctas">
+                <a href="volunteer.html" class="btn btn-outline header-cta">Get Involved</a>
+                <a href="donate.html" class="btn btn-secondary header-cta">Donate</a>
+            </div>
         </div>
     </header>
 

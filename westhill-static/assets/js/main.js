@@ -179,8 +179,39 @@ document.addEventListener('DOMContentLoaded', () => {
             const isOpen = navMenu.classList.contains('open');
             mobileToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             mobileToggle.setAttribute('aria-expanded', isOpen);
+            
+            // Close all dropdowns inside the nav menu when closing the menu drawer
+            if (!isOpen) {
+                const openDropdowns = navMenu.querySelectorAll('.dropdown-menu.open');
+                openDropdowns.forEach(d => d.classList.remove('open'));
+                const activeToggles = navMenu.querySelectorAll('.dropdown-toggle.active-toggle');
+                activeToggles.forEach(t => {
+                    t.classList.remove('active-toggle');
+                    t.setAttribute('aria-expanded', 'false');
+                });
+            }
         });
     }
+
+    // 2.5 MOBILE ACCORDION DROPDOWN TOGGLES
+    const dropdownToggles = document.querySelectorAll('.nav-menu .dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            // Only toggle accordion behavior if mobile view is active (hamburger toggle visible)
+            if (mobileToggle && getComputedStyle(mobileToggle).display !== 'none') {
+                e.preventDefault();
+                const parentLi = toggle.closest('.dropdown');
+                const dropdownMenu = parentLi ? parentLi.querySelector('.dropdown-menu') : null;
+                
+                if (dropdownMenu) {
+                    dropdownMenu.classList.toggle('open');
+                    const isSubOpen = dropdownMenu.classList.contains('open');
+                    toggle.classList.toggle('active-toggle', isSubOpen);
+                    toggle.setAttribute('aria-expanded', isSubOpen ? 'true' : 'false');
+                }
+            }
+        });
+    });
 
     // 3. RENDER COMPONENT LISTS
     initPrograms();
