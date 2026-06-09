@@ -2217,3 +2217,182 @@ footer {
         height: 400px;
     }
 }
+
+/* ==========================================================================
+   RESOURCES PAGE HUB REDESIGN
+   ========================================================================== */
+.resources-grid {
+    display: grid;
+    gap: 30px;
+    margin: 40px 0 70px;
+}
+.resource-hub-card {
+    background-color: var(--wh-bg-white);
+    border-radius: var(--wh-radius-lg);
+    box-shadow: var(--wh-shadow-soft);
+    border: 1px solid var(--wh-bg-alt);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--wh-transition);
+}
+.resource-hub-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--wh-shadow-hover);
+    border-color: var(--wh-blue-light);
+}
+.resource-card-image {
+    height: 200px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.resource-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--wh-transition);
+}
+.resource-hub-card:hover .resource-card-image img {
+    transform: scale(1.05);
+}
+.resource-card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--wh-blue-primary);
+    color: var(--wh-bg-white);
+    padding: 6px 14px;
+    border-radius: var(--wh-radius-full);
+    font-family: var(--wh-font-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(15, 59, 106, 0.2);
+}
+.resource-card-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.resource-card-content h3 {
+    font-size: 1.35rem;
+    color: var(--wh-blue-primary);
+    margin-bottom: 15px;
+    font-family: var(--wh-font-primary);
+}
+.resource-card-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--wh-text-body);
+    margin-bottom: 20px;
+}
+.resource-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px;
+}
+.resource-checklist li {
+    font-size: 0.92rem;
+    color: var(--wh-text-body);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.resource-checklist li i {
+    color: var(--wh-green-primary);
+    margin-top: 4px;
+    font-size: 0.95rem;
+}
+.resource-card-actions {
+    margin-top: auto;
+}
+.resource-card-actions .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* Downloads Section */
+.downloads-section {
+    background-color: var(--wh-bg-soft);
+    border-radius: var(--wh-radius-lg);
+    padding: 60px 40px;
+    margin-bottom: 40px;
+}
+.downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+.download-doc-card {
+    background: var(--wh-bg-white);
+    border: 1px solid var(--wh-bg-alt);
+    border-radius: var(--wh-radius-sm);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--wh-shadow-soft);
+    transition: var(--wh-transition);
+}
+.download-doc-card:hover {
+    border-color: var(--wh-blue-light);
+    transform: translateY(-2px);
+    box-shadow: var(--wh-shadow-hover);
+}
+.download-doc-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.download-doc-icon {
+    font-size: 1.8rem;
+    color: #e03a3e;
+}
+.download-doc-details h4 {
+    font-size: 0.95rem;
+    font-family: var(--wh-font-primary);
+    color: var(--wh-blue-primary);
+    margin-bottom: 4px;
+}
+.download-doc-details p {
+    font-size: 0.8rem;
+    color: var(--wh-text-muted);
+}
+.download-doc-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    color: var(--wh-blue-primary);
+    cursor: pointer;
+    transition: var(--wh-transition);
+    padding: 8px;
+    border-radius: 50%;
+}
+.download-doc-btn:hover {
+    color: var(--wh-blue-light);
+    background-color: var(--wh-bg-alt);
+}
+
+@media (max-width: 768px) {
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 992px) {
+    .resources-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

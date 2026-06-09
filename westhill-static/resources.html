@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -71,84 +71,234 @@
     <!-- PAGE HEADER BANNER -->
     <section class="section" style="background-color: var(--wh-blue-dark); color: var(--wh-bg-white); padding: 50px 0; text-align: center;" aria-label="Page Title">
         <div class="container">
-            <h1 style="color: var(--wh-bg-white); font-size: 2.5rem; margin-bottom: 10px;">Resources & Downloads</h1>
-            <p style="color: var(--wh-bg-alt); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Access program flyers, registration packets, community calendars, and support guides directly.</p>
+            <h1 style="color: var(--wh-bg-white); font-size: 2.5rem; margin-bottom: 10px;">Community Resources</h1>
+            <p style="color: var(--wh-bg-alt); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Helping residents connect with local services, opportunities, support programs, and important community information.</p>
         </div>
     </section>
 
-    <!-- MAIN RESOURCES CONTENT -->
-    <section class="section" aria-label="Resource Documents">
+    <!-- MAIN RESOURCES HUBS CONTENT -->
+    <section class="section" aria-label="Community Resources Hub">
         <div class="container">
             <div class="section-header wh-reveal active" style="margin-bottom: 50px;">
-                <h2>Latest Resource Flyers</h2>
-                <p>Download and print informational schedules and guides for West Hill programs and services. Tapping the download button will initiate your download.</p>
+                <h2>Support Services & Opportunities Hub</h2>
+                <p>Explore resources, workshops, and support programs curated to empower individuals, families, youth, and seniors in Scarborough-West Hill.</p>
             </div>
 
-            <!-- Resource Cards Grid (hooks into main.js triggerFlyerDownload) -->
-            <div class="grid-3 flyer-grid" style="margin-bottom: 70px;">
-                <!-- Card 1 -->
-                <div class="flyer-card wh-reveal active">
-                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
-                    <div class="flyer-info">
-                        <h3>Summer Program Flyer</h3>
-                        <p>PDF | 1.8 MB | Added Jun 02</p>
+            <!-- Hub Categories Grid -->
+            <div class="resources-grid">
+                
+                <!-- Category 1: Housing Support -->
+                <div class="resource-hub-card wh-reveal active">
+                    <div class="resource-card-image">
+                        <img src="images/housing_support.png" alt="Housing Support Services">
+                        <span class="resource-card-badge"><i class="fas fa-house-chimney"></i> Housing</span>
                     </div>
-                    <button class="flyer-btn" aria-label="Download Program Flyer"><i class="fas fa-download"></i></button>
+                    <div class="resource-card-content">
+                        <h3>Housing Support</h3>
+                        <p>Access assistance for housing placement, tenant rights, emergency shelter, and affordable programs.</p>
+                        <ul class="resource-checklist">
+                            <li><i class="fas fa-check-circle"></i> Housing referrals and application support</li>
+                            <li><i class="fas fa-check-circle"></i> Tenant rights and legal resource advocacy</li>
+                            <li><i class="fas fa-check-circle"></i> Emergency housing placement assistance</li>
+                            <li><i class="fas fa-check-circle"></i> Community housing program coordination</li>
+                        </ul>
+                        <div class="resource-card-actions">
+                            <a href="contact.html" class="btn btn-blue">Connect with Support</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="flyer-card wh-reveal active">
-                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
-                    <div class="flyer-info">
-                        <h3>Youth Hub Registration Packet</h3>
-                        <p>PDF | 450 KB | Added May 15</p>
+                <!-- Category 2: Employment & Career Resources -->
+                <div class="resource-hub-card wh-reveal active">
+                    <div class="resource-card-image">
+                        <img src="images/employment_support.png" alt="Employment Support Services">
+                        <span class="resource-card-badge"><i class="fas fa-briefcase"></i> Careers</span>
                     </div>
-                    <button class="flyer-btn" aria-label="Download Registration Form"><i class="fas fa-download"></i></button>
+                    <div class="resource-card-content">
+                        <h3>Employment & Career</h3>
+                        <p>Get connected with search assistance, resume development, interview prep, and skills training.</p>
+                        <ul class="resource-checklist">
+                            <li><i class="fas fa-check-circle"></i> Employment guidance and counseling</li>
+                            <li><i class="fas fa-check-circle"></i> Resume writing and review workshops</li>
+                            <li><i class="fas fa-check-circle"></i> Local job search and board databases</li>
+                            <li><i class="fas fa-check-circle"></i> Skill building and training opportunities</li>
+                        </ul>
+                        <div class="resource-card-actions">
+                            <a href="contact.html" class="btn btn-blue">Access Employment Help</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="flyer-card wh-reveal active">
-                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
-                    <div class="flyer-info">
-                        <h3>West Hill Day Participant Guide</h3>
-                        <p>PDF | 2.1 MB | Added Jun 01</p>
+                <!-- Category 3: Family & Children Services -->
+                <div class="resource-hub-card wh-reveal active">
+                    <div class="resource-card-image">
+                        <img src="images/family_support.png" alt="Family and Children Services">
+                        <span class="resource-card-badge"><i class="fas fa-child-reaching"></i> Families</span>
                     </div>
-                    <button class="flyer-btn" aria-label="Download Guide"><i class="fas fa-download"></i></button>
+                    <div class="resource-card-content">
+                        <h3>Family & Children Services</h3>
+                        <p>Comprehensive resources for parenting supports, childcare navigation, and family wellness.</p>
+                        <ul class="resource-checklist">
+                            <li><i class="fas fa-check-circle"></i> Parenting workshops and support networks</li>
+                            <li><i class="fas fa-check-circle"></i> Local childcare and daycare navigation</li>
+                            <li><i class="fas fa-check-circle"></i> Early childhood development circles</li>
+                            <li><i class="fas fa-check-circle"></i> Family health and counseling referrals</li>
+                        </ul>
+                        <div class="resource-card-actions">
+                            <a href="contact.html" class="btn btn-blue">Access Family Support</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Card 4 (New resource!) -->
-                <div class="flyer-card wh-reveal active">
-                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
-                    <div class="flyer-info">
-                        <h3>Seniors Social Calendar</h3>
-                        <p>PDF | 850 KB | Added Jun 05</p>
+                <!-- Category 4: Youth Opportunities -->
+                <div class="resource-hub-card wh-reveal active">
+                    <div class="resource-card-image">
+                        <img src="images/youth_opportunities.png" alt="Youth Opportunities">
+                        <span class="resource-card-badge"><i class="fas fa-graduation-cap"></i> Youth</span>
                     </div>
-                    <button class="flyer-btn" aria-label="Download Seniors Calendar"><i class="fas fa-download"></i></button>
+                    <div class="resource-card-content">
+                        <h3>Youth Opportunities</h3>
+                        <p>Connecting Scarborough youth to volunteer hours, leadership programs, and career mentorship.</p>
+                        <ul class="resource-checklist">
+                            <li><i class="fas fa-check-circle"></i> Leadership programs and student councils</li>
+                            <li><i class="fas fa-check-circle"></i> High school volunteer hours tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Career mentorship and tutor circles</li>
+                            <li><i class="fas fa-check-circle"></i> Recreation and team building events</li>
+                        </ul>
+                        <div class="resource-card-actions">
+                            <a href="contact.html" class="btn btn-blue">Explore Youth Programs</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Card 5 (New resource!) -->
-                <div class="flyer-card wh-reveal active">
-                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
-                    <div class="flyer-info">
-                        <h3>Volunteer Handbook</h3>
-                        <p>PDF | 1.2 MB | Added May 20</p>
+                <!-- Category 5: Seniors Resources -->
+                <div class="resource-hub-card wh-reveal active">
+                    <div class="resource-card-image">
+                        <img src="images/seniors_resources.png" alt="Seniors Resources">
+                        <span class="resource-card-badge"><i class="fas fa-person-cane"></i> Seniors</span>
                     </div>
-                    <button class="flyer-btn" aria-label="Download Volunteer Handbook"><i class="fas fa-download"></i></button>
+                    <div class="resource-card-content">
+                        <h3>Seniors Resources</h3>
+                        <p>Programs designed to support wellness, community engagement, and social support for older adults.</p>
+                        <ul class="resource-checklist">
+                            <li><i class="fas fa-check-circle"></i> Seniors social club and daily activities</li>
+                            <li><i class="fas fa-check-circle"></i> Computer and smartphone tech clinics</li>
+                            <li><i class="fas fa-check-circle"></i> Guided fitness and wellness workshops</li>
+                            <li><i class="fas fa-check-circle"></i> Free annual tax assistance services</li>
+                        </ul>
+                        <div class="resource-card-actions">
+                            <a href="contact.html" class="btn btn-blue">Explore Seniors Programs</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Card 6 (New resource!) -->
-                <div class="flyer-card wh-reveal active">
-                    <div class="flyer-icon"><i class="fas fa-file-pdf" style="color: #e03a3e;"></i></div>
-                    <div class="flyer-info">
-                        <h3>Partnership Proposal Guide</h3>
-                        <p>PDF | 3.1 MB | Added May 10</p>
+                <!-- Category 6: Health & Wellness Resources -->
+                <div class="resource-hub-card wh-reveal active">
+                    <div class="resource-card-image">
+                        <img src="images/health_wellness.png" alt="Health and Wellness Resources">
+                        <span class="resource-card-badge"><i class="fas fa-heart-pulse"></i> Health</span>
                     </div>
-                    <button class="flyer-btn" aria-label="Download Proposal Pack"><i class="fas fa-download"></i></button>
+                    <div class="resource-card-content">
+                        <h3>Health & Wellness</h3>
+                        <p>Access physical wellness services, mental health counseling referrals, and public health guidelines.</p>
+                        <ul class="resource-checklist">
+                            <li><i class="fas fa-check-circle"></i> Mental health guidance and connections</li>
+                            <li><i class="fas fa-check-circle"></i> Local community clinic and medical directories</li>
+                            <li><i class="fas fa-check-circle"></i> Community safety and wellness programs</li>
+                            <li><i class="fas fa-check-circle"></i> Public health informational workshops</li>
+                        </ul>
+                        <div class="resource-card-actions">
+                            <a href="contact.html" class="btn btn-blue">Access Health Support</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- FORMS & DOWNLOADS SECTION (BOTTOM OF PAGE) -->
+            <div class="downloads-section wh-reveal active">
+                <div style="text-align: center; max-width: 600px; margin: 0 auto 30px;">
+                    <h3 style="color: var(--wh-blue-primary); font-family: var(--wh-font-primary); font-size: 1.6rem; margin-bottom: 10px;">Forms & Document Downloads</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: var(--wh-text-body);">Download registration packets, calendars, handbooks, and flyers to help guide your participation in West Hill events.</p>
+                </div>
+                
+                <div class="downloads-grid">
+                    <!-- Doc 1 -->
+                    <div class="download-doc-card">
+                        <div class="download-doc-info">
+                            <div class="download-doc-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="download-doc-details">
+                                <h4>Summer Program Flyer</h4>
+                                <p>PDF | 1.8 MB | Added Jun 02</p>
+                            </div>
+                        </div>
+                        <button class="download-doc-btn" onclick="alert('Downloading Summer Program Flyer...');" aria-label="Download Program Flyer"><i class="fas fa-download"></i></button>
+                    </div>
+
+                    <!-- Doc 2 -->
+                    <div class="download-doc-card">
+                        <div class="download-doc-info">
+                            <div class="download-doc-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="download-doc-details">
+                                <h4>Youth Hub Registration Packet</h4>
+                                <p>PDF | 450 KB | Added May 15</p>
+                            </div>
+                        </div>
+                        <button class="download-doc-btn" onclick="alert('Downloading Youth Hub Registration Packet...');" aria-label="Download Registration Form"><i class="fas fa-download"></i></button>
+                    </div>
+
+                    <!-- Doc 3 -->
+                    <div class="download-doc-card">
+                        <div class="download-doc-info">
+                            <div class="download-doc-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="download-doc-details">
+                                <h4>West Hill Day Participant Guide</h4>
+                                <p>PDF | 2.1 MB | Added Jun 01</p>
+                            </div>
+                        </div>
+                        <button class="download-doc-btn" onclick="alert('Downloading West Hill Day Participant Guide...');" aria-label="Download Guide"><i class="fas fa-download"></i></button>
+                    </div>
+
+                    <!-- Doc 4 -->
+                    <div class="download-doc-card">
+                        <div class="download-doc-info">
+                            <div class="download-doc-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="download-doc-details">
+                                <h4>Seniors Social Calendar</h4>
+                                <p>PDF | 850 KB | Added Jun 05</p>
+                            </div>
+                        </div>
+                        <button class="download-doc-btn" onclick="alert('Downloading Seniors Social Calendar...');" aria-label="Download Seniors Calendar"><i class="fas fa-download"></i></button>
+                    </div>
+
+                    <!-- Doc 5 -->
+                    <div class="download-doc-card">
+                        <div class="download-doc-info">
+                            <div class="download-doc-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="download-doc-details">
+                                <h4>Volunteer Handbook</h4>
+                                <p>PDF | 1.2 MB | Added May 20</p>
+                            </div>
+                        </div>
+                        <button class="download-doc-btn" onclick="alert('Downloading Volunteer Handbook...');" aria-label="Download Volunteer Handbook"><i class="fas fa-download"></i></button>
+                    </div>
+
+                    <!-- Doc 6 -->
+                    <div class="download-doc-card">
+                        <div class="download-doc-info">
+                            <div class="download-doc-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="download-doc-details">
+                                <h4>Partnership Proposal Guide</h4>
+                                <p>PDF | 3.1 MB | Added May 10</p>
+                            </div>
+                        </div>
+                        <button class="download-doc-btn" onclick="alert('Downloading Partnership Proposal Guide...');" aria-label="Download Proposal Pack"><i class="fas fa-download"></i></button>
+                    </div>
                 </div>
             </div>
 
             <!-- External Helpful links Section -->
-            <div class="section-alt" style="border-radius: var(--wh-radius-lg); padding: 50px;">
+            <div class="section-alt" style="border-radius: var(--wh-radius-lg); padding: 50px; margin-top: 50px;">
                 <h3 style="color: var(--wh-blue-primary); font-size: 1.6rem; margin-bottom: 25px; text-align: center; font-family: var(--wh-font-primary);">Helpful Community Connections</h3>
                 <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; line-height: 1.6;">If you need assistance beyond our current offerings, check out these local Scarborough and Toronto services:</p>
                 
