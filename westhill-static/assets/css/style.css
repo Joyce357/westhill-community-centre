@@ -2110,37 +2110,87 @@ footer {
 }
 
 /* ==========================================================================
-   COMMUNITY BUILDERS & STRATEGIC PARTNERS GRID
+   COMMUNITY BUILDERS & STRATEGIC PARTNERS HORIZONTAL SHOWCASE
    ========================================================================== */
-.partners-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin: 40px 0;
+.partners-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin: 40px auto;
+    width: 100%;
 }
-.partner-logo-card {
-    background-color: var(--wh-bg-soft);
-    border: 1px dashed rgba(15, 59, 106, 0.15);
+.partner-logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    transition: var(--wh-transition);
+    /* Mobile: 2 logos per row */
+    flex: 0 0 calc(50% - 16px);
+    max-width: calc(50% - 16px);
+}
+.partner-logo-wrapper {
+    width: 100%;
+    height: 80px; /* Uniform height for the logo container */
+    background-color: var(--wh-bg-white);
+    border: 1px solid var(--wh-bg-alt);
     border-radius: var(--wh-radius-sm);
-    padding: 24px 16px;
+    padding: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    min-height: 90px;
+    box-shadow: var(--wh-shadow-soft);
     transition: var(--wh-transition);
 }
-.partner-logo-card:hover {
+.partner-logo-item:hover .partner-logo-wrapper {
     background-color: var(--wh-bg-white);
     border-color: var(--wh-blue-primary);
-    box-shadow: var(--wh-shadow-soft);
-    transform: translateY(-3px);
+    box-shadow: var(--wh-shadow-hover);
+    transform: translateY(-4px);
 }
-.partner-name {
+.partner-logo-img {
+    height: 56px; /* Uniform logo height inside container */
+    max-width: 100%;
+    object-fit: contain;
+    transition: var(--wh-transition);
+}
+.partner-logo-item svg {
+    height: 56px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    transition: var(--wh-transition);
+}
+.partner-logo-name {
     font-family: var(--wh-font-primary);
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--wh-text-body);
+    margin-top: 10px;
+    transition: var(--wh-transition);
+    text-decoration: none;
+}
+.partner-logo-item:hover .partner-logo-name {
     color: var(--wh-blue-primary);
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+    /* Tablet: 3 logos per row */
+    .partner-logo-item {
+        flex: 0 0 calc(33.333% - 22px);
+        max-width: calc(33.333% - 22px);
+    }
+}
+
+@media (min-width: 992px) {
+    /* Desktop: 4 logos per row */
+    .partner-logo-item {
+        flex: 0 0 calc(25% - 24px);
+        max-width: calc(25% - 24px);
+    }
 }
 
 @media (max-width: 768px) {
