@@ -2126,7 +2126,6 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    text-decoration: none;
     transition: var(--wh-transition);
     /* Mobile: 2 logos per row */
     flex: 0 0 calc(50% - 16px);
@@ -2155,6 +2154,8 @@ footer {
     height: 56px; /* Uniform logo height inside container */
     max-width: 100%;
     object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
     transition: var(--wh-transition);
 }
 .partner-logo-item svg {
@@ -2162,7 +2163,14 @@ footer {
     width: auto;
     max-width: 100%;
     object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
     transition: var(--wh-transition);
+}
+.partner-logo-item:hover .partner-logo-img,
+.partner-logo-item:hover svg {
+    filter: grayscale(0%);
+    opacity: 1;
 }
 .partner-logo-name {
     font-family: var(--wh-font-primary);
@@ -2171,7 +2179,6 @@ footer {
     color: var(--wh-text-body);
     margin-top: 10px;
     transition: var(--wh-transition);
-    text-decoration: none;
 }
 .partner-logo-item:hover .partner-logo-name {
     color: var(--wh-blue-primary);

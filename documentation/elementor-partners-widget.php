@@ -66,21 +66,7 @@ class Westhill_Partners_Widget extends \Elementor\Widget_Base {
 			]
 		);
 
-		$repeater->add_control(
-			'partner_link',
-			[
-				'label' => esc_html__( 'Website Link (Optional)', 'westhill-core' ),
-				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'westhill-core' ),
-				'default' => [
-					'url' => '',
-					'is_external' => true,
-					'nofollow' => true,
-					'custom_attributes' => '',
-				],
-				'label_block' => true,
-			]
-		);
+
 
 		$this->add_control(
 			'partners_list',
@@ -161,40 +147,21 @@ class Westhill_Partners_Widget extends \Elementor\Widget_Base {
 		}
 		?>
 		<div class="partners-showcase">
-			<?php foreach ( $settings['partners_list'] as $item ) : 
-				$has_link = ! empty( $item['partner_link']['url'] );
-				$link_key = 'link_' . $item['_id'];
-
-				if ( $has_link ) {
-					$this->add_link_attributes( $link_key, $item['partner_link'] );
-					$this->add_render_attribute( $link_key, 'class', 'partner-logo-link' );
-					if ( ! empty( $item['partner_name'] ) ) {
-						$this->add_render_attribute( $link_key, 'title', $item['partner_name'] );
-					}
-				}
-				?>
+			<?php foreach ( $settings['partners_list'] as $item ) : ?>
 				<div class="partner-logo-item">
-					<?php if ( $has_link ) : ?>
-						<a <?php $this->print_render_attribute_string( $link_key ); ?>>
-					<?php endif; ?>
-
-						<div class="partner-logo-wrapper">
-							<?php if ( ! empty( $item['partner_logo']['id'] ) ) : ?>
-								<?php echo wp_get_attachment_image( $item['partner_logo']['id'], 'medium', false, [
-									'class' => 'partner-logo-img',
-									'style' => 'object-fit: contain;',
-								] ); ?>
-							<?php elseif ( ! empty( $item['partner_logo']['url'] ) ) : ?>
-								<img src="<?php echo esc_url( $item['partner_logo']['url'] ); ?>" class="partner-logo-img" alt="<?php echo esc_attr( $item['partner_name'] ); ?>" style="object-fit: contain;" />
-							<?php endif; ?>
-						</div>
-
-						<?php if ( ! empty( $item['partner_name'] ) ) : ?>
-							<span class="partner-logo-name"><?php echo esc_html( $item['partner_name'] ); ?></span>
+					<div class="partner-logo-wrapper">
+						<?php if ( ! empty( $item['partner_logo']['id'] ) ) : ?>
+							<?php echo wp_get_attachment_image( $item['partner_logo']['id'], 'medium', false, [
+								'class' => 'partner-logo-img',
+								'style' => 'object-fit: contain;',
+							] ); ?>
+						<?php elseif ( ! empty( $item['partner_logo']['url'] ) ) : ?>
+							<img src="<?php echo esc_url( $item['partner_logo']['url'] ); ?>" class="partner-logo-img" alt="<?php echo esc_attr( $item['partner_name'] ); ?>" style="object-fit: contain;" />
 						<?php endif; ?>
+					</div>
 
-					<?php if ( $has_link ) : ?>
-						</a>
+					<?php if ( ! empty( $item['partner_name'] ) ) : ?>
+						<span class="partner-logo-name"><?php echo esc_html( $item['partner_name'] ); ?></span>
 					<?php endif; ?>
 				</div>
 			<?php endforeach; ?>
