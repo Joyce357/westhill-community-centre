@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,18 @@
     <meta name="description" content="Support West Hill Community Centre by donating online. Learn how your funds help support youth mentorship, settlement programs, and seniors support.">
     <meta name="keywords" content="donate, donation, Scarborough, West Hill, charity support, fund programs, volunteer support">
     <meta name="author" content="West Hill Community Centre">
+
+    <!-- Open Graph / Facebook Social Metadata -->
+    <meta property="og:title" content="Support Our Community | West Hill Community Centre">
+    <meta property="og:description" content="Support West Hill Community Centre by donating online. Learn how your funds help support youth mentorship, settlement programs, and seniors support.">
+    <meta property="og:image" content="https://westhillcommunitycentre.ca/assets/images/og-share.png">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Social Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Support Our Community | West Hill Community Centre">
+    <meta name="twitter:description" content="Support West Hill Community Centre by donating online. Learn how your funds help support youth mentorship, settlement programs, and seniors support.">
+    <meta name="twitter:image" content="https://westhillcommunitycentre.ca/assets/images/og-share.png">
     
     <!-- Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,10 +112,10 @@
 
                 <div class="wh-reveal active">
                     <!-- Donation Calculator Side Container (reusing same elements for main.js initDonationCalculator) -->
-                    <div style="background-color: var(--wh-bg-soft); border-radius: var(--wh-radius-lg); padding: 40px; border: 1px solid rgba(15, 59, 106, 0.05); box-shadow: var(--wh-shadow-soft);">
+                    <div class="standard-card-container" style="border: 1px solid rgba(15, 59, 106, 0.05); box-shadow: var(--wh-shadow-soft);">
                         <h3 class="calculator-title" style="margin-bottom: 20px; font-family: var(--wh-font-primary); color: var(--wh-blue-primary); font-size: 1.4rem; text-align: center;">Help Support Our Programs</h3>
                         
-                        <div class="calculator-buttons" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px;">
+                        <div class="calculator-buttons">
                             <button class="calc-btn" data-value="25">$25</button>
                             <button class="calc-btn active" data-value="50">$50</button>
                             <button class="calc-btn" data-value="100">$100</button>
@@ -129,7 +141,7 @@
                             <div style="margin-bottom: 12px;">
                                 <input type="text" placeholder="Card Number (0000 0000 0000 0000)" required style="width: 100%; padding: 10px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none;">
                             </div>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+                            <div class="expiry-cvv-grid">
                                 <input type="text" placeholder="Expiry (MM/YY)" required style="width: 100%; padding: 10px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none;">
                                 <input type="text" placeholder="CVV" required style="width: 100%; padding: 10px; border-radius: var(--wh-radius-sm); border: 1px solid var(--wh-bg-alt); outline: none;">
                             </div>

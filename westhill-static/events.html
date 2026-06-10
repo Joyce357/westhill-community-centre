@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,18 @@
     <meta name="description" content="View our interactive community calendar and register for upcoming workshops, neighbourhood barbecues, and family meetings in Scarborough-West Hill.">
     <meta name="keywords" content="community events, interactive calendar, Scarborough, West Hill, volunteer meetings, job fair, neighborhood BBQ">
     <meta name="author" content="West Hill Community Centre">
+
+    <!-- Open Graph / Facebook Social Metadata -->
+    <meta property="og:title" content="Events Calendar | West Hill Community Centre">
+    <meta property="og:description" content="View our interactive community calendar and register for upcoming workshops, neighbourhood barbecues, and family meetings in Scarborough-West Hill.">
+    <meta property="og:image" content="https://westhillcommunitycentre.ca/assets/images/og-share.png">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Social Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Events Calendar | West Hill Community Centre">
+    <meta name="twitter:description" content="View our interactive community calendar and register for upcoming workshops, neighbourhood barbecues, and family meetings in Scarborough-West Hill.">
+    <meta name="twitter:image" content="https://westhillcommunitycentre.ca/assets/images/og-share.png">
     
     <!-- Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,7 +108,7 @@
             </div>
 
             <!-- Interactive Calendar Layout (Hooks into main.js) -->
-            <div class="calendar-layout wh-reveal active" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; background-color: var(--wh-bg-white); border-radius: var(--wh-radius-lg); border: 1px solid rgba(15, 59, 106, 0.05); padding: 30px; box-shadow: var(--wh-shadow-soft); margin-bottom: 70px;">
+            <div class="calendar-layout wh-reveal active" style="margin-bottom: 70px;">
                 <div class="calendar-widget">
                     <div class="calendar-widget-header" style="margin-bottom: 20px;">
                         <span class="calendar-month-title" id="calendar-month-name" style="font-size: 1.3rem; color: var(--wh-blue-primary); font-weight: 600; font-family: var(--wh-font-primary);">June 2026</span>
@@ -123,7 +135,7 @@
             </div>
 
             <!-- RSVP Form Section -->
-            <div class="section-alt" style="border-radius: var(--wh-radius-lg); padding: 50px;">
+            <div class="section-alt standard-card-container">
                 <div class="grid-2" style="gap: 40px; align-items: center;">
                     <div>
                         <h3 style="color: var(--wh-blue-primary); font-size: 1.8rem; margin-bottom: 20px;">RSVP For An Event</h3>

@@ -1633,6 +1633,32 @@ footer {
     line-height: 1.6;
 }
 
+/* Extracted Layout Classes */
+.opening-banner-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 40px;
+    align-items: center;
+}
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.expiry-cvv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.standard-card-container {
+    background-color: var(--wh-bg-soft);
+    border-radius: var(--wh-radius-lg);
+    padding: 50px;
+    margin-bottom: 70px;
+}
+
 /* 22. RESPONSIVE MEDIA QUERIES */
 @media (max-width: 992px) {
     .grid-3 {
@@ -1682,11 +1708,25 @@ footer {
     .newsletter-form {
         max-width: 100%;
     }
+    
+    .opening-banner-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 }
 
 @media (max-width: 768px) {
     .section {
-        padding: 55px 0;
+        padding: 45px 0; /* Standardized mobile section padding */
+    }
+    
+    .standard-card-container {
+        padding: 30px 20px !important;
+        margin-bottom: 45px !important;
+    }
+    
+    .hope-slider-container {
+        padding: 30px 20px !important;
     }
     
     .grid-2, .grid-3, .grid-4 {
@@ -1701,8 +1741,31 @@ footer {
         grid-template-columns: 1fr;
     }
     
+    .logo {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+    }
+    
+    #primary-navigation {
+        position: absolute;
+    }
+    
     .mobile-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0;
+        font-size: 1.8rem;
+        color: var(--wh-blue-primary);
+        cursor: pointer;
+        z-index: 1010;
+        background: none;
+        border: none;
     }
     
     .nav-menu {
@@ -1719,6 +1782,11 @@ footer {
         transition: var(--wh-transition);
         overflow-y: auto;
         align-items: stretch; /* Stretch items (especially buttons) to full width */
+    }
+    
+    header.scrolled .nav-menu {
+        top: 60px; /* Adjust top coordinate when header is scrolled */
+        height: calc(100vh - 60px);
     }
     
     .nav-menu.open {
@@ -1812,10 +1880,34 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .footer-bottom {
+    /* Footer bottom bar alignment corrections */
+    .footer-bottom-container {
+        flex-direction: column !important;
+        gap: 15px !important;
+        text-align: center !important;
+        justify-content: center !important;
+    }
+    
+    .footer-bottom-left {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .download-doc-card {
         flex-direction: column;
-        gap: 20px;
-        text-align: center;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .download-doc-btn {
+        align-self: flex-end;
     }
 }
 
