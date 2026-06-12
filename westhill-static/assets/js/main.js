@@ -257,6 +257,9 @@ function initStickyHeader() {
    ========================================================================== */
 
 function initPrograms() {
+    const grid = document.getElementById('dynamic-programs-grid');
+    if (!grid) return;
+
     renderProgramsList(LOCAL_PROGRAMS_DATA);
 
     const filterButtons = document.querySelectorAll('.filter-btn');
