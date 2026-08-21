@@ -1,0 +1,150 @@
+@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "./westhill.css";
+
+:root {
+  /* =========================================================
+     OFFICIAL WEST HILL COMMUNITY CENTRE LOGO BRAND PALETTE
+     ========================================================= */
+  
+  /* Primary Structural Colours */
+  --wh-navy: #133D5F;
+  --wh-deep-forest: #263A14;
+  
+  /* Community Green Family */
+  --wh-forest-green: #3E6029;
+  --wh-community-green: #4C7332;
+  --wh-leaf-green: #608A31;
+  --wh-fresh-leaf: #8CA72D;
+
+  /* Sky & Accent Blues */
+  --wh-sky-blue: #65AFDA;
+  --wh-pale-sky: #D2EAF2;
+
+  /* Attention & Highlights */
+  --wh-sun-gold: #F4AF25;
+
+  /* Community Figure Accents (Logo) */
+  --wh-community-purple: #5F3790;
+  --wh-community-orange: #F68E23;
+
+  /* Surfaces & Neutrals */
+  --wh-warm-white: #F3FAF3;
+  --wh-bg-white: #FFFFFF;
+  --wh-bg-soft: #F8FBF8;
+  --wh-bg-alt: #EBF3F7;
+  --wh-text-dark: #10263B;
+  --wh-text-body: #334E68;
+  --wh-text-muted: #627D98;
+
+  /* Accessible Destructive / Alert (Conventional Red) */
+  --wh-danger: #DC2626;
+  --wh-danger-bg: #FEF2F2;
+  --wh-danger-border: #FCA5A5;
+
+  /* Mapped Brand Aliases for Component Consistency */
+  --wh-blue-primary: var(--wh-navy);
+  --wh-blue-dark: #0B253D;
+  --wh-blue-light: var(--wh-sky-blue);
+  --wh-green-primary: var(--wh-community-green);
+  --wh-green-light: var(--wh-fresh-leaf);
+  --wh-orange-accent: var(--wh-sun-gold);
+
+  /* Radius & Shadows */
+  --wh-radius-sm: 8px;
+  --wh-radius-md: 14px;
+  --wh-radius-lg: 22px;
+  --wh-radius-full: 9999px;
+  
+  --wh-shadow-soft: 0 4px 20px rgba(19, 61, 95, 0.06);
+  --wh-shadow-hover: 0 12px 32px rgba(19, 61, 95, 0.12);
+  --wh-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  --wh-container-width: 1200px;
+}
+
+body {
+  font-family: var(--wh-font-secondary), 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--wh-text-body);
+  background-color: var(--wh-bg-white);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--wh-font-primary), 'Poppins', sans-serif;
+  color: var(--wh-navy);
+}
+
+/* =========================================================
+   WEST HILL BUTTON SYSTEM
+   ========================================================= */
+
+.btn-primary {
+  background-color: var(--wh-community-green);
+  color: #FFFFFF !important;
+  border: 1px solid var(--wh-forest-green);
+  box-shadow: 0 4px 14px rgba(76, 115, 50, 0.25);
+  font-weight: 600;
+  transition: var(--wh-transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--wh-forest-green);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(62, 96, 41, 0.35);
+}
+
+.btn-secondary {
+  background-color: var(--wh-navy);
+  color: #FFFFFF !important;
+  border: 1px solid #0B253D;
+  box-shadow: 0 4px 14px rgba(19, 61, 95, 0.2);
+  font-weight: 600;
+  transition: var(--wh-transition);
+}
+
+.btn-secondary:hover {
+  background-color: #0B253D;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(11, 37, 61, 0.3);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--wh-navy);
+  border: 1.5px solid var(--wh-navy);
+  font-weight: 600;
+  transition: var(--wh-transition);
+}
+
+.btn-outline:hover {
+  background-color: var(--wh-navy);
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: #FFFFFF !important;
+  border: 1.5px solid #FFFFFF;
+  font-weight: 600;
+  transition: var(--wh-transition);
+}
+
+.btn-outline-white:hover {
+  background-color: #FFFFFF;
+  color: var(--wh-navy) !important;
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background-color: var(--wh-danger);
+  color: #FFFFFF !important;
+  border: 1px solid #B91C1C;
+  font-weight: 600;
+  transition: var(--wh-transition);
+}
+
+.btn-danger:hover {
+  background-color: #B91C1C;
+  transform: translateY(-1px);
+}

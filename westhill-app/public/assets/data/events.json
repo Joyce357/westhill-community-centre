@@ -1,0 +1,62 @@
+[
+  {
+    "id": "westhill-day",
+    "title": "West Hill Day: Celebrating Community Together",
+    "day": "20",
+    "month": "JUN",
+    "date": "2026-06-20",
+    "time": "11:00 AM - 5:00 PM",
+    "location": "Morningside Park",
+    "category": "Community Events",
+    "description": "Our signature annual celebration featuring local vendor booths, children's zone, cultural dances, live music, and local support services.",
+    "image": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "job-fair",
+    "title": "Community Job Fair & Networking",
+    "day": "22",
+    "month": "JUN",
+    "date": "2026-06-22",
+    "time": "10:00 AM - 3:00 PM",
+    "location": "Main Gymnasium",
+    "category": "Career Services",
+    "description": "Meet hiring managers from local Scarborough businesses in hospitality, customer support, warehousing, and retail sectors.",
+    "image": "https://images.unsplash.com/photo-1521791136368-1a8df3d95b35?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "youth-leadership",
+    "title": "Youth Development & Leadership Workshop",
+    "day": "12",
+    "month": "JUN",
+    "date": "2026-06-12",
+    "time": "4:00 PM - 6:00 PM",
+    "location": "Youth Hub Lounge",
+    "category": "Youth Services",
+    "description": "Interactive session focusing on communication skills, community project planning, and collaborative teamwork for youth.",
+    "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "community-bbq",
+    "title": "Welcome Neighborhood Summer BBQ",
+    "day": "15",
+    "month": "JUN",
+    "date": "2026-06-15",
+    "time": "12:00 PM - 4:00 PM",
+    "location": "Central Courtyard",
+    "category": "Community Events",
+    "description": "Meet your neighbors and learn about our upcoming summer programs. Free burgers, halal options, and games for kids.",
+    "image": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "volunteer-orientation",
+    "title": "Volunteer Orientation & Information Session",
+    "day": "08",
+    "month": "JUN",
+    "date": "2026-06-08",
+    "time": "6:00 PM - 7:30 PM",
+    "location": "Community Room B",
+    "category": "Meetings",
+    "description": "Find out how you can support our upcoming programs and events. Learn about open roles, safety checks, and guidelines.",
+    "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&q=80&w=600"
+  }
+]

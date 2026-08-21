@@ -1,44 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Gallery | West Hill Community Centre</title>
-    
+
     <!-- Meta Descriptions for SEO -->
-    <meta name="description" content="Explore photos and moments from West Hill Community Centre's programs, events, grand opening ceremony, and local gatherings in Scarborough.">
-    <meta name="keywords" content="community gallery, Scarborough, West Hill, grand opening, community events, photos, youth hub, senior programs, local initiatives">
+    <meta name="description"
+        content="Explore photos and moments from West Hill Community Centre's programs, events, grand opening ceremony, and local gatherings in Scarborough.">
+    <meta name="keywords"
+        content="community gallery, Scarborough, West Hill, grand opening, community events, photos, youth hub, senior programs, local initiatives">
     <meta name="author" content="West Hill Community Centre">
 
     <!-- Open Graph / Facebook Social Metadata -->
     <meta property="og:title" content="Community Gallery | West Hill Community Centre">
-    <meta property="og:description" content="Explore photos and moments from West Hill Community Centre's programs, events, grand opening ceremony, and local gatherings in Scarborough.">
+    <meta property="og:description"
+        content="Explore photos and moments from West Hill Community Centre's programs, events, grand opening ceremony, and local gatherings in Scarborough.">
     <meta property="og:image" content="https://westhillcommunitycentre.ca/assets/images/og-share.png">
     <meta property="og:type" content="website">
 
     <!-- Twitter Social Metadata -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Community Gallery | West Hill Community Centre">
-    <meta name="twitter:description" content="Explore photos and moments from West Hill Community Centre's programs, events, grand opening ceremony, and local gatherings in Scarborough.">
+    <meta name="twitter:description"
+        content="Explore photos and moments from West Hill Community Centre's programs, events, grand opening ceremony, and local gatherings in Scarborough.">
     <meta name="twitter:image" content="https://westhillcommunitycentre.ca/assets/images/og-share.png">
-    
+
     <!-- Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Gallery-Specific Styling (Ensuring new specifications are perfectly executed) -->
+    <style>
+        .gallery-section-wrapper {
+            background-color: var(--wh-bg-white, #ffffff);
+            padding: 40px 0 80px;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography & Header */
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .gallery-title {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #0E3590;
+            margin: 0;
+            font-family: 'Poppins', 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        .gallery-view-all {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #4A6EBD; /* Lighter accent color */
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .gallery-view-all:hover {
+            color: #0E3590;
+            transform: translateX(3px);
+        }
+
+        /* Divider */
+        .gallery-divider {
+            border: 0;
+            height: 1px;
+            background-color: #E2E8F0;
+            margin: 0 0 30px 0;
+        }
+
+        /* Layout & Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px; /* Consistent clean 24px gap */
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+            }
+        }
+
+        /* Image Card Styling */
+        .gallery-card {
+            position: relative;
+            background: #ffffff;
+            border-radius: 14px; /* Border radius between 12px and 16px */
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+            cursor: pointer;
+            aspect-ratio: 4 / 3; /* Consistent 4:3 ratio */
+            display: block;
+            border: 1px solid #edf2f7;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1), 0 5px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .gallery-card img,
+        .gallery-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fit perfectly without warping/stretching */
+            transition: transform 0.5s ease;
+            display: block;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .gallery-card .play-icon-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(14, 53, 144, 0.85);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .gallery-card:hover .play-icon-overlay {
+            background: rgba(14, 53, 144, 1);
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        /* Lightbox modal styling */
+        .gallery-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 15, 30, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-media {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+        }
+
+        .lightbox-caption {
+            color: #ffffff;
+            margin-top: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #4A6EBD;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #ffffff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.2s ease, color 0.2s ease;
+            z-index: 10000;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+        }
+
+        .lightbox-prev {
+            left: -60px;
+        }
+
+        .lightbox-next {
+            right: -60px;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-prev {
+                left: -20px;
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            .lightbox-next {
+                right: -20px;
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            .lightbox-close {
+                right: 10px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="announcement-bar" id="announcement-bar-elt">
         <div class="container bar-container">
             <span class="bar-tag">Alert</span>
-            <span class="bar-message">Summer Youth Programs registration is now open! <a href="programs.html" class="bar-link">Register today</a></span>
-            <button class="bar-close" aria-label="Close announcement" onclick="document.getElementById('announcement-bar-elt').style.display='none'"><i class="fas fa-times"></i></button>
+            <span class="bar-message">Summer Youth Programs registration is now open! <a href="programs.html"
+                    class="bar-link">Register today</a></span>
+            <button class="bar-close" aria-label="Close announcement"
+                onclick="document.getElementById('announcement-bar-elt').style.display='none'"><i
+                    class="fas fa-times"></i></button>
         </div>
     </div>
 
@@ -48,16 +307,18 @@
             <a href="index.html" class="logo" aria-label="West Hill Community Centre Home">
                 <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
             </a>
-            
-            <button class="mobile-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+
+            <button class="mobile-toggle" aria-controls="primary-navigation" aria-expanded="false"
+                aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
-            
+
             <nav id="primary-navigation">
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li class="dropdown">
-                        <a href="about.html" class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">About <i class="fas fa-chevron-down dropdown-caret"></i></a>
+                        <a href="about.html" class="nav-link dropdown-toggle" aria-haspopup="true"
+                            aria-expanded="false">About <i class="fas fa-chevron-down dropdown-caret"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="about.html">Our Story</a></li>
                             <li><a href="partners.html">Community Builders</a></li>
@@ -69,11 +330,13 @@
                     <li><a href="resources.html" class="nav-link">Resources</a></li>
                     <li><a href="contact.html" class="nav-link">Contact</a></li>
                     <!-- Mobile CTAs inside the drawer -->
-                    <li class="mobile-cta-item"><a href="volunteer.html" class="btn btn-outline mobile-nav-btn">Get Involved</a></li>
-                    <li class="mobile-cta-item"><a href="donate.html" class="btn btn-secondary mobile-nav-btn">Donate</a></li>
+                    <li class="mobile-cta-item"><a href="volunteer.html" class="btn btn-outline mobile-nav-btn">Get
+                            Involved</a></li>
+                    <li class="mobile-cta-item"><a href="donate.html"
+                            class="btn btn-secondary mobile-nav-btn">Donate</a></li>
                 </ul>
             </nav>
-            
+
             <div class="header-ctas">
                 <a href="volunteer.html" class="btn btn-outline header-cta">Get Involved</a>
                 <a href="donate.html" class="btn btn-secondary header-cta">Donate</a>
@@ -82,64 +345,55 @@
     </header>
 
     <!-- PAGE HEADER BANNER -->
-    <section class="section" style="background-color: var(--wh-blue-dark); color: var(--wh-bg-white); padding: 50px 0; text-align: center;" aria-label="Page Title">
+    <section class="section" style="background-color: var(--wh-bg-white); padding: 70px 0 20px; text-align: center;"
+        aria-label="Page Title">
         <div class="container">
-            <h1 style="color: var(--wh-bg-white); font-size: 2.5rem; margin-bottom: 15px;">Community Gallery</h1>
-            <p style="color: var(--wh-bg-alt); font-size: 1.1rem; max-width: 800px; margin: 0 auto; line-height: 1.6;">Moments from West Hill Community Centre programs, events, community gatherings, and milestones. Our gallery will continue to grow as we document new community events, programs, workshops, volunteer activities, and milestones.</p>
+            <h1
+                style="color: #0E3590; font-size: 2.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; font-family: var(--wh-font-primary); position: relative; display: inline-block; letter-spacing: 0.5px;">
+                Community Gallery
+                <span
+                    style="display: block; width: 85px; height: 3px; background-color: #0E3590; margin: 12px auto 0;"></span>
+            </h1>
+            <p
+                style="color: var(--wh-text-muted); font-size: 1.2rem; font-weight: 500; max-width: 800px; margin: 15px auto 0; font-family: var(--wh-font-secondary);">
+                Moments from West Hill Community Centre events, programs, and community milestones.</p>
         </div>
     </section>
 
     <!-- MAIN GALLERY CONTENT -->
-    <section class="section" aria-label="Community Gallery Archive" style="background-color: var(--wh-bg-soft); padding: 60px 0;">
-        <div class="container">
-            
-            <!-- ALBUMS LANDING VIEW -->
-            <div id="albums-landing-view" class="wh-reveal active">
-                <div class="albums-grid" id="albums-grid-container">
-                    <!-- JavaScript Populated -->
-                </div>
+    <section class="gallery-section-wrapper" aria-label="Photo Gallery">
+        <div class="gallery-container">
+            <!-- Section Header -->
+            <div class="gallery-header">
+                <h2 class="gallery-title">Grand Opening Ceremony 2026</h2>
+                <a href="#gallery-grid-elt" class="gallery-view-all" id="gallery-view-all-btn">View All &rarr;</a>
             </div>
 
-            <!-- ALBUM DETAILS VIEW -->
-            <div id="album-details-view" style="display: none;">
-                <!-- Album Header & Navigation -->
-                <div class="album-details-header" style="margin-bottom: 40px; background: var(--wh-bg-white); padding: 30px; border-radius: var(--wh-radius-md); box-shadow: var(--wh-shadow-soft); border: 1px solid rgba(15, 59, 106, 0.05);">
-                    <button id="back-to-albums-btn" class="btn btn-outline" style="padding: 10px 24px; font-size: 0.9rem; margin-bottom: 25px; display: inline-flex; align-items: center; gap: 8px;">
-                        <i class="fas fa-arrow-left"></i> Back to Gallery Albums
-                    </button>
-                    
-                    <div class="album-title-block" style="border-left: 4px solid var(--wh-orange-accent); padding-left: 20px;">
-                        <h2 id="detail-album-title" style="font-size: 1.8rem; color: var(--wh-blue-primary); margin-bottom: 10px; font-family: var(--wh-font-primary);">Album Title</h2>
-                        <div class="album-meta" style="font-size: 0.88rem; color: var(--wh-text-muted); margin-bottom: 15px; display: flex; gap: 20px; flex-wrap: wrap;">
-                            <span id="detail-album-date"><i class="far fa-calendar" style="color: var(--wh-orange-accent); margin-right: 5px;"></i> Date</span>
-                            <span id="detail-album-count"><i class="far fa-images" style="color: var(--wh-orange-accent); margin-right: 5px;"></i> Media Count</span>
-                        </div>
-                        <p id="detail-album-desc" style="color: var(--wh-text-body); font-size: 1rem; line-height: 1.6; margin: 0; max-width: 850px; font-family: var(--wh-font-secondary);">Album Description...</p>
-                    </div>
-                </div>
+            <!-- Thin Divider -->
+            <hr class="gallery-divider">
 
-                <!-- Album Photos Grid -->
-                <div class="gallery-album-grid" id="album-photos-grid">
-                    <!-- JavaScript Populated -->
-                </div>
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="gallery-grid-elt">
+                <!-- Javascript Populated -->
             </div>
-
         </div>
     </section>
 
     <!-- LIGHTBOX MODAL -->
-    <div class="lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image Viewer">
+    <div class="gallery-lightbox" id="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Image Viewer">
         <div class="lightbox-content">
-            <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close image viewer"><i class="fas fa-times"></i></button>
-            <button class="lightbox-nav lightbox-prev" id="lightbox-prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-            
-            <!-- Dynamic Lightbox Media -->
+            <button class="lightbox-close" id="lightbox-close-btn" aria-label="Close image viewer"><i
+                    class="fas fa-times"></i></button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev-btn" aria-label="Previous image"><i
+                    class="fas fa-chevron-left"></i></button>
+
             <div id="lightbox-media-container" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                <!-- Dynamic Image or Video -->
+                <!-- Image or Video -->
             </div>
-            
             <div class="lightbox-caption" id="lightbox-caption-elt">Photo Title</div>
-            <button class="lightbox-nav lightbox-next" id="lightbox-next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+
+            <button class="lightbox-nav lightbox-next" id="lightbox-next-btn" aria-label="Next image"><i
+                    class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 
@@ -148,10 +402,13 @@
         <div class="container newsletter-content">
             <div class="newsletter-text">
                 <h3>Stay Connected With West Hill</h3>
-                <p>Receive updates about programs, events, volunteer opportunities, community initiatives, and important announcements.</p>
+                <p>Receive updates about programs, events, volunteer opportunities, community initiatives, and important
+                    announcements.</p>
             </div>
             <div class="newsletter-form">
-                <form id="newsletter-form-elt" onsubmit="event.preventDefault(); alert('Thank you for subscribing to our newsletter!'); this.reset();" style="display: flex; width: 100%; gap: 15px;">
+                <form id="newsletter-form-elt"
+                    onsubmit="event.preventDefault(); alert('Thank you for subscribing to our newsletter!'); this.reset();"
+                    style="display: flex; width: 100%; gap: 15px;">
                     <label for="newsletter-email" class="sr-only">Email Address</label>
                     <input type="email" id="newsletter-email" placeholder="Your Email Address" required>
                     <button type="submit" class="btn btn-primary" style="padding: 10px 25px;">Subscribe</button>
@@ -168,15 +425,20 @@
                 <div class="footer-logo">
                     <img src="images/Westhillcenterlogo.jpeg" alt="West Hill Community Centre Logo">
                 </div>
-                <p>West Hill Community Centre is a welcoming community hub dedicated to connecting residents, supporting families, promoting inclusion, and creating opportunities for people of all ages.</p>
+                <p>West Hill Community Centre is a welcoming community hub dedicated to connecting residents, supporting
+                    families, promoting inclusion, and creating opportunities for people of all ages.</p>
                 <div class="social-links" style="margin-top: 20px;">
-                    <a href="https://facebook.com/westhill" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com/westhill" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com/company/westhill" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://youtube.com/westhill" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/westhill" class="social-icon" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/westhill" class="social-icon" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/company/westhill" class="social-icon" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://youtube.com/westhill" class="social-icon" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
+
             <!-- Column 2: Quick Links -->
             <div class="footer-links">
                 <h4>Quick Links</h4>
@@ -191,43 +453,69 @@
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            
+
             <!-- Column 3: Contact Info -->
             <div class="footer-contact">
                 <h4>Contact Us</h4>
-                <p style="align-items: flex-start;"><i class="fas fa-map-marker-alt" style="margin-top: 4px;"></i> <span>West Hill Community Centre<br>4234 Lawrence Avenue East<br>Units 2–3<br>Scarborough, Ontario</span></p>
+                <p style="align-items: flex-start;"><i class="fas fa-map-marker-alt" style="margin-top: 4px;"></i>
+                    <span>West Hill Community Centre<br>4234 Lawrence Avenue East<br>Units 2–3<br>Scarborough,
+                        Ontario</span></p>
                 <p><i class="fas fa-phone"></i> <span>(416) 555-0199</span></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@westhillcommunitycentre.ca" style="color: inherit; text-decoration: none;">info@westhillcommunitycentre.ca</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@westhillcommunitycentre.ca"
+                        style="color: inherit; text-decoration: none;">info@westhillcommunitycentre.ca</a></p>
             </div>
-            
+
             <!-- Column 4: Hours & Info -->
             <div class="footer-hours">
                 <h4>Centre Hours</h4>
                 <p><i class="fas fa-clock"></i> <span>Mon – Fri: 9:00 AM – 6:00 PM</span></p>
                 <p><i class="fas fa-calendar-alt"></i> <span>Saturday: By Program Schedule</span></p>
                 <p><i class="fas fa-ban"></i> <span>Sunday: Closed</span></p>
-                
-                <div class="accessibility-info" style="margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px;">
-                    <p style="font-size: 0.85rem; margin-bottom: 8px; color: #A0AEC0; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-universal-access" style="color: var(--wh-green-primary); width: 16px; text-align: center;"></i> Accessible Facility</p>
-                    <p style="font-size: 0.85rem; margin-bottom: 8px; color: #A0AEC0; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-wheelchair" style="color: var(--wh-green-primary); width: 16px; text-align: center;"></i> Wheelchair Accessible</p>
-                    <p style="font-size: 0.85rem; margin-bottom: 0; color: #A0AEC0; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-square-parking" style="color: var(--wh-green-primary); width: 16px; text-align: center;"></i> Free Community Parking</p>
+
+                <div class="accessibility-info"
+                    style="margin-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px;">
+                    <p
+                        style="font-size: 0.85rem; margin-bottom: 8px; color: #A0AEC0; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-universal-access"
+                            style="color: var(--wh-green-primary); width: 16px; text-align: center;"></i> Accessible
+                        Facility</p>
+                    <p
+                        style="font-size: 0.85rem; margin-bottom: 8px; color: #A0AEC0; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-wheelchair"
+                            style="color: var(--wh-green-primary); width: 16px; text-align: center;"></i> Wheelchair
+                        Accessible</p>
+                    <p
+                        style="font-size: 0.85rem; margin-bottom: 0; color: #A0AEC0; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-square-parking"
+                            style="color: var(--wh-green-primary); width: 16px; text-align: center;"></i> Free Community
+                        Parking</p>
                 </div>
             </div>
         </div>
-        
+
         <!-- Bottom Footer Bar -->
-        <div class="footer-bottom-bar" style="margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 25px 0 0;">
-            <div class="container footer-bottom-container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div class="footer-bottom-bar"
+            style="margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 25px 0 0;">
+            <div class="container footer-bottom-container"
+                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
                 <div class="footer-bottom-left" style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                    <span style="color: #718096; font-size: 0.85rem;">&copy; 2026 West Hill Community Centre. All Rights Reserved.</span>
+                    <span style="color: #718096; font-size: 0.85rem;">&copy; 2026 West Hill Community Centre. All Rights
+                        Reserved.</span>
                     <div class="bottom-links" style="display: flex; gap: 15px;">
-                        <a href="privacy.html" style="color: #718096; font-size: 0.85rem; text-decoration: none; transition: var(--wh-transition);">Privacy Policy</a>
-                        <a href="terms.html" style="color: #718096; font-size: 0.85rem; text-decoration: none; transition: var(--wh-transition);">Terms of Use</a>
-                        <a href="accessibility.html" style="color: #718096; font-size: 0.85rem; text-decoration: none; transition: var(--wh-transition);">Accessibility Statement</a>
+                        <a href="privacy.html"
+                            style="color: #718096; font-size: 0.85rem; text-decoration: none; transition: var(--wh-transition);">Privacy
+                            Policy</a>
+                        <a href="terms.html"
+                            style="color: #718096; font-size: 0.85rem; text-decoration: none; transition: var(--wh-transition);">Terms
+                            of Use</a>
+                        <a href="accessibility.html"
+                            style="color: #718096; font-size: 0.85rem; text-decoration: none; transition: var(--wh-transition);">Accessibility
+                            Statement</a>
                     </div>
                 </div>
                 <div class="footer-bottom-right">
-                    <span style="color: #718096; font-size: 0.85rem; font-style: italic;">Designed for Community Impact.</span>
+                    <span style="color: #718096; font-size: 0.85rem; font-style: italic;">Designed for Community
+                        Impact.</span>
                 </div>
             </div>
         </div>
@@ -249,462 +537,269 @@
 
     <!-- Gallery-Specific JavaScript Logic -->
     <script>
-        // Data source mapping the 40 Grand Opening photos and 1 video
-        const GRAND_OPENING_MEDIA = [
+        const GALLERY_MEDIA = [
             {
                 type: 'video',
                 src: 'assets/images/westhillcenterOpening/WhatsApp Video 2026-06-09 at 11.10.50 PM.mp4',
-                alt: 'Grand opening ceremony highlight video depicting ribbon cutting, speech applause, and resident walkthroughs.',
-                title: 'Grand Opening Highlight Video'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM.jpeg',
-                alt: 'Main entrance of West Hill Community Centre with grand opening banners.',
-                title: 'Community Centre Entrance'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (1).jpeg',
-                alt: 'Ribbon cutting moment with Coach John Emore and local representatives.',
-                title: 'Ribbon Cutting Ceremony'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (2).jpeg',
-                alt: 'Opening day visitors being greeted by volunteers at the main welcome desk.',
-                title: 'Grand Opening Welcome Foyer'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (3).jpeg',
-                alt: 'Inspirational welcome sign inside the lobby stating Connect, Belong, and Thrive.',
-                title: 'Mission Signboard'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (4).jpeg',
-                alt: 'Coach John Emore addressing the community during the opening speech.',
-                title: 'President\'s Address'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (5).jpeg',
-                alt: 'Group of community organizers standing together holding the ribbon scissors.',
-                title: 'Community Organizers'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (6).jpeg',
-                alt: 'A crowd of residents listening to opening speeches inside the main hall.',
-                title: 'Gathering of Neighbors'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (7).jpeg',
-                alt: 'Teens and kids playing team-building games in the Youth Hub computer lab.',
-                title: 'Youth Hub Opening Day'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (8).jpeg',
-                alt: 'Seniors sitting together enjoying coffee and sharing stories in the lounge.',
-                title: 'Seniors Social Refreshment Area'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (9).jpeg',
-                alt: 'Information tables with signup booklets for upcoming program modules.',
-                title: 'Program Signup & Resources'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (10).jpeg',
-                alt: 'Families and small children playing in the safe child care support space.',
-                title: 'Family Services Play Zone'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/Coach Rejoice.jpeg',
-                alt: 'Coach Rejoice speaking at the West Hill Community Centre grand opening ceremony.',
-                title: 'Coach Rejoice Address'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM.jpeg',
-                alt: 'Interactive workshop demonstration area set up with tools and projects.',
-                title: 'Workshop Demonstration Room'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (1).jpeg',
-                alt: 'Historic photos showcasing previous advocacy campaigns in Scarborough-West Hill.',
-                title: 'Community Advocacy Wall'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (2).jpeg',
-                alt: 'Mentor demonstrating educational software on a screen during the hub tour.',
-                title: 'Digital Tools Mentorship'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/Donna Cardoza From Toronto District School Board giving a Speech.jpeg',
-                alt: 'Donna Cardoza from the Toronto District School Board giving a speech at the grand opening ceremony.',
-                title: 'TDSB Address by Donna Cardoza'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (4).jpeg',
-                alt: 'Local community singer playing acoustic guitar inside the courtyard reception.',
-                title: 'Live Music Performance'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (5).jpeg',
-                alt: 'Shelves filled with program guides, settlement resources, and schedule flyers.',
-                title: 'Community Resource Display'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (6).jpeg',
-                alt: 'Volunteer coordinators welcoming incoming residents at the front threshold.',
-                title: 'Volunteer Greeting Station'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (7).jpeg',
-                alt: 'Resident writing a hopeful note about the community centre on the dreams wall.',
-                title: 'Dreams & Hopes Interactive Wall'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (8).jpeg',
-                alt: 'Lively atmosphere in the main hall with neighbours chatting and eating snacks.',
-                title: 'Main Hall Reception Social'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (9).jpeg',
-                alt: 'Youth showcasing completed art canvases at the creative zone display.',
-                title: 'Youth Creative Art Showcase'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM.jpeg',
-                alt: 'Group class demonstration layout in the workshops and education suite.',
-                title: 'Skills Training Classroom'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (1).jpeg',
-                alt: 'Young child smiling holding a balloon animal created by the opening entertainers.',
-                title: 'Kids Balloon Art Activities'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (2).jpeg',
-                alt: 'Official sponsors posing with Coach John Emore by the main logo plaque.',
-                title: 'Partners & Builders Commemoration'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/President of West Hill giving a speech.jpeg',
-                alt: 'President of the West Hill Community Association giving a speech at the grand opening ceremony.',
-                title: 'President\'s Address'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (4).jpeg',
-                alt: 'A resident signs the opening day logbook to mark the historic milestone.',
-                title: 'Milestone Guest Book Signing'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (5).jpeg',
-                alt: 'Information counselors describing services available at the reference counter.',
-                title: 'Counseling Service Orientation'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (6).jpeg',
-                alt: 'Residents sitting outdoors in the sunny courtyard talking and drinking refreshments.',
-                title: 'Outdoor Courtyard Social'
-            },
-            {
-                type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (7).jpeg',
-                alt: 'Employment board detailing available local positions and resume writing clinics.',
-                title: 'Job Assistance Info Hub'
+                title: 'Grand Opening Ceremony Video Highlight'
             },
             {
                 type: 'image',
                 src: 'assets/images/westhillcenterOpening/Ribbon Cutting.jpeg',
-                alt: 'Official ribbon cutting ceremony celebrating the opening of the West Hill Community Centre.',
-                title: 'Ribbon Cutting'
+                title: 'Grand Opening Ceremony 2026'
             },
             {
                 type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM.jpeg',
-                alt: 'Volunteer cooking crew prepping tasty sliders and appetizers for the opening reception.',
-                title: 'Reception Kitchen Volunteers'
+                src: 'assets/images/westhillcenterOpening/Coach Rejoice.jpeg',
+                title: 'Grand Opening Ceremony 2026'
             },
             {
                 type: 'image',
-                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (1).jpeg',
-                alt: 'Panoramic shot of the lobby filled with natural light and brand new furnishings.',
-                title: 'Bright Lobby Space'
+                src: 'assets/images/westhillcenterOpening/Donna Cardoza From Toronto District School Board giving a Speech.jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/President of West Hill giving a speech.jpeg',
+                title: 'Grand Opening Ceremony 2026'
             },
             {
                 type: 'image',
                 src: 'assets/images/westhillcenterOpening/43 Division police giving a Speech.jpeg',
-                alt: '43 Division police officer giving a speech at the West Hill Community Centre grand opening ceremony.',
-                title: '43 Division Police Address'
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM.jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (1).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (2).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (3).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (4).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (5).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (6).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (7).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (8).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (9).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.48 PM (10).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM.jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (1).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (2).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (4).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (5).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (6).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (7).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (8).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.49 PM (9).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM.jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (1).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (2).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (4).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (5).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (6).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.50 PM (7).jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM.jpeg',
+                title: 'Grand Opening Ceremony 2026'
+            },
+            {
+                type: 'image',
+                src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (1).jpeg',
+                title: 'Grand Opening Ceremony 2026'
             },
             {
                 type: 'image',
                 src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (3).jpeg',
-                alt: 'Residents seated in the presentation hall laughing and applauding.',
-                title: 'Opening Day Presentation'
+                title: 'Grand Opening Ceremony 2026'
             },
             {
                 type: 'image',
                 src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (4).jpeg',
-                alt: 'Interactive polaroid capture frame with polaroids of visiting neighbours.',
-                title: 'Memory Polaroid Station'
+                title: 'Grand Opening Ceremony 2026'
             },
             {
                 type: 'image',
                 src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (5).jpeg',
-                alt: 'The official commemorative plaque mounted by the front entrance is unveiled.',
-                title: 'Plaque Unveiling Ceremony'
+                title: 'Grand Opening Ceremony 2026'
             },
             {
                 type: 'image',
                 src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (6).jpeg',
-                alt: 'A staff member demonstrating accessibility push-button entries and railings.',
-                title: 'Accessible Facility Tour'
+                title: 'Grand Opening Ceremony 2026'
             },
             {
                 type: 'image',
                 src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (7).jpeg',
-                alt: 'Guests looking around the quiet study rooms in the library zone of the centre.',
-                title: 'Quiet Study Zone Overview'
+                title: 'Grand Opening Ceremony 2026'
             },
             {
                 type: 'image',
                 src: 'assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (8).jpeg',
-                alt: 'Sunset view of the West Hill Community Centre, ending our first official day of operations.',
-                title: 'Closing Inaugural Day Sunset'
+                title: 'Grand Opening Ceremony 2026'
             }
         ];
 
-        // Albums Database
-        const ALBUMS_DATABASE = {
-            'grand-opening': {
-                id: 'grand-opening',
-                title: 'Grand Opening Ceremony 2026',
-                date: 'June 9, 2026',
-                desc: 'Photos from the official opening of West Hill Community Centre, celebrating a new community space for residents to connect, belong, and thrive.',
-                cover: 'assets/images/westhillcenterOpening/Ribbon Cutting.jpeg',
-                mediaCount: '41 Items',
-                status: 'active',
-                media: GRAND_OPENING_MEDIA
-            },
-            'westhill-day': {
-                id: 'westhill-day',
-                title: 'West Hill Day',
-                date: 'June 20, 2026',
-                desc: 'Annual festival celebrating the vibrant culture, local businesses, and community spirit of West Hill.',
-                cover: 'images/hero_community.png',
-                mediaCount: 'Coming Soon',
-                status: 'coming-soon'
-            },
-            'community-events': {
-                id: 'community-events',
-                title: 'Community Events',
-                date: 'Ongoing Events',
-                desc: 'Neighbourhood barbecues, block meetings, and cultural heritage celebrations that bring residents together.',
-                cover: 'images/community_advocacy.png',
-                mediaCount: 'Coming Soon',
-                status: 'coming-soon'
-            },
-            'youth-programs': {
-                id: 'youth-programs',
-                title: 'Youth Programs',
-                date: 'Ongoing Programs',
-                desc: 'Moments from homework clubs, coding workshops, art programs, and sports events tailored for youth.',
-                cover: 'images/youth_opportunities.png',
-                mediaCount: 'Coming Soon',
-                status: 'coming-soon'
-            },
-            'volunteer-activities': {
-                id: 'volunteer-activities',
-                title: 'Volunteer Activities',
-                date: 'Ongoing Activities',
-                desc: 'Photos of our dedicated volunteers packing food hampers, supporting event setups, and contributing their skills.',
-                cover: 'images/coach_john_emore.jpeg',
-                mediaCount: 'Coming Soon',
-                status: 'coming-soon'
-            },
-            'workshops': {
-                id: 'workshops',
-                title: 'Workshops & Training',
-                date: 'Ongoing Workshops',
-                desc: 'Employment resume clinics, settlement orientation, digital literacy modules, and leadership workshops.',
-                cover: 'images/employment_support.png',
-                mediaCount: 'Coming Soon',
-                status: 'coming-soon'
-            }
-        };
-
-        let currentAlbumId = '';
         let lightboxIndex = 0;
-        let activeMediaList = [];
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Render the main albums landing grid
-            renderAlbumsList();
+            const grid = document.getElementById('gallery-grid-elt');
+            if (!grid) return;
 
-            // Set up back to albums button handler
-            const backBtn = document.getElementById('back-to-albums-btn');
-            if (backBtn) {
-                backBtn.addEventListener('click', showAlbumsLanding);
-            }
-
-            // Set up Lightbox controls
-            initLightbox();
-        });
-
-        function renderAlbumsList() {
-            const container = document.getElementById('albums-grid-container');
-            if (!container) return;
-            container.innerHTML = '';
-
-            Object.keys(ALBUMS_DATABASE).forEach(key => {
-                const album = ALBUMS_DATABASE[key];
-                const card = document.createElement('div');
-                card.className = 'album-card wh-reveal active';
-                
-                const isComingSoon = album.status === 'coming-soon';
-                const statusBadge = isComingSoon 
-                    ? '<span class="album-status-badge coming-soon">Coming Soon</span>'
-                    : '<span class="album-status-badge active-badge"><i class="fas fa-check"></i> Featured Album</span>';
-
-                const buttonText = isComingSoon ? 'Coming Soon' : 'View Album &rarr;';
-                const buttonClass = isComingSoon ? 'btn btn-outline btn-sm disabled' : 'btn btn-primary btn-sm';
-                
-                card.innerHTML = `
-                    <div class="album-card-img-wrapper">
-                        ${statusBadge}
-                        <img src="${album.cover}" alt="${album.title} Cover" loading="lazy" style="${isComingSoon ? 'filter: grayscale(80%) opacity(0.75);' : ''}">
-                    </div>
-                    <div class="album-card-body">
-                        <h3>${album.title}</h3>
-                        <div class="album-card-meta">
-                            <span><i class="far fa-calendar-alt"></i> ${album.date}</span> &bull; 
-                            <span><i class="far fa-images"></i> ${album.mediaCount}</span>
-                        </div>
-                        <p>${album.desc}</p>
-                        <button class="${buttonClass}" style="margin-top: auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">${buttonText}</button>
-                    </div>
-                `;
-
-                if (!isComingSoon) {
-                    card.addEventListener('click', () => openAlbumDetails(album.id));
-                    card.style.cursor = 'pointer';
-                } else {
-                    card.addEventListener('click', () => {
-                        alert(`The "${album.title}" album is coming soon! Photos will be uploaded as soon as the events take place.`);
-                    });
-                    card.style.cursor = 'pointer';
-                }
-
-                container.appendChild(card);
-            });
-        }
-
-        function openAlbumDetails(albumId) {
-            currentAlbumId = albumId;
-            const album = ALBUMS_DATABASE[albumId];
-            if (!album || album.status === 'coming-soon') return;
-
-            // Set up metadata header
-            document.getElementById('detail-album-title').innerText = album.title;
-            document.getElementById('detail-album-date').innerHTML = `<i class="far fa-calendar" style="color: var(--wh-orange-accent); margin-right: 5px;"></i> ${album.date}`;
-            document.getElementById('detail-album-count').innerHTML = `<i class="far fa-images" style="color: var(--wh-orange-accent); margin-right: 5px;"></i> ${album.media.length} Photos & Videos`;
-            document.getElementById('detail-album-desc').innerText = album.desc;
-
-            // Render photos grid
-            renderAlbumPhotos(albumId);
-
-            // Toggle views
-            document.getElementById('albums-landing-view').style.display = 'none';
-            document.getElementById('album-details-view').style.display = 'block';
-
-            // Scroll to detail header
-            document.getElementById('album-details-view').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function showAlbumsLanding() {
-            document.getElementById('album-details-view').style.display = 'none';
-            document.getElementById('albums-landing-view').style.display = 'block';
-            
-            // Clean up photos grid to save resources
-            document.getElementById('album-photos-grid').innerHTML = '';
-
-            // Scroll back to landing grid
-            document.getElementById('albums-landing-view').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function renderAlbumPhotos(albumId) {
-            const album = ALBUMS_DATABASE[albumId];
-            const grid = document.getElementById('album-photos-grid');
-            if (!grid || !album) return;
-
+            // Clear any static placeholders
             grid.innerHTML = '';
-            activeMediaList = album.media || [];
 
-            activeMediaList.forEach((item, index) => {
+            // Populate Grid
+            GALLERY_MEDIA.forEach((item, index) => {
                 const card = document.createElement('div');
-                card.className = 'gallery-album-item wh-reveal active';
+                card.className = 'gallery-card';
                 card.setAttribute('role', 'button');
                 card.setAttribute('aria-label', `View larger version of ${item.title}`);
                 card.addEventListener('click', () => openLightbox(index));
 
                 if (item.type === 'video') {
                     card.innerHTML = `
-                        <div class="gallery-album-item-img-wrapper">
-                            <video src="${item.src}" muted loop playsinline></video>
-                            <span class="video-play-overlay"><i class="fas fa-play" style="margin-left: 3px;"></i></span>
-                        </div>
-                        <div class="gallery-album-item-caption">
-                            <h4>${item.title}</h4>
-                            <p>Video Highlight</p>
-                        </div>
+                        <video src="${item.src}" muted loop playsinline></video>
+                        <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
                     `;
-                    // Autoplay previews on hover
-                    const video = card.querySelector('video');
-                    card.addEventListener('mouseenter', () => video.play());
+                    // Hover play functionality
+                    card.addEventListener('mouseenter', () => {
+                        const video = card.querySelector('video');
+                        if (video) video.play().catch(() => {});
+                    });
                     card.addEventListener('mouseleave', () => {
-                        video.pause();
-                        video.currentTime = 0;
+                        const video = card.querySelector('video');
+                        if (video) {
+                            video.pause();
+                            video.currentTime = 0;
+                        }
                     });
                 } else {
                     card.innerHTML = `
-                        <div class="gallery-album-item-img-wrapper">
-                            <img src="${item.src}" alt="${item.alt}" loading="lazy">
-                        </div>
-                        <div class="gallery-album-item-caption">
-                            <h4>${item.title}</h4>
-                            <p>Photo</p>
-                        </div>
+                        <img src="${item.src}" alt="${item.title}" loading="lazy">
                     `;
                 }
 
                 grid.appendChild(card);
             });
-        }
+
+            // Smooth scrolling for View All button
+            const viewAllBtn = document.getElementById('gallery-view-all-btn');
+            if (viewAllBtn) {
+                viewAllBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    grid.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Init Lightbox Controls
+            initLightbox();
+        });
 
         function initLightbox() {
             const lightbox = document.getElementById('gallery-lightbox');
@@ -714,14 +809,11 @@
 
             if (!lightbox || !closeBtn || !prevBtn || !nextBtn) return;
 
-            // Close lightbox
             closeBtn.addEventListener('click', closeLightbox);
-            
-            // Navigate lightbox
-            prevBtn.addEventListener('click', showPrevMedia);
-            nextBtn.addEventListener('click', showNextMedia);
+            prevBtn.addEventListener('click', showPrev);
+            nextBtn.addEventListener('click', showNext);
 
-            // Close when clicking background outside media
+            // Close when clicking outside of the media
             lightbox.addEventListener('click', (e) => {
                 if (e.target === lightbox || e.target.id === 'lightbox-media-container') {
                     closeLightbox();
@@ -730,79 +822,72 @@
 
             // Keyboard navigation
             window.addEventListener('keydown', (e) => {
-                if (!lightbox.classList.contains('open')) return;
-                
+                if (!lightbox.classList.contains('active')) return;
                 if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showPrevMedia();
-                if (e.key === 'ArrowRight') showNextMedia();
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'ArrowRight') showNext();
             });
         }
 
         function openLightbox(index) {
-            if (activeMediaList.length === 0) return;
             lightboxIndex = index;
-
             const lightbox = document.getElementById('gallery-lightbox');
+            if (!lightbox) return;
+
             updateLightboxContent();
-            
-            lightbox.style.display = 'flex';
-            lightbox.offsetHeight; // trigger browser layout
-            lightbox.classList.add('open');
-            document.body.style.overflow = 'hidden'; // Lock background scroll
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Lock page scrolling
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('gallery-lightbox');
             if (!lightbox) return;
 
-            lightbox.classList.remove('open');
-            document.body.style.overflow = ''; // Unlock background scroll
-            
-            // Clean up html container (stops video if playing)
-            setTimeout(() => {
-                document.getElementById('lightbox-media-container').innerHTML = '';
-                lightbox.style.display = 'none';
-            }, 300);
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Restore page scrolling
+
+            // Clear media from memory/playback
+            const container = document.getElementById('lightbox-media-container');
+            if (container) container.innerHTML = '';
         }
 
         function updateLightboxContent() {
-            const mediaContainer = document.getElementById('lightbox-media-container');
+            const container = document.getElementById('lightbox-media-container');
             const caption = document.getElementById('lightbox-caption-elt');
-            if (!mediaContainer || !caption || activeMediaList.length === 0) return;
+            if (!container || !caption) return;
 
-            const item = activeMediaList[lightboxIndex];
-            mediaContainer.innerHTML = '';
+            const item = GALLERY_MEDIA[lightboxIndex];
+            container.innerHTML = '';
 
             if (item.type === 'video') {
                 const video = document.createElement('video');
                 video.src = item.src;
                 video.controls = true;
                 video.autoplay = true;
-                video.className = 'lightbox-img';
+                video.className = 'lightbox-media';
                 video.style.outline = 'none';
-                mediaContainer.appendChild(video);
+                container.appendChild(video);
             } else {
                 const img = document.createElement('img');
                 img.src = item.src;
-                img.alt = item.alt;
-                img.className = 'lightbox-img';
-                mediaContainer.appendChild(img);
+                img.alt = item.title;
+                img.className = 'lightbox-media';
+                container.appendChild(img);
             }
 
-            caption.innerText = `${item.title} (${lightboxIndex + 1} of ${activeMediaList.length})`;
+            caption.innerText = `${item.title} (${lightboxIndex + 1} of ${GALLERY_MEDIA.length})`;
         }
 
-        function showPrevMedia() {
-            if (activeMediaList.length === 0) return;
-            lightboxIndex = (lightboxIndex - 1 + activeMediaList.length) % activeMediaList.length;
+        function showPrev() {
+            lightboxIndex = (lightboxIndex - 1 + GALLERY_MEDIA.length) % GALLERY_MEDIA.length;
             updateLightboxContent();
         }
 
-        function showNextMedia() {
-            if (activeMediaList.length === 0) return;
-            lightboxIndex = (lightboxIndex + 1) % activeMediaList.length;
+        function showNext() {
+            lightboxIndex = (lightboxIndex + 1) % GALLERY_MEDIA.length;
             updateLightboxContent();
         }
     </script>
 </body>
+
 </html>

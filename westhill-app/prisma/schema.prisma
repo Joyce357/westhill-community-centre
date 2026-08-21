@@ -1,0 +1,219 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum SubmissionStatus {
+  UNREAD
+  READ
+  IN_PROGRESS
+  RESOLVED
+  ARCHIVED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(ADMIN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model SiteSettings {
+  id               String   @id @default("singleton")
+  organizationName String   @default("West Hill Community Centre")
+  primaryEmail     String   @default("info@westhillcommunitycentre.ca")
+  volunteerEmail   String?  @default("volunteer@westhillcommunity.org")
+  phone            String   @default("(416) 555-0199")
+  streetAddress    String   @default("4234 Lawrence Avenue East")
+  unit             String?  @default("Units 2–3")
+  city             String   @default("Scarborough")
+  province         String   @default("Ontario")
+  postalCode       String   @default("M1E 4R4")
+  hoursWeekday     String   @default("Mon – Fri: 9:00 AM – 6:00 PM")
+  hoursSaturday    String   @default("Saturday: By Program Schedule")
+  hoursSunday      String   @default("Sunday: Closed")
+  facebookUrl      String?
+  instagramUrl     String?
+  linkedinUrl      String?
+  youtubeUrl       String?
+  updatedAt        DateTime @updatedAt
+}
+
+model Announcement {
+  id        String    @id @default(cuid())
+  message   String
+  ctaText   String?
+  ctaUrl    String?
+  isActive  Boolean   @default(false)
+  startsAt  DateTime?
+  expiresAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model ProgramCategory {
+  id           String    @id @default(cuid())
+  name         String    @unique
+  slug         String    @unique
+  displayOrder Int       @default(0)
+  programs     Program[]
+}
+
+model Program {
+  id               String          @id @default(cuid())
+  slug             String          @unique
+  title            String
+  shortDescription String
+  fullDescription  String
+  category         ProgramCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId       String
+  icon             String?
+  imageUrl         String?
+  schedule         String?
+  eligibility      String?
+  location         String?
+  registrationInfo String?
+  isFeatured       Boolean         @default(false)
+  isPublished      Boolean         @default(true)
+  displayOrder     Int             @default(0)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  inquiries        ProgramInquiry[]
+}
+
+model Event {
+  id          String      @id @default(cuid())
+  slug        String      @unique
+  title       String
+  description String
+  eventDate   DateTime
+  startTime   String
+  endTime     String?
+  location    String
+  category    String
+  imageUrl    String?
+  flyerUrl    String?
+  rsvpEnabled Boolean     @default(true)
+  isFeatured  Boolean     @default(false)
+  isPublished Boolean     @default(true)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  rsvps       EventRsvp[]
+}
+
+// -------------------------------------------------------------
+// PUBLIC FORM SUBMISSIONS & INBOX PERSISTENCE
+// -------------------------------------------------------------
+
+model ContactSubmission {
+  id        String           @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  status    SubmissionStatus @default(UNREAD)
+  notes     String?
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+model VolunteerApplication {
+  id           String           @id @default(cuid())
+  fullName     String
+  email        String
+  phone        String
+  roles        String           // Comma-separated or specific role
+  availability String
+  experience   String?
+  interests    String?
+  status       SubmissionStatus @default(UNREAD)
+  notes        String?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+}
+
+model ProgramInquiry {
+  id             String           @id @default(cuid())
+  program        Program?         @relation(fields: [programId], references: [id], onDelete: SetNull)
+  programId      String?
+  programTitle   String
+  fullName       String
+  email          String
+  phone          String
+  participantAge String?
+  message        String?
+  status         SubmissionStatus @default(UNREAD)
+  notes          String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+model PartnershipInquiry {
+  id             String           @id @default(cuid())
+  organization   String
+  contactPerson  String
+  email          String
+  phone          String?
+  tierInterest   String?
+  proposalDetails String
+  status         SubmissionStatus @default(UNREAD)
+  notes          String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+model NewsletterSubscription {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  isActive  Boolean  @default(true)
+  source    String   @default("website-footer")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model EventRsvp {
+  id             String           @id @default(cuid())
+  event          Event?           @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId        String?
+  eventTitle     String
+  fullName       String
+  email          String
+  phone          String?
+  attendeesCount Int              @default(1)
+  specialNotes   String?
+  status         SubmissionStatus @default(UNREAD)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+}
+
+model GalleryItem {
+  id           String    @id @default(cuid())
+  title        String
+  mediaType    MediaType @default(IMAGE)
+  mediaUrl     String
+  thumbnailUrl String?
+  altText      String?
+  category     String?   @default("Grand Opening Ceremony 2026")
+  displayOrder Int       @default(0)
+  isPublished  Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}

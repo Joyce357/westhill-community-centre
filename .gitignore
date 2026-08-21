@@ -32,22 +32,28 @@ $RECYCLE.BIN/
 
 # Node and logs
 node_modules/
+.next/
+out/
+.turbo/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 logs/
 *.log
 
-# WordPress specific (just in case local testing is done in root)
-wp-config.php
-wp-content/uploads/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/backups/
-.htaccess
-sitemap.xml
-sitemap.xml.gz
+# Env secrets
+.env
+.env*.local
+.env.development
+.env.production
+!.env.example
 
 # Deployment packages
 *.zip
 westhill-static-deploy.zip
+
+# Local development database (embedded PostgreSQL data)
+westhill-app/.postgres-data/
+
+# TypeScript build info
+*.tsbuildinfo
