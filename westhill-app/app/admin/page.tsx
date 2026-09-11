@@ -458,6 +458,30 @@ export default async function AdminDashboardPage() {
         </Link>
 
         <Link
+          href="/admin/partners"
+          style={{
+            backgroundColor: "var(--wh-bg-white)",
+            padding: "18px 20px",
+            borderRadius: "var(--wh-radius-md)",
+            border: "1px solid var(--wh-pale-sky)",
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "14px",
+            boxShadow: "var(--wh-shadow-soft)",
+            transition: "var(--wh-transition)",
+          }}
+        >
+          <div style={{ width: "42px", height: "42px", borderRadius: "var(--wh-radius-sm)", backgroundColor: "rgba(76, 115, 50, 0.12)", color: "var(--wh-community-green)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem" }}>
+            <i className="fas fa-handshake"></i>
+          </div>
+          <div>
+            <h4 style={{ fontSize: "0.95rem", color: "var(--wh-navy)", margin: 0, fontWeight: 600 }}>Partners</h4>
+            <span style={{ fontSize: "0.78rem", color: "var(--wh-text-muted)" }}>Community builders</span>
+          </div>
+        </Link>
+
+        <Link
           href="/admin/settings"
           style={{
             backgroundColor: "var(--wh-bg-white)",

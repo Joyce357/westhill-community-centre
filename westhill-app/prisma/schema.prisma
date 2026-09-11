@@ -239,3 +239,19 @@ model ResourceItem {
   updatedAt    DateTime     @updatedAt
 }
 
+model Partner {
+  id           String   @id @default(cuid())
+  name         String
+  description  String?
+  logoUrl      String?
+  websiteUrl   String?
+  tier         String?  @default("Community Partner")
+  category     String?  @default("Community")
+  displayOrder Int      @default(0)
+  isFeatured   Boolean  @default(false)
+  isPublished  Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+

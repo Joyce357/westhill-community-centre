@@ -40,6 +40,7 @@ async function main() {
     events: await prisma.event.count(),
     galleryItems: await prisma.galleryItem.count(),
     resourceItems: await prisma.resourceItem.count(),
+    partners: await prisma.partner.count(),
     contactSubmissions: await prisma.contactSubmission.count(),
     volunteerApplications: await prisma.volunteerApplication.count(),
     programInquiries: await prisma.programInquiry.count(),
@@ -76,6 +77,12 @@ async function main() {
     take: 5
   });
   console.log("   Sample events (first 5):", JSON.stringify(sampleEvents, null, 2));
+
+  const samplePartners = await prisma.partner.findMany({
+    select: { id: true, name: true, tier: true, category: true, isPublished: true },
+    take: 5
+  });
+  console.log("   Sample partners (first 5):", JSON.stringify(samplePartners, null, 2));
 
   const siteSettings = await prisma.siteSettings.findUnique({
     where: { id: "singleton" },

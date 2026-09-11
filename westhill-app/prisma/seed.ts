@@ -541,8 +541,89 @@ async function main() {
     }
   }
 
+  // 8. Partner Organizations & Community Collaborators
+  const initialPartners = [
+    {
+      name: "Toronto District School Board (TDSB)",
+      description: "Collaborating on educational programs, youth tutoring, and community school initiatives across East Scarborough.",
+      logoUrl: null,
+      websiteUrl: "https://www.tdsb.on.ca",
+      tier: "Community Builder",
+      category: "Education",
+      displayOrder: 1,
+      isFeatured: true,
+      isPublished: true,
+    },
+    {
+      name: "Toronto Public Health",
+      description: "Providing community wellness clinics, health workshops, immunization advice, and family wellness guidelines.",
+      logoUrl: null,
+      websiteUrl: "https://www.toronto.ca/community-people/health-wellness-care/",
+      tier: "Cornerstone Partner",
+      category: "Health & Wellness",
+      displayOrder: 2,
+      isFeatured: true,
+      isPublished: true,
+    },
+    {
+      name: "West Hill Collegiate Institute",
+      description: "Connecting local students with volunteer opportunities, athletic tournaments, and youth development circles.",
+      logoUrl: null,
+      websiteUrl: "https://schoolweb.tdsb.on.ca/westhill",
+      tier: "Youth Advocate",
+      category: "Education",
+      displayOrder: 3,
+      isFeatured: true,
+      isPublished: true,
+    },
+    {
+      name: "Jays Care Foundation",
+      description: "Supporting inclusive youth baseball and athletic recreation leagues for neighborhood children in Scarborough.",
+      logoUrl: null,
+      websiteUrl: "https://www.mlb.com/bluejays/community/jays-care",
+      tier: "Youth Advocate",
+      category: "Sports & Recreation",
+      displayOrder: 4,
+      isFeatured: true,
+      isPublished: true,
+    },
+    {
+      name: "Code Ninjas Scarborough",
+      description: "Delivering introductory coding camps, STEM workshops, and digital literacy for youth hub members.",
+      logoUrl: null,
+      websiteUrl: "https://www.codeninjas.com",
+      tier: "Youth Advocate",
+      category: "STEM & Technology",
+      displayOrder: 5,
+      isFeatured: false,
+      isPublished: true,
+    },
+    {
+      name: "West Hill Community Association",
+      description: "Collaborating on neighborhood events, civic engagement, and community advocacy across Scarborough-West Hill.",
+      logoUrl: null,
+      websiteUrl: "https://www.westhillcommunityassociation.com",
+      tier: "Community Builder",
+      category: "Community & Civic",
+      displayOrder: 6,
+      isFeatured: false,
+      isPublished: true,
+    },
+  ];
+
+  const partnerCount = await prisma.partner.count();
+  if (partnerCount === 0) {
+    for (const partner of initialPartners) {
+      await prisma.partner.create({
+        data: partner,
+      });
+    }
+  }
+
   console.log("Database seeded successfully!");
 }
+
+
 
 main()
   .catch((e) => {

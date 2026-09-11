@@ -340,4 +340,113 @@ export async function getPublishedResources(): Promise<PublishedResourceItem[]> 
   ];
 }
 
+export interface PublishedPartnerItem {
+  id: string;
+  name: string;
+  description: string | null;
+  logoUrl: string | null;
+  websiteUrl: string | null;
+  tier: string | null;
+  category: string | null;
+  displayOrder: number;
+  isFeatured: boolean;
+}
+
+export async function getPublishedPartners(): Promise<PublishedPartnerItem[]> {
+  try {
+    if (process.env.DATABASE_URL) {
+      const items = await prisma.partner.findMany({
+        where: { isPublished: true },
+        orderBy: [{ displayOrder: "asc" }, { createdAt: "desc" }],
+      });
+
+      if (items.length > 0) {
+        return items.map((p) => ({
+          id: p.id,
+          name: p.name,
+          description: p.description,
+          logoUrl: p.logoUrl,
+          websiteUrl: p.websiteUrl,
+          tier: p.tier,
+          category: p.category,
+          displayOrder: p.displayOrder,
+          isFeatured: p.isFeatured,
+        }));
+      }
+    }
+  } catch (err) {
+    console.warn("Failed to load partners from database, using fallback:", err);
+  }
+
+  return [
+    {
+      id: "partner-1",
+      name: "Toronto District School Board (TDSB)",
+      description: "Collaborating on educational programs, youth tutoring, and community school initiatives across East Scarborough.",
+      logoUrl: null,
+      websiteUrl: "https://www.tdsb.on.ca",
+      tier: "Community Builder",
+      category: "Education",
+      displayOrder: 1,
+      isFeatured: true,
+    },
+    {
+      id: "partner-2",
+      name: "Toronto Public Health",
+      description: "Providing community wellness clinics, health workshops, immunization advice, and family wellness guidelines.",
+      logoUrl: null,
+      websiteUrl: "https://www.toronto.ca/community-people/health-wellness-care/",
+      tier: "Cornerstone Partner",
+      category: "Health & Wellness",
+      displayOrder: 2,
+      isFeatured: true,
+    },
+    {
+      id: "partner-3",
+      name: "West Hill Collegiate Institute",
+      description: "Connecting local students with volunteer opportunities, athletic tournaments, and youth development circles.",
+      logoUrl: null,
+      websiteUrl: "https://schoolweb.tdsb.on.ca/westhill",
+      tier: "Youth Advocate",
+      category: "Education",
+      displayOrder: 3,
+      isFeatured: true,
+    },
+    {
+      id: "partner-4",
+      name: "Jays Care Foundation",
+      description: "Supporting inclusive youth baseball and athletic recreation leagues for neighborhood children in Scarborough.",
+      logoUrl: null,
+      websiteUrl: "https://www.mlb.com/bluejays/community/jays-care",
+      tier: "Youth Advocate",
+      category: "Sports & Recreation",
+      displayOrder: 4,
+      isFeatured: true,
+    },
+    {
+      id: "partner-5",
+      name: "Code Ninjas Scarborough",
+      description: "Delivering introductory coding camps, STEM workshops, and digital literacy for youth hub members.",
+      logoUrl: null,
+      websiteUrl: "https://www.codeninjas.com",
+      tier: "Youth Advocate",
+      category: "STEM & Technology",
+      displayOrder: 5,
+      isFeatured: false,
+    },
+    {
+      id: "partner-6",
+      name: "West Hill Community Association",
+      description: "Collaborating on neighborhood events, civic engagement, and community advocacy across Scarborough-West Hill.",
+      logoUrl: null,
+      websiteUrl: "https://www.westhillcommunityassociation.com",
+      tier: "Community Builder",
+      category: "Community & Civic",
+      displayOrder: 6,
+      isFeatured: false,
+    },
+  ];
+}
+
+
 

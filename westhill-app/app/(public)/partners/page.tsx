@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import PartnershipForm from "@/components/forms/PartnershipForm";
-import { getSiteSettings } from "@/lib/queries";
+import { getSiteSettings, getPublishedPartners } from "@/lib/queries";
 
 export const metadata: Metadata = {
   title: "Partners & Community Builders | West Hill Community Centre",
@@ -10,7 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default async function PartnersPage() {
-  const settings = await getSiteSettings();
+  const [settings, partners] = await Promise.all([
+    getSiteSettings(),
+    getPublishedPartners(),
+  ]);
 
   return (
     <>
@@ -93,8 +96,103 @@ export default async function PartnersPage() {
               <PartnershipForm />
             </div>
           </div>
+
+          {/* Dedicated Community Partners Showcase Section */}
+          {partners.length > 0 && (
+            <div className="section-alt standard-card-container" style={{ marginTop: "20px" }}>
+              <div style={{ textAlign: "center", maxWidth: "750px", margin: "0 auto 35px" }}>
+                <h3 style={{ color: "var(--wh-navy)", fontSize: "1.6rem", marginBottom: "12px", fontFamily: "var(--wh-font-primary)", fontWeight: 700 }}>
+                  Our Community Partners & Collaborators
+                </h3>
+                <p style={{ fontSize: "0.95rem", lineHeight: 1.6, color: "var(--wh-text-body)" }}>
+                  We are proud to collaborate with educational institutions, healthcare leaders, philanthropic foundations, and community builders across Scarborough.
+                </p>
+              </div>
+
+              <div className="grid-3" style={{ gap: "25px" }}>
+                {partners.map((partner) => (
+                  <div
+                    key={partner.id}
+                    style={{
+                      backgroundColor: "var(--wh-bg-white)",
+                      borderRadius: "var(--wh-radius-md)",
+                      border: "1px solid var(--wh-pale-sky)",
+                      padding: "24px",
+                      boxShadow: "var(--wh-shadow-soft)",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px", gap: "8px" }}>
+                        <span
+                          style={{
+                            fontSize: "0.75rem",
+                            fontWeight: 600,
+                            padding: "3px 10px",
+                            borderRadius: "var(--wh-radius-full)",
+                            backgroundColor: "rgba(101, 175, 218, 0.15)",
+                            color: "var(--wh-navy)",
+                          }}
+                        >
+                          {partner.tier || "Community Partner"}
+                        </span>
+                        {partner.isFeatured && (
+                          <span
+                            style={{
+                              fontSize: "0.72rem",
+                              fontWeight: 700,
+                              color: "var(--wh-sun-gold)",
+                              display: "inline-flex",
+                              alignItems: "center",
+                              gap: "4px",
+                            }}
+                          >
+                            <i className="fas fa-star"></i> Featured
+                          </span>
+                        )}
+                      </div>
+
+                      <h4 style={{ color: "var(--wh-navy)", fontSize: "1.1rem", marginBottom: "8px", fontWeight: 700, fontFamily: "var(--wh-font-primary)" }}>
+                        {partner.name}
+                      </h4>
+
+                      {partner.description && (
+                        <p style={{ fontSize: "0.88rem", lineHeight: 1.5, color: "var(--wh-text-body)", marginBottom: "16px" }}>
+                          {partner.description}
+                        </p>
+                      )}
+                    </div>
+
+                    {partner.websiteUrl && (
+                      <div style={{ paddingTop: "12px", borderTop: "1px solid rgba(210, 234, 242, 0.6)" }}>
+                        <a
+                          href={partner.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            fontSize: "0.85rem",
+                            fontWeight: 600,
+                            color: "var(--wh-sky-blue)",
+                            textDecoration: "none",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "6px",
+                          }}
+                        >
+                          Visit Organization <i className="fas fa-external-link-alt" style={{ fontSize: "0.75rem" }}></i>
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </>
   );
 }
+
