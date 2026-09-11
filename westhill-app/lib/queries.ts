@@ -210,3 +210,134 @@ export async function getPublishedGalleryItems(): Promise<Array<{ type: "image" 
   return GALLERY_MEDIA;
 }
 
+export interface PublishedResourceItem {
+  id: string;
+  title: string;
+  description: string | null;
+  resourceType: "DOCUMENT" | "EXTERNAL_LINK" | "GUIDE";
+  url: string;
+  fileSize: string | null;
+  category: string | null;
+  icon: string | null;
+  displayOrder: number;
+}
+
+export async function getPublishedResources(): Promise<PublishedResourceItem[]> {
+  try {
+    if (process.env.DATABASE_URL) {
+      const items = await prisma.resourceItem.findMany({
+        where: { isPublished: true },
+        orderBy: [{ displayOrder: "asc" }, { createdAt: "desc" }],
+      });
+
+      if (items.length > 0) {
+        return items.map((i) => ({
+          id: i.id,
+          title: i.title,
+          description: i.description,
+          resourceType: i.resourceType as "DOCUMENT" | "EXTERNAL_LINK" | "GUIDE",
+          url: i.url,
+          fileSize: i.fileSize,
+          category: i.category,
+          icon: i.icon,
+          displayOrder: i.displayOrder,
+        }));
+      }
+    }
+  } catch (err) {
+    console.warn("Failed to load resources from database, using fallback:", err);
+  }
+
+  return [
+    {
+      id: "res-1",
+      title: "Volunteer Handbook",
+      description: "Official guide and volunteer orientation packet for West Hill Community Centre.",
+      resourceType: "DOCUMENT",
+      url: "/assets/documents/Volunteer-Handbook-West-Hill-Community-Centre.pdf",
+      fileSize: "PDF | 153 KB | Official Guide",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 1,
+    },
+    {
+      id: "res-2",
+      title: "Program Registration Guide",
+      description: "Detailed step-by-step registration instructions for youth, seniors, and family programs.",
+      resourceType: "GUIDE",
+      url: "/programs",
+      fileSize: "PDF | Document Info",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 2,
+    },
+    {
+      id: "res-3",
+      title: "Community Partnership Package",
+      description: "Information on organizational sponsorships, joint initiatives, and community impact tiers.",
+      resourceType: "GUIDE",
+      url: "/partners",
+      fileSize: "PDF | Partnership Info",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 3,
+    },
+    {
+      id: "res-4",
+      title: "Summer Program Information",
+      description: "Upcoming summer schedules, sports leagues, and camp registration details.",
+      resourceType: "DOCUMENT",
+      url: "#",
+      fileSize: "Coming Soon",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 4,
+    },
+    {
+      id: "res-5",
+      title: "Event Participation Guide",
+      description: "Calendar and participation guidelines for upcoming community celebrations and workshops.",
+      resourceType: "GUIDE",
+      url: "/events",
+      fileSize: "PDF | Events Calendar",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 5,
+    },
+    {
+      id: "res-6",
+      title: "Toronto 211",
+      description: "Free, confidential service connecting you to government and community programs across Toronto.",
+      resourceType: "EXTERNAL_LINK",
+      url: "https://211toronto.ca",
+      fileSize: null,
+      category: "Community Connections",
+      icon: "fas fa-landmark",
+      displayOrder: 6,
+    },
+    {
+      id: "res-7",
+      title: "Toronto Public Library",
+      description: "The Morningside and Port Union library branches provide book lending, study spaces, and child learning groups.",
+      resourceType: "EXTERNAL_LINK",
+      url: "https://www.torontopubliclibrary.ca",
+      fileSize: null,
+      category: "Community Connections",
+      icon: "fas fa-book-open",
+      displayOrder: 7,
+    },
+    {
+      id: "res-8",
+      title: "Settlement Services",
+      description: "Connect with settlement counseling, English language learning (LINC), and housing referral helpers in Scarborough.",
+      resourceType: "EXTERNAL_LINK",
+      url: "https://settlement.org",
+      fileSize: null,
+      category: "Community Connections",
+      icon: "fas fa-hands-holding",
+      displayOrder: 8,
+    },
+  ];
+}
+
+

@@ -39,6 +39,7 @@ async function main() {
     programs: await prisma.program.count(),
     events: await prisma.event.count(),
     galleryItems: await prisma.galleryItem.count(),
+    resourceItems: await prisma.resourceItem.count(),
     contactSubmissions: await prisma.contactSubmission.count(),
     volunteerApplications: await prisma.volunteerApplication.count(),
     programInquiries: await prisma.programInquiry.count(),

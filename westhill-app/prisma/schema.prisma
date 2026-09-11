@@ -217,3 +217,25 @@ model GalleryItem {
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
 }
+
+enum ResourceType {
+  DOCUMENT
+  EXTERNAL_LINK
+  GUIDE
+}
+
+model ResourceItem {
+  id           String       @id @default(cuid())
+  title        String
+  description  String?
+  resourceType ResourceType @default(DOCUMENT)
+  url          String
+  fileSize     String?
+  category     String?      @default("Downloads")
+  icon         String?      @default("fas fa-file-pdf")
+  displayOrder Int          @default(0)
+  isPublished  Boolean      @default(true)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+

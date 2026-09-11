@@ -440,6 +440,107 @@ async function main() {
     }
   }
 
+  // 7. Resource Items (Downloads & Helpful Community Connections)
+  const initialResources = [
+    {
+      title: "Volunteer Handbook",
+      description: "Official guide and volunteer orientation packet for West Hill Community Centre.",
+      resourceType: "DOCUMENT" as const,
+      url: "/assets/documents/Volunteer-Handbook-West-Hill-Community-Centre.pdf",
+      fileSize: "PDF | 153 KB | Official Guide",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 1,
+      isPublished: true,
+    },
+    {
+      title: "Program Registration Guide",
+      description: "Detailed step-by-step registration instructions for youth, seniors, and family programs.",
+      resourceType: "GUIDE" as const,
+      url: "/programs",
+      fileSize: "PDF | Document Info",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 2,
+      isPublished: true,
+    },
+    {
+      title: "Community Partnership Package",
+      description: "Information on organizational sponsorships, joint initiatives, and community impact tiers.",
+      resourceType: "GUIDE" as const,
+      url: "/partners",
+      fileSize: "PDF | Partnership Info",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 3,
+      isPublished: true,
+    },
+    {
+      title: "Summer Program Information",
+      description: "Upcoming summer schedules, sports leagues, and camp registration details.",
+      resourceType: "DOCUMENT" as const,
+      url: "#",
+      fileSize: "Coming Soon",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 4,
+      isPublished: true,
+    },
+    {
+      title: "Event Participation Guide",
+      description: "Calendar and participation guidelines for upcoming community celebrations and workshops.",
+      resourceType: "GUIDE" as const,
+      url: "/events",
+      fileSize: "PDF | Events Calendar",
+      category: "Downloads",
+      icon: "fas fa-file-pdf",
+      displayOrder: 5,
+      isPublished: true,
+    },
+    {
+      title: "Toronto 211",
+      description: "Free, confidential service connecting you to government and community programs across Toronto.",
+      resourceType: "EXTERNAL_LINK" as const,
+      url: "https://211toronto.ca",
+      fileSize: null,
+      category: "Community Connections",
+      icon: "fas fa-landmark",
+      displayOrder: 6,
+      isPublished: true,
+    },
+    {
+      title: "Toronto Public Library",
+      description: "The Morningside and Port Union library branches provide book lending, study spaces, and child learning groups.",
+      resourceType: "EXTERNAL_LINK" as const,
+      url: "https://www.torontopubliclibrary.ca",
+      fileSize: null,
+      category: "Community Connections",
+      icon: "fas fa-book-open",
+      displayOrder: 7,
+      isPublished: true,
+    },
+    {
+      title: "Settlement Services",
+      description: "Connect with settlement counseling, English language learning (LINC), and housing referral helpers in Scarborough.",
+      resourceType: "EXTERNAL_LINK" as const,
+      url: "https://settlement.org",
+      fileSize: null,
+      category: "Community Connections",
+      icon: "fas fa-hands-holding",
+      displayOrder: 8,
+      isPublished: true,
+    },
+  ];
+
+  const resourceCount = await prisma.resourceItem.count();
+  if (resourceCount === 0) {
+    for (const res of initialResources) {
+      await prisma.resourceItem.create({
+        data: res,
+      });
+    }
+  }
+
   console.log("Database seeded successfully!");
 }
 

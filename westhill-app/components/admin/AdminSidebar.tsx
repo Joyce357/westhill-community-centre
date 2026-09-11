@@ -22,6 +22,7 @@ export default function AdminSidebar({ userName, userEmail }: AdminSidebarProps)
     { label: "Programs", href: "/admin/programs", icon: "fas fa-hand-holding-hand" },
     { label: "Events", href: "/admin/events", icon: "fas fa-calendar-days" },
     { label: "Gallery", href: "/admin/gallery", icon: "fas fa-images" },
+    { label: "Resources", href: "/admin/resources", icon: "fas fa-folder-open" },
     { label: "Site Settings", href: "/admin/settings", icon: "fas fa-sliders" },
   ];
 
