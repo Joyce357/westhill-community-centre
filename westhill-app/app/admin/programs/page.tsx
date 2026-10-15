@@ -11,6 +11,7 @@ interface ProgramItemType {
   fullDescription: string;
   categoryId: string;
   category: { id: string; name: string };
+  displayLabel: string | null;
   icon: string | null;
   imageUrl: string | null;
   schedule: string | null;
@@ -41,6 +42,7 @@ export default async function AdminProgramsPage() {
     fullDescription: p.description,
     categoryId: fallbackCategories[idx % fallbackCategories.length].id,
     category: fallbackCategories[idx % fallbackCategories.length],
+    displayLabel: null,
     icon: p.icon,
     imageUrl: p.image,
     schedule: "Mon – Fri: Flexible Hours",

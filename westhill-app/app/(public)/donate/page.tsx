@@ -3,10 +3,21 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import DonationCalculator from "@/components/DonationCalculator";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Support Our Community | West Hill Community Centre",
+  title: "Support Our Community & Programs",
   description:
-    "Support West Hill Community Centre by donating online. Learn how your funds help support youth mentorship, settlement programs, and seniors support.",
+    "Support West Hill Community Centre. Your charitable contribution funds free youth recreation, seniors nourishment, family assistance, and local leadership programs in Scarborough.",
+  alternates: {
+    canonical: getCanonicalUrl("/donate"),
+  },
+  openGraph: {
+    title: "Support Our Community & Programs | West Hill Community Centre",
+    description:
+      "Support West Hill Community Centre. Your charitable contribution funds free youth recreation, seniors nourishment, family assistance, and local leadership programs in Scarborough.",
+    url: getCanonicalUrl("/donate"),
+  },
 };
 
 export default function DonatePage() {
@@ -55,7 +66,7 @@ export default function DonatePage() {
                   </h4>
                   <p style={{ fontSize: "0.9rem", color: "var(--wh-text-body)", lineHeight: 1.5, marginLeft: "25px" }}>
                     Please make cheques payable to &quot;West Hill Community Centre&quot; and mail to:{" "}
-                    <strong>4234 Lawrence Avenue East, Unit 2, Scarborough, ON M1E 4R4</strong>.
+                    <strong>Unit 4, 4234 Lawrence Ave East, Scarborough, ON M1E 4R4</strong>.
                   </p>
                 </div>
                 <div>

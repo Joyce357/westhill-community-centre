@@ -4,10 +4,21 @@ import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { getPublishedResources } from "@/lib/queries";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Resources & Downloads | West Hill Community Centre",
+  title: "Community Resources & Downloads",
   description:
-    "Download program guides, flyer schedules, volunteer packets, and find community resources in Scarborough-West Hill.",
+    "Download community guides, program schedules, volunteer intake packages, and essential civic resources for Scarborough families.",
+  alternates: {
+    canonical: getCanonicalUrl("/resources"),
+  },
+  openGraph: {
+    title: "Community Resources & Downloads | West Hill Community Centre",
+    description:
+      "Download community guides, program schedules, volunteer intake packages, and essential civic resources for Scarborough families.",
+    url: getCanonicalUrl("/resources"),
+  },
 };
 
 export default async function ResourcesPage() {

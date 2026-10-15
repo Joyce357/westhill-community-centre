@@ -15,9 +15,9 @@ export default async function AdminDashboardPage() {
   let totalUnreadSubmissions = 0;
   let activeAnnouncement: { message: string } | null = { message: "Summer Youth Programs registration is now open!" };
   let recentPrograms: Array<{ id: string; title: string; isFeatured: boolean; isPublished: boolean; category: { name: string } }> = [
-    { id: "youth-hub", title: "Youth Hub", isFeatured: true, isPublished: true, category: { name: "Youth Services" } },
-    { id: "seniors-support", title: "Seniors Support", isFeatured: true, isPublished: true, category: { name: "Support Services" } },
+    { id: "seniors-support", title: "West Hill Seniors Program", isFeatured: true, isPublished: true, category: { name: "Support Services" } },
     { id: "youth-leadership", title: "Youth Development & Leadership", isFeatured: true, isPublished: true, category: { name: "Youth Services" } },
+    { id: "women-family", title: "Women’s Wellness Program", isFeatured: false, isPublished: true, category: { name: "Family Services" } },
   ];
   let recentEvents: Array<{ id: string; title: string; eventDate: Date; startTime: string; isPublished: boolean }> = [
     { id: "westhill-day", title: "West Hill Day: Celebrating Community Together", eventDate: new Date("2026-06-20"), startTime: "11:00 AM", isPublished: true },
@@ -358,6 +358,30 @@ export default async function AdminDashboardPage() {
           <div>
             <h4 style={{ fontSize: "0.95rem", color: "var(--wh-navy)", margin: 0, fontWeight: 600 }}>Announcements</h4>
             <span style={{ fontSize: "0.78rem", color: "var(--wh-text-muted)" }}>Manage top banner alert</span>
+          </div>
+        </Link>
+
+        <Link
+          href="/admin/homepage"
+          style={{
+            backgroundColor: "var(--wh-bg-white)",
+            padding: "18px 20px",
+            borderRadius: "var(--wh-radius-md)",
+            border: "1px solid var(--wh-pale-sky)",
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "14px",
+            boxShadow: "var(--wh-shadow-soft)",
+            transition: "var(--wh-transition)",
+          }}
+        >
+          <div style={{ width: "42px", height: "42px", borderRadius: "var(--wh-radius-sm)", backgroundColor: "rgba(12, 40, 63, 0.12)", color: "var(--wh-navy)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem" }}>
+            <i className="fas fa-house"></i>
+          </div>
+          <div>
+            <h4 style={{ fontSize: "0.95rem", color: "var(--wh-navy)", margin: 0, fontWeight: 600 }}>Homepage</h4>
+            <span style={{ fontSize: "0.78rem", color: "var(--wh-text-muted)" }}>Hero, welcome & photography</span>
           </div>
         </Link>
 

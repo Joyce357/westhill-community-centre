@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import MediaUploader from "@/components/admin/MediaUploader";
 import {
   createGalleryItemAction,
   updateGalleryItemAction,
@@ -32,6 +33,8 @@ export default function GalleryManager({
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<GalleryItemData | null>(null);
+  const [formMediaType, setFormMediaType] = useState<"IMAGE" | "VIDEO">("IMAGE");
+  const [formThumbnailUrl, setFormThumbnailUrl] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -47,12 +50,16 @@ export default function GalleryManager({
 
   const handleOpenCreate = () => {
     setEditingItem(null);
+    setFormMediaType("IMAGE");
+    setFormThumbnailUrl("");
     setError(null);
     setIsModalOpen(true);
   };
 
   const handleOpenEdit = (item: GalleryItemData) => {
     setEditingItem(item);
+    setFormMediaType(item.mediaType);
+    setFormThumbnailUrl(item.thumbnailUrl || "");
     setError(null);
     setIsModalOpen(true);
   };
@@ -561,6 +568,20 @@ export default function GalleryManager({
                 />
               </div>
 
+              {/* Media Uploader (Images + Videos) */}
+              <MediaUploader
+                name="mediaUrl"
+                defaultValue={editingItem?.mediaUrl || ""}
+                acceptedTypes="any"
+                label="Media File (Image or Video)"
+                onMediaTypeChange={(type) => setFormMediaType(type)}
+                onThumbnailChange={(thumb) => setFormThumbnailUrl(thumb)}
+                helperText="Upload JPG/PNG/WebP photos or MP4/MOV videos. Manual file path or URL also supported."
+              />
+
+              {/* Hidden thumbnail URL input */}
+              <input type="hidden" name="thumbnailUrl" value={formThumbnailUrl} />
+
               {/* Media Type & Display Order */}
               <div className="grid-2" style={{ gap: "12px", marginBottom: "14px" }}>
                 <div>
@@ -569,7 +590,8 @@ export default function GalleryManager({
                   </label>
                   <select
                     name="mediaType"
-                    defaultValue={editingItem?.mediaType || "IMAGE"}
+                    value={formMediaType}
+                    onChange={(e) => setFormMediaType(e.target.value as "IMAGE" | "VIDEO")}
                     style={{
                       width: "100%",
                       padding: "9px 12px",
@@ -580,7 +602,7 @@ export default function GalleryManager({
                     }}
                   >
                     <option value="IMAGE">Image (Photo)</option>
-                    <option value="VIDEO">Video (.mp4)</option>
+                    <option value="VIDEO">Video (.mp4 / .mov / .webm)</option>
                   </select>
                 </div>
 
@@ -603,31 +625,6 @@ export default function GalleryManager({
                     }}
                   />
                 </div>
-              </div>
-
-              {/* Media URL / Path */}
-              <div style={{ marginBottom: "14px" }}>
-                <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "4px" }}>
-                  Media URL or File Path *
-                </label>
-                <input
-                  type="text"
-                  name="mediaUrl"
-                  required
-                  defaultValue={editingItem?.mediaUrl || ""}
-                  placeholder="e.g. /assets/images/westhillcenterOpening/Ribbon Cutting.jpeg"
-                  style={{
-                    width: "100%",
-                    padding: "9px 12px",
-                    borderRadius: "var(--wh-radius-sm)",
-                    border: "1.5px solid var(--wh-pale-sky)",
-                    fontSize: "0.9rem",
-                    outline: "none",
-                  }}
-                />
-                <span style={{ fontSize: "0.74rem", color: "var(--wh-text-muted)" }}>
-                  Enter a local asset path (e.g. <code>/images/...</code>) or hosted media URL.
-                </span>
               </div>
 
               {/* Optional Alt Text */}

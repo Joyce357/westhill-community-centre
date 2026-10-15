@@ -5,6 +5,14 @@ import { prisma } from "@/lib/prisma";
 import { requireAuth } from "@/lib/auth";
 import { revalidatePath } from "next/cache";
 
+function safeRevalidatePath(path: string) {
+  try {
+    revalidatePath(path);
+  } catch {
+    // Graceful no-op when executed outside active Next.js request lifecycle
+  }
+}
+
 export interface SubmissionResponse {
   success: boolean;
   message?: string;
@@ -68,7 +76,7 @@ export async function submitContactAction(formData: FormData): Promise<Submissio
       },
     });
 
-    revalidatePath("/admin/inbox");
+    safeRevalidatePath("/admin/inbox");
     return {
       success: true,
       message: "Thank you! Your message has been received and routed to our team. We will be in touch shortly.",
@@ -137,7 +145,7 @@ export async function submitVolunteerAction(formData: FormData): Promise<Submiss
       },
     });
 
-    revalidatePath("/admin/inbox");
+    safeRevalidatePath("/admin/inbox");
     return {
       success: true,
       message: "Thank you! Your volunteer application has been submitted. Our volunteer coordinator will review your profile and reach out within 3 business days.",
@@ -206,7 +214,7 @@ export async function submitProgramInquiryAction(formData: FormData): Promise<Su
       },
     });
 
-    revalidatePath("/admin/inbox");
+    safeRevalidatePath("/admin/inbox");
     return {
       success: true,
       message: "Thank you! Your program inquiry has been registered. Our program intake coordinator will contact you to confirm registration steps.",
@@ -272,7 +280,7 @@ export async function submitPartnershipAction(formData: FormData): Promise<Submi
       },
     });
 
-    revalidatePath("/admin/inbox");
+    safeRevalidatePath("/admin/inbox");
     return {
       success: true,
       message: "Thank you! Your partnership proposal has been submitted. Our community development desk will review your submission and connect with you.",
@@ -333,7 +341,7 @@ export async function submitNewsletterAction(formData: FormData): Promise<Submis
           where: { email },
           data: { isActive: true },
         });
-        revalidatePath("/admin/inbox");
+        safeRevalidatePath("/admin/inbox");
         return {
           success: true,
           message: "Welcome back! Your subscription has been reactivated.",
@@ -345,7 +353,7 @@ export async function submitNewsletterAction(formData: FormData): Promise<Submis
       data: { email, isActive: true },
     });
 
-    revalidatePath("/admin/inbox");
+    safeRevalidatePath("/admin/inbox");
     return {
       success: true,
       message: "You have been successfully subscribed to West Hill Community Centre updates!",
@@ -414,7 +422,7 @@ export async function submitEventRsvpAction(formData: FormData): Promise<Submiss
       },
     });
 
-    revalidatePath("/admin/inbox");
+    safeRevalidatePath("/admin/inbox");
     return {
       success: true,
       message: "Your RSVP has been confirmed! We look forward to seeing you at West Hill Community Centre.",
@@ -457,8 +465,8 @@ export async function updateSubmissionStatusAction(
       await prisma.eventRsvp.update({ where: { id }, data: { status: newStatus } });
     }
 
-    revalidatePath("/admin/inbox");
-    revalidatePath("/admin");
+    safeRevalidatePath("/admin/inbox");
+    safeRevalidatePath("/admin");
     return { success: true };
   } catch (error) {
     const errMessage = error instanceof Error ? error.message : "Auth or database error";
@@ -492,8 +500,8 @@ export async function deleteSubmissionAction(
       await prisma.eventRsvp.delete({ where: { id } });
     }
 
-    revalidatePath("/admin/inbox");
-    revalidatePath("/admin");
+    safeRevalidatePath("/admin/inbox");
+    safeRevalidatePath("/admin");
     return { success: true };
   } catch (error) {
     const errMessage = error instanceof Error ? error.message : "Auth or database error";

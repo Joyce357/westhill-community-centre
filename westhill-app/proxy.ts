@@ -16,6 +16,14 @@ export async function proxy(request: NextRequest) {
   if (pathname.startsWith("/admin")) {
     // Allow public access to login page
     if (pathname === "/admin/login") {
+      // Security: Strip any sensitive query parameters immediately
+      if (
+        request.nextUrl.searchParams.has("email") ||
+        request.nextUrl.searchParams.has("password")
+      ) {
+        return NextResponse.redirect(new URL("/admin/login", request.url));
+      }
+
       const token = request.cookies.get(COOKIE_NAME)?.value;
       if (token) {
         try {

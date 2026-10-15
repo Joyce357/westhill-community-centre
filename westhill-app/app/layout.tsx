@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import { Poppins, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -16,38 +16,45 @@ const inter = Inter({
   display: "swap",
 });
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
+});
+
+import { SITE_URL, SITE_NAME, SITE_DEFAULT_DESCRIPTION } from "@/lib/site";
+import JsonLd from "@/components/JsonLd";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://westhillcommunitycentre.ca"),
-  title: "West Hill Community Centre | Connecting Communities, Supporting Families",
-  description:
-    "West Hill Community Centre brings people together through community programs, family support services, youth development initiatives, and local advocacy in Scarborough.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "West Hill Community Centre | Connecting Communities, Supporting Families",
+    template: "%s | West Hill Community Centre",
+  },
+  description: SITE_DEFAULT_DESCRIPTION,
   keywords: [
-    "community centre",
-    "Scarborough",
-    "West Hill",
-    "youth programs",
-    "seniors support",
-    "community services",
-    "nonprofit",
-    "family support",
-    "employment aid",
-    "housing referrals",
-    "volunteer",
-    "advocacy",
+    "West Hill Community Centre",
+    "West Hill Community Center",
+    "community centre West Hill Scarborough",
+    "community programs West Hill",
+    "community centre Scarborough",
+    "Scarborough youth programs",
+    "seniors support Scarborough",
+    "East Toronto community centre",
   ],
-  authors: [{ name: "West Hill Community Centre" }],
+  authors: [{ name: SITE_NAME }],
   openGraph: {
     title: "West Hill Community Centre | Connecting Communities, Supporting Families",
-    description:
-      "West Hill Community Centre brings people together through community programs, family support services, youth development initiatives, and local advocacy in Scarborough.",
-    url: "https://westhillcommunitycentre.ca",
-    siteName: "West Hill Community Centre",
+    description: SITE_DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     images: [
       {
         url: "/assets/images/og-share.png",
         width: 1200,
         height: 630,
-        alt: "West Hill Community Centre",
+        alt: SITE_NAME,
       },
     ],
     locale: "en_CA",
@@ -56,8 +63,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "West Hill Community Centre | Connecting Communities, Supporting Families",
-    description:
-      "West Hill Community Centre brings people together through community programs, family support services, youth development initiatives, and local advocacy in Scarborough.",
+    description: SITE_DEFAULT_DESCRIPTION,
     images: ["/assets/images/og-share.png"],
   },
 };
@@ -68,8 +74,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${poppins.variable} ${inter.variable} ${plusJakartaSans.variable}`}>
+      <body>
+        <JsonLd />
+        {children}
+      </body>
     </html>
   );
 }
+

@@ -105,12 +105,13 @@ export default function ProgramInquirySection() {
               outline: "none",
             }}
           >
-            <option value="Youth Hub (After-School Mentorship)">Youth Hub (After-School Mentorship)</option>
-            <option value="Seniors Support & Wellness Circle">Seniors Support & Wellness Circle</option>
-            <option value="Community Kitchen & Nutrition Club">Community Kitchen & Nutrition Club</option>
-            <option value="Resume & Job Search Workshop">Resume & Job Search Workshop</option>
-            <option value="Housing & Settlement Advocacy">Housing & Settlement Advocacy</option>
             <option value="General Program Inquiry">General Program Inquiry / Guidance</option>
+            <option value="West Hill Seniors Program">West Hill Seniors Program</option>
+            <option value="Women’s Wellness Program">Women’s Wellness Program</option>
+            <option value="Summer Camp & Youth Programs">Summer Camp &amp; Youth Programs</option>
+            <option value="West Hill Community Job Fair">West Hill Community Job Fair</option>
+            <option value="Dental Care & Benefits Support">Dental Care &amp; Benefits Support</option>
+            <option value="Toronto Public Library Programming">Toronto Public Library Programming</option>
           </select>
         </div>
 

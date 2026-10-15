@@ -19,6 +19,25 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        setAboutDropdownOpen(false);
+      }
+    };
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
   const closeMenus = () => {
     setMobileMenuOpen(false);
     setAboutDropdownOpen(false);
@@ -29,8 +48,8 @@ export default function Header() {
   if (pathname.startsWith("/admin")) return null;
 
   return (
-    <header id="masthead" className={isScrolled ? "scrolled" : ""}>
-      <div className="container header-container">
+    <header id="masthead" className={`civic-header ${isScrolled ? "scrolled" : ""}`}>
+      <div className="civic-container header-container">
         <Link href="/" className="logo" aria-label="West Hill Community Centre Home" onClick={closeMenus}>
           <Image
             src="/images/Westhillcenterlogo.jpeg"

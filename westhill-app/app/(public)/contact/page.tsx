@@ -4,9 +4,21 @@ import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/forms/ContactForm";
 import { getSiteSettings } from "@/lib/queries";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Contact Us | West Hill Community Centre",
-  description: "Get in touch with West Hill Community Centre. Location, operating hours, phone numbers, and transit directions.",
+  title: "Contact & Community Centre Location",
+  description:
+    "Connect with West Hill Community Centre at Unit 4, 4234 Lawrence Ave East, Scarborough. Operating hours, contact form, telephone, and transit directions.",
+  alternates: {
+    canonical: getCanonicalUrl("/contact"),
+  },
+  openGraph: {
+    title: "Contact & Community Centre Location | West Hill Community Centre",
+    description:
+      "Connect with West Hill Community Centre at Unit 4, 4234 Lawrence Ave East, Scarborough. Operating hours, contact form, telephone, and transit directions.",
+    url: getCanonicalUrl("/contact"),
+  },
 };
 
 export default async function ContactPage() {

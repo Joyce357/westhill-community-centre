@@ -37,7 +37,7 @@ model SiteSettings {
   volunteerEmail   String?  @default("volunteer@westhillcommunity.org")
   phone            String   @default("(416) 555-0199")
   streetAddress    String   @default("4234 Lawrence Avenue East")
-  unit             String?  @default("Units 2–3")
+  unit             String?  @default("Unit 4")
   city             String   @default("Scarborough")
   province         String   @default("Ontario")
   postalCode       String   @default("M1E 4R4")
@@ -79,6 +79,7 @@ model Program {
   fullDescription  String
   category         ProgramCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   categoryId       String
+  displayLabel     String?
   icon             String?
   imageUrl         String?
   schedule         String?
@@ -254,4 +255,54 @@ model Partner {
   updatedAt    DateTime @updatedAt
 }
 
+model HomepageContent {
+  id                     String   @id @default("singleton")
 
+  // Hero
+  heroEyebrow            String?
+  heroTitle              String?
+  heroDescription        String?
+  heroPrimaryCtaLabel    String?
+  heroPrimaryCtaUrl      String?
+  heroSecondaryCtaLabel  String?
+  heroSecondaryCtaUrl    String?
+  heroGalleryItemId      String?
+
+  // Welcome Section
+  welcomeEyebrow         String?
+  welcomeHeading         String?
+  welcomeDescription     String?
+  welcomeGalleryItemId   String?
+
+  // Programs & Community Services Section
+  programsEyebrow        String?
+  programsHeading        String?
+  programsDescription    String?
+
+  // Community Milestone
+  milestoneEyebrow       String?
+  milestoneTitle         String?
+  milestoneDateText      String?
+  milestoneDescription   String?
+  milestoneCtaLabel      String?
+  milestoneCtaUrl        String?
+  milestoneGalleryItemId String?
+
+  // Final CTA
+  ctaEyebrow             String?
+  ctaHeading             String?
+  ctaDescription         String?
+  ctaButton1Label        String?
+  ctaButton1Url          String?
+  ctaButton2Label        String?
+  ctaButton2Url          String?
+  ctaButton3Label        String?
+  ctaButton3Url          String?
+
+  // Homepage SEO
+  seoTitle               String?
+  seoDescription         String?
+  seoOgGalleryItemId     String?
+
+  updatedAt              DateTime @updatedAt
+}

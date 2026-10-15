@@ -1,32 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { loginAction } from "@/app/actions/auth";
+import { loginAction, type ActionResponse } from "@/app/actions/auth";
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [state, formAction, isPending] = useActionState<ActionResponse | null, FormData>(
+    loginAction,
+    null
+  );
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError(null);
-    setLoading(true);
+  // Immediately strip any query parameters from address bar on mount
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.search) {
+      window.history.replaceState(null, "", "/admin/login");
+    }
+  }, []);
 
-    const formData = new FormData(e.currentTarget);
-    const result = await loginAction(formData);
-
-    if (result.success) {
+  // Fallback client navigation if server redirect did not fire
+  useEffect(() => {
+    if (state?.success) {
       router.push("/admin");
       router.refresh();
-    } else {
-      setError(result.error || "Invalid credentials.");
-      setLoading(false);
     }
-  };
+  }, [state, router]);
+
+  const errorMessage = state?.success === false ? state.error : null;
 
   return (
     <div
@@ -75,7 +77,7 @@ export default function AdminLoginPage() {
           </p>
         </div>
 
-        {error && (
+        {errorMessage && (
           <div
             style={{
               backgroundColor: "var(--wh-danger-bg)",
@@ -91,11 +93,11 @@ export default function AdminLoginPage() {
             }}
           >
             <i className="fas fa-exclamation-circle"></i>
-            <span>{error}</span>
+            <span>{errorMessage}</span>
           </div>
         )}
 
-        <form onSubmit={handleSubmit}>
+        <form action={formAction} method="POST">
           <div style={{ marginBottom: "18px" }}>
             <label
               htmlFor="email"
@@ -164,7 +166,7 @@ export default function AdminLoginPage() {
 
           <button
             type="submit"
-            disabled={loading}
+            disabled={isPending}
             className="btn btn-primary"
             style={{
               width: "100%",
@@ -177,7 +179,7 @@ export default function AdminLoginPage() {
               gap: "8px",
             }}
           >
-            {loading ? (
+            {isPending ? (
               <>
                 <i className="fas fa-spinner fa-spin"></i> Signing In...
               </>

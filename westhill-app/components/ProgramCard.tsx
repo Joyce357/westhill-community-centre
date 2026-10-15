@@ -6,6 +6,11 @@ interface ProgramCardProps {
 }
 
 export default function ProgramCard({ program }: ProgramCardProps) {
+  const isSeniors = program.id === "seniors-support" || program.title.toLowerCase().includes("senior");
+  const altText = isSeniors
+    ? "Seniors participating in a West Hill Community Centre program"
+    : `${program.title} - West Hill`;
+
   return (
     <article className="program-card active" style={{ opacity: 1, transform: "none" }}>
       <div className="program-img-wrapper">
@@ -13,7 +18,7 @@ export default function ProgramCard({ program }: ProgramCardProps) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={program.image}
-          alt={`${program.title} - West Hill`}
+          alt={altText}
           loading="lazy"
         />
       </div>

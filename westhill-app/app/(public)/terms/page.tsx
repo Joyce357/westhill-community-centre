@@ -2,9 +2,19 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { SITE_SETTINGS } from "@/lib/data";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Terms of Use | West Hill Community Centre",
-  description: "Terms and conditions for using the West Hill Community Centre website and participating in community services.",
+  title: "Terms of Use",
+  description: "Terms and conditions for visiting West Hill Community Centre website, attending facility programs, and community participation in Scarborough.",
+  alternates: {
+    canonical: getCanonicalUrl("/terms"),
+  },
+  openGraph: {
+    title: "Terms of Use | West Hill Community Centre",
+    description: "Terms and conditions for visiting West Hill Community Centre website, attending facility programs, and community participation in Scarborough.",
+    url: getCanonicalUrl("/terms"),
+  },
 };
 
 export default function TermsPage() {

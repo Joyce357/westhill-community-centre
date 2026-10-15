@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import MediaUploader from "@/components/admin/MediaUploader";
 import {
   createEventAction,
   updateEventAction,
@@ -489,44 +490,32 @@ export default function EventsManager({
                 />
               </div>
 
-              <div className="grid-2" style={{ gap: "16px", marginBottom: "16px" }}>
-                <div>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "6px" }}>
-                    Image URL
-                  </label>
-                  <input
-                    type="text"
-                    name="imageUrl"
-                    defaultValue={editingItem?.imageUrl || "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=600"}
-                    placeholder="Cover photo URL"
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                      borderRadius: "var(--wh-radius-sm)",
-                      border: "1.5px solid var(--wh-pale-sky)",
-                      fontSize: "0.9rem",
-                    }}
-                  />
-                </div>
+              {/* Media Uploader for Event Image */}
+              <MediaUploader
+                name="imageUrl"
+                defaultValue={editingItem?.imageUrl || "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=600"}
+                acceptedTypes="image-only"
+                label="Event Cover Image"
+                helperText="Upload JPG, PNG, or WebP cover image, or paste an existing URL / local asset path."
+              />
 
-                <div>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "6px" }}>
-                    Downloadable Flyer URL
-                  </label>
-                  <input
-                    type="text"
-                    name="flyerUrl"
-                    defaultValue={editingItem?.flyerUrl || ""}
-                    placeholder="Optional PDF flyer link"
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                      borderRadius: "var(--wh-radius-sm)",
-                      border: "1.5px solid var(--wh-pale-sky)",
-                      fontSize: "0.9rem",
-                    }}
-                  />
-                </div>
+              <div style={{ marginBottom: "16px" }}>
+                <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "6px" }}>
+                  Downloadable Flyer URL
+                </label>
+                <input
+                  type="text"
+                  name="flyerUrl"
+                  defaultValue={editingItem?.flyerUrl || ""}
+                  placeholder="Optional PDF flyer link"
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    borderRadius: "var(--wh-radius-sm)",
+                    border: "1.5px solid var(--wh-pale-sky)",
+                    fontSize: "0.9rem",
+                  }}
+                />
               </div>
 
               <div style={{ display: "flex", gap: "20px", marginBottom: "20px", flexWrap: "wrap" }}>

@@ -1,19 +1,10 @@
 // Real West Hill Programs Data
 const LOCAL_PROGRAMS_DATA = [
   {
-    "id": "youth-hub",
-    "title": "Youth Hub",
-    "category": "Youth Services",
-    "description": "A welcoming drop-in space for Scarborough youth to study, access technology, and build positive peer relationships.",
-    "icon": "fas fa-laptop-code",
-    "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600",
-    "link": "programs.html?id=youth-hub"
-  },
-  {
     "id": "seniors-support",
-    "title": "Seniors Support",
+    "title": "West Hill Seniors Program",
     "category": "Support Services",
-    "description": "Promoting wellness and active social connections among Scarborough seniors with lunch programs and wellness checking.",
+    "description": "Weekly community program for older adults featuring chair exercise, digital skills, Housing Tuesday, health talks, wellness, safety, and social connection.",
     "icon": "fas fa-heartbeat",
     "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=600",
     "link": "programs.html?id=seniors-support"
@@ -29,9 +20,9 @@ const LOCAL_PROGRAMS_DATA = [
   },
   {
     "id": "women-family",
-    "title": "Women & Family Support",
+    "title": "Women’s Wellness Program",
     "category": "Family Services",
-    "description": "Providing safe support networks, parenting classes, counseling, and maternal resources for mothers and families.",
+    "description": "A welcoming community program focused on wellness, health education, and social connection for women.",
     "icon": "fas fa-child",
     "image": "images/family_support.png",
     "link": "programs.html?id=women-family"
@@ -124,7 +115,7 @@ const LOCAL_EVENTS_DATA = [
     "month": "JUN",
     "date": "2026-06-12",
     "time": "4:00 PM - 6:00 PM",
-    "location": "Youth Hub Lounge",
+    "location": "Community Activity Room",
     "category": "Youth Services",
     "description": "Interactive session focusing on communication skills, community project planning, and collaborative teamwork for youth.",
     "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600"
@@ -156,7 +147,7 @@ const LOCAL_EVENTS_DATA = [
 ];
 
 const DONATION_IMPACTS = {
-  25: "Provides bus tokens and study snack packs for youth attending the Youth Hub.",
+  25: "Provides bus tokens and study snack packs for youth attending youth development programs.",
   50: "Funds a hot, nutritious lunch and social outing for seniors at our center.",
   100: "Provides a private housing counseling session for a family facing emergency relocation.",
   250: "Funds a complete 4-week employment workshop series for a neighborhood resident."

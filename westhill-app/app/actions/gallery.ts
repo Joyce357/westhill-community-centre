@@ -48,7 +48,9 @@ export async function createGalleryItemAction(formData: FormData) {
     },
   });
 
+  revalidatePath("/");
   revalidatePath("/gallery");
+  revalidatePath("/programs");
   revalidatePath("/admin/gallery");
   revalidatePath("/admin");
   return { success: true };
@@ -87,7 +89,9 @@ export async function updateGalleryItemAction(id: string, formData: FormData) {
     },
   });
 
+  revalidatePath("/");
   revalidatePath("/gallery");
+  revalidatePath("/programs");
   revalidatePath("/admin/gallery");
   revalidatePath("/admin");
   return { success: true };
@@ -101,7 +105,9 @@ export async function toggleGalleryItemPublishedAction(id: string, isPublished: 
     data: { isPublished },
   });
 
+  revalidatePath("/");
   revalidatePath("/gallery");
+  revalidatePath("/programs");
   revalidatePath("/admin/gallery");
   revalidatePath("/admin");
   return { success: true };
@@ -115,7 +121,9 @@ export async function updateGalleryItemOrderAction(id: string, displayOrder: num
     data: { displayOrder },
   });
 
+  revalidatePath("/");
   revalidatePath("/gallery");
+  revalidatePath("/programs");
   revalidatePath("/admin/gallery");
   revalidatePath("/admin");
   return { success: true };
@@ -128,7 +136,9 @@ export async function deleteGalleryItemAction(id: string) {
     where: { id },
   });
 
+  revalidatePath("/");
   revalidatePath("/gallery");
+  revalidatePath("/programs");
   revalidatePath("/admin/gallery");
   revalidatePath("/admin");
   return { success: true };

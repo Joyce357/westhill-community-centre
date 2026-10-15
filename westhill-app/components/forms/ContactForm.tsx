@@ -180,7 +180,7 @@ export default function ContactForm() {
               id="contact-subject"
               name="subject"
               required
-              placeholder="e.g. Youth Hub inquiry"
+              placeholder="e.g. Program inquiry"
               style={{
                 width: "100%",
                 padding: "11px 14px",

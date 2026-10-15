@@ -31,7 +31,7 @@ export default async function AdminSettingsPage() {
     volunteerEmail: SITE_SETTINGS.volunteerEmail || null,
     phone: SITE_SETTINGS.phone,
     streetAddress: "4234 Lawrence Avenue East",
-    unit: "Units 2–3",
+    unit: "Unit 4",
     city: "Scarborough",
     province: "Ontario",
     postalCode: "M1E 4R4",

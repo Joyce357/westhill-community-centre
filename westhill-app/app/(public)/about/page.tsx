@@ -2,10 +2,21 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Our Story | West Hill Community Centre",
+  title: "Our Story & Community Charter",
   description:
-    "Learn about West Hill Community Centre's mission, history, and community leadership in Scarborough. Supporting families, youth, and seniors.",
+    "Learn about West Hill Community Centre's grassroots history, leadership, and mission in Scarborough. Providing barrier-free care, youth programs, and family support.",
+  alternates: {
+    canonical: getCanonicalUrl("/about"),
+  },
+  openGraph: {
+    title: "Our Story & Community Charter | West Hill Community Centre",
+    description:
+      "Learn about West Hill Community Centre's grassroots history, leadership, and mission in Scarborough. Providing barrier-free care, youth programs, and family support.",
+    url: getCanonicalUrl("/about"),
+  },
 };
 
 export default function AboutPage() {
@@ -24,7 +35,7 @@ export default function AboutPage() {
                 A Vision Brought to Life
               </h2>
               <p style={{ marginBottom: "18px", fontSize: "1.05rem", lineHeight: 1.7 }}>
-                The West Hill Community Centre is a newly established community hub located at 4234 Lawrence Avenue East. Although the physical facility represents a new chapter, the Centre is built upon a strong foundation of local resident advocacy and neighbourhood leadership that has worked to support Scarborough families for many years.
+                The West Hill Community Centre is a newly established community hub located at Unit 4, 4234 Lawrence Ave East. Although the physical facility represents a new chapter, the Centre is built upon a strong foundation of local resident advocacy and neighbourhood leadership that has worked to support Scarborough families for many years.
               </p>
               <p style={{ marginBottom: "18px", fontSize: "1.05rem", lineHeight: 1.7 }}>
                 Created to meet the growing need for accessible, free programs in East Scarborough, our Centre brings together youth mentoring, family support services, advocacy programs, and local partnerships under one roof. We strive to provide a positive, welcoming environment where everyone belongs.

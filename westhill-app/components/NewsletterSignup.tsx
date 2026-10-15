@@ -22,74 +22,51 @@ export default function NewsletterSignup() {
     const result = await submitNewsletterAction(formData);
 
     if (result.success) {
-      setSuccessMessage(result.message || "Thank you for subscribing!");
+      setSuccessMessage(result.message || "Thank you for subscribing to West Hill Community Centre updates!");
       e.currentTarget.reset();
     } else {
-      setErrorMessage(result.error || "Failed to subscribe.");
+      setErrorMessage(result.error || "Failed to subscribe. Please try again.");
     }
     setLoading(false);
   };
 
   return (
-    <section className="newsletter" aria-label="Newsletter Signup">
-      <div className="container newsletter-content">
-        <div className="newsletter-text">
-          <h3>Stay Connected With West Hill</h3>
-          <p>
-            Receive monthly updates about programs, events, volunteer opportunities, and community announcements.
-          </p>
-        </div>
-        <div className="newsletter-form">
-          {successMessage ? (
-            <div
-              style={{
-                backgroundColor: "rgba(76, 115, 50, 0.25)",
-                border: "1px solid rgba(76, 115, 50, 0.5)",
-                borderRadius: "var(--wh-radius-sm)",
-                padding: "12px 18px",
-                color: "white",
-                fontSize: "0.9rem",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                fontWeight: 600,
-              }}
-            >
-              <i className="fas fa-check-circle" style={{ color: "var(--wh-fresh-leaf)" }}></i>
-              <span>{successMessage}</span>
+    <section className="civic-newsletter-strip" aria-label="Newsletter Signup">
+      <div className="civic-container">
+        <div className="civic-newsletter-inner">
+          <div className="civic-newsletter-text">
+            <div className="civic-newsletter-icon" aria-hidden="true">
+              <i className="fas fa-envelope-open-text"></i>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+            <div>
+              <h3 className="civic-newsletter-title">Stay Connected to West Hill Updates</h3>
+              <p className="civic-newsletter-desc">
+                Receive our monthly calendar of free workshops, community drop-ins, and neighbourhood events.
+              </p>
+            </div>
+          </div>
+
+          <div className="civic-newsletter-form-wrap">
+            {successMessage ? (
+              <div className="civic-newsletter-success" role="status">
+                <i className="fas fa-check-circle"></i>
+                <span>{successMessage}</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="civic-newsletter-form">
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="Enter your email address"
-                  style={{
-                    flex: "1 1 240px",
-                    padding: "12px 16px",
-                    borderRadius: "var(--wh-radius-sm)",
-                    border: "1px solid rgba(255, 255, 255, 0.3)",
-                    backgroundColor: "rgba(255, 255, 255, 0.15)",
-                    color: "white",
-                    fontSize: "0.92rem",
-                    outline: "none",
-                  }}
+                  className="civic-newsletter-input"
+                  aria-label="Email address for newsletter"
                 />
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn btn-primary"
-                  style={{
-                    padding: "12px 22px",
-                    fontSize: "0.92rem",
-                    fontWeight: 600,
-                    whiteSpace: "nowrap",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "6px",
-                  }}
+                  className="civic-btn-gold"
+                  style={{ flexShrink: 0 }}
                 >
                   {loading ? (
                     <>
@@ -97,18 +74,20 @@ export default function NewsletterSignup() {
                     </>
                   ) : (
                     <>
-                      <i className="fas fa-paper-plane"></i> Subscribe
+                      <span>Subscribe</span>
+                      <i className="fas fa-arrow-right"></i>
                     </>
                   )}
                 </button>
-              </div>
-              {errorMessage && (
-                <div style={{ color: "#FCA5A5", fontSize: "0.82rem", marginTop: "8px" }}>
-                  {errorMessage}
-                </div>
-              )}
-            </form>
-          )}
+              </form>
+            )}
+
+            {errorMessage && (
+              <p className="civic-newsletter-error" role="alert">
+                <i className="fas fa-exclamation-circle"></i> {errorMessage}
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </section>

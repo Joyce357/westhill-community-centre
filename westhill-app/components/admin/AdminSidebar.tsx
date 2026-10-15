@@ -18,6 +18,7 @@ export default function AdminSidebar({ userName, userEmail }: AdminSidebarProps)
   const navItems = [
     { label: "Dashboard", href: "/admin", icon: "fas fa-gauge" },
     { label: "Inbox & Submissions", href: "/admin/inbox", icon: "fas fa-inbox" },
+    { label: "Homepage", href: "/admin/homepage", icon: "fas fa-house" },
     { label: "Announcements", href: "/admin/announcements", icon: "fas fa-bullhorn" },
     { label: "Programs", href: "/admin/programs", icon: "fas fa-hand-holding-hand" },
     { label: "Events", href: "/admin/events", icon: "fas fa-calendar-days" },

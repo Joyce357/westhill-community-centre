@@ -3,10 +3,21 @@ import PageHero from "@/components/PageHero";
 import GalleryGrid from "@/components/GalleryGrid";
 import { getPublishedGalleryItems } from "@/lib/queries";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Community Gallery | West Hill Community Centre",
+  title: "Community Gallery & Event Highlights",
   description:
-    "Explore photos and moments from West Hill Community Centre's programs, events, grand opening ceremony, and local gatherings in Scarborough.",
+    "Explore authentic photography from West Hill Community Centre programs, recreation, grand opening celebration, and community milestones in Scarborough.",
+  alternates: {
+    canonical: getCanonicalUrl("/gallery"),
+  },
+  openGraph: {
+    title: "Community Gallery & Event Highlights | West Hill Community Centre",
+    description:
+      "Explore authentic photography from West Hill Community Centre programs, recreation, grand opening celebration, and community milestones in Scarborough.",
+    url: getCanonicalUrl("/gallery"),
+  },
 };
 
 export default async function GalleryPage() {

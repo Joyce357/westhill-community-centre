@@ -215,7 +215,7 @@ export default function PartnershipForm() {
           >
             <option value="Cornerstone Partner">Cornerstone Partner (Foundational Program Support)</option>
             <option value="Community Builder">Community Builder (Settlement / Housing Kits)</option>
-            <option value="Youth Advocate">Youth Advocate (STEM / Youth Hub Supplies)</option>
+            <option value="Youth Advocate">Youth Advocate (STEM / Youth Leadership Supplies)</option>
             <option value="Workshop Host / Event Partner">Workshop Host / Event Partner</option>
             <option value="General Community Collaboration">General Community Collaboration</option>
           </select>

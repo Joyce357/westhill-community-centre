@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import MediaUploader from "@/components/admin/MediaUploader";
 import {
   createProgramAction,
   updateProgramAction,
@@ -16,6 +17,7 @@ interface ProgramItem {
   fullDescription: string;
   categoryId: string;
   category: { id: string; name: string };
+  displayLabel: string | null;
   icon: string | null;
   imageUrl: string | null;
   schedule: string | null;
@@ -233,6 +235,21 @@ export default function ProgramsManager({
                           FEATURED
                         </span>
                       )}
+                      {prog.displayLabel && (
+                        <span
+                          style={{
+                            marginLeft: "8px",
+                            backgroundColor: "rgba(15, 59, 106, 0.1)",
+                            color: "var(--wh-navy)",
+                            fontSize: "0.7rem",
+                            padding: "2px 6px",
+                            borderRadius: "4px",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {prog.displayLabel}
+                        </span>
+                      )}
                     </div>
                     <div style={{ fontSize: "0.78rem", color: "var(--wh-text-muted)", maxWidth: "340px" }}>
                       {prog.shortDescription}
@@ -402,7 +419,7 @@ export default function ProgramsManager({
                     name="title"
                     required
                     defaultValue={editingItem?.title || ""}
-                    placeholder="e.g. Youth Hub"
+                    placeholder="e.g. Youth Development & Leadership"
                     style={{
                       width: "100%",
                       padding: "10px",
@@ -437,6 +454,28 @@ export default function ProgramsManager({
                     ))}
                   </select>
                 </div>
+              </div>
+
+              <div style={{ marginBottom: "16px" }}>
+                <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "4px" }}>
+                  Display Label (Optional)
+                </label>
+                <p style={{ fontSize: "0.78rem", color: "var(--wh-text-muted)", marginBottom: "6px" }}>
+                  Optional short badge displayed on the public program card. Leave blank for no badge.
+                </p>
+                <input
+                  type="text"
+                  name="displayLabel"
+                  defaultValue={editingItem?.displayLabel || ""}
+                  placeholder="e.g. Drop-In, Registration Open (leave blank for no badge)"
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    borderRadius: "var(--wh-radius-sm)",
+                    border: "1.5px solid var(--wh-pale-sky)",
+                    fontSize: "0.9rem",
+                  }}
+                />
               </div>
 
               <div style={{ marginBottom: "16px" }}>
@@ -487,7 +526,7 @@ export default function ProgramsManager({
                     type="text"
                     name="schedule"
                     defaultValue={editingItem?.schedule || ""}
-                    placeholder="e.g. Mon - Fri: 3:30 PM - 6:00 PM"
+                    placeholder="Only enter a verified schedule"
                     style={{
                       width: "100%",
                       padding: "10px",
@@ -506,7 +545,7 @@ export default function ProgramsManager({
                     type="text"
                     name="location"
                     defaultValue={editingItem?.location || ""}
-                    placeholder="e.g. Youth Hub Lounge, 4234 Lawrence Ave E"
+                    placeholder="Only enter a verified location"
                     style={{
                       width: "100%",
                       padding: "10px",
@@ -518,26 +557,7 @@ export default function ProgramsManager({
                 </div>
               </div>
 
-              <div className="grid-2" style={{ gap: "16px", marginBottom: "16px" }}>
-                <div>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "6px" }}>
-                    Eligibility
-                  </label>
-                  <input
-                    type="text"
-                    name="eligibility"
-                    defaultValue={editingItem?.eligibility || ""}
-                    placeholder="e.g. Youth aged 12–18"
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                      borderRadius: "var(--wh-radius-sm)",
-                      border: "1.5px solid var(--wh-pale-sky)",
-                      fontSize: "0.9rem",
-                    }}
-                  />
-                </div>
-
+              <div style={{ marginBottom: "16px" }}>
                 <div>
                   <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "6px" }}>
                     Registration Information
@@ -558,45 +578,33 @@ export default function ProgramsManager({
                 </div>
               </div>
 
-              <div className="grid-2" style={{ gap: "16px", marginBottom: "16px" }}>
-                <div>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "6px" }}>
-                    Icon Class (FontAwesome)
-                  </label>
-                  <input
-                    type="text"
-                    name="icon"
-                    defaultValue={editingItem?.icon || "fas fa-folder"}
-                    placeholder="e.g. fas fa-laptop-code"
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                      borderRadius: "var(--wh-radius-sm)",
-                      border: "1.5px solid var(--wh-pale-sky)",
-                      fontSize: "0.9rem",
-                    }}
-                  />
-                </div>
-
-                <div>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "6px" }}>
-                    Image URL
-                  </label>
-                  <input
-                    type="text"
-                    name="imageUrl"
-                    defaultValue={editingItem?.imageUrl || "/images/hero_community.png"}
-                    placeholder="e.g. /images/hero_community.png or Unsplash URL"
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                      borderRadius: "var(--wh-radius-sm)",
-                      border: "1.5px solid var(--wh-pale-sky)",
-                      fontSize: "0.9rem",
-                    }}
-                  />
-                </div>
+              <div style={{ marginBottom: "16px" }}>
+                <label style={{ display: "block", fontSize: "0.85rem", fontWeight: 600, color: "var(--wh-navy)", marginBottom: "6px" }}>
+                  Icon Class (FontAwesome)
+                </label>
+                <input
+                  type="text"
+                  name="icon"
+                  defaultValue={editingItem?.icon || "fas fa-folder"}
+                  placeholder="e.g. fas fa-laptop-code"
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    borderRadius: "var(--wh-radius-sm)",
+                    border: "1.5px solid var(--wh-pale-sky)",
+                    fontSize: "0.9rem",
+                  }}
+                />
               </div>
+
+              {/* Media Uploader for Program Cover Photo */}
+              <MediaUploader
+                name="imageUrl"
+                defaultValue={editingItem?.imageUrl || "/images/hero_community.png"}
+                acceptedTypes="image-only"
+                label="Program Cover Image"
+                helperText="Upload JPG, PNG, or WebP cover image, or paste an existing URL / local asset path."
+              />
 
               <div style={{ display: "flex", gap: "20px", marginBottom: "20px", flexWrap: "wrap" }}>
                 <label style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer", fontSize: "0.9rem", fontWeight: 600, color: "var(--wh-navy)" }}>

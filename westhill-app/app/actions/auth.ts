@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { verifyPassword, createSession, logout } from "@/lib/auth";
@@ -14,11 +15,25 @@ export interface ActionResponse {
   error?: string;
 }
 
-export async function loginAction(formData: FormData): Promise<ActionResponse> {
+export async function loginAction(
+  prevState: ActionResponse | null | FormData,
+  formData?: FormData
+): Promise<ActionResponse> {
+  const actualFormData =
+    formData instanceof FormData
+      ? formData
+      : prevState instanceof FormData
+      ? prevState
+      : null;
+
+  if (!actualFormData) {
+    return { success: false, error: "Invalid form submission." };
+  }
+
   try {
     const rawData = {
-      email: formData.get("email"),
-      password: formData.get("password"),
+      email: actualFormData.get("email"),
+      password: actualFormData.get("password"),
     };
 
     const parsed = LoginSchema.safeParse(rawData);
@@ -28,6 +43,8 @@ export async function loginAction(formData: FormData): Promise<ActionResponse> {
 
     const { email, password } = parsed.data;
     const cleanEmail = email.toLowerCase().trim();
+
+    let authenticated = false;
 
     // 1. Try finding user in database
     try {
@@ -49,7 +66,7 @@ export async function loginAction(formData: FormData): Promise<ActionResponse> {
             role: user.role,
           });
 
-          return { success: true };
+          authenticated = true;
         }
       }
     } catch (dbError) {
@@ -57,24 +74,48 @@ export async function loginAction(formData: FormData): Promise<ActionResponse> {
     }
 
     // 2. Development & Initial Bootstrap Administrator check
-    const bootstrapEmail = (process.env.INITIAL_ADMIN_EMAIL || "admin@westhillcommunitycentre.ca").toLowerCase().trim();
-    const bootstrapPassword = process.env.INITIAL_ADMIN_PASSWORD || "WestHill2026!Admin";
+    if (!authenticated) {
+      const bootstrapEmail = (
+        process.env.INITIAL_ADMIN_EMAIL || "admin@westhillcommunitycentre.ca"
+      )
+        .toLowerCase()
+        .trim();
+      const bootstrapPassword =
+        process.env.INITIAL_ADMIN_PASSWORD || "WestHill2026!Admin";
 
-    if (cleanEmail === bootstrapEmail && password === bootstrapPassword) {
-      await createSession({
-        id: "bootstrap-admin-id",
-        name: "West Hill Administrator",
-        email: bootstrapEmail,
-        role: "ADMIN",
-      });
+      if (cleanEmail === bootstrapEmail && password === bootstrapPassword) {
+        await createSession({
+          id: "bootstrap-admin-id",
+          name: "West Hill Administrator",
+          email: bootstrapEmail,
+          role: "ADMIN",
+        });
 
-      return { success: true };
+        authenticated = true;
+      }
     }
 
-    return { success: false, error: "Invalid email or password." };
+    if (!authenticated) {
+      return { success: false, error: "Invalid email or password." };
+    }
+
+    // Successfully authenticated: redirect to /admin dashboard
+    redirect("/admin");
   } catch (error) {
+    // Re-throw redirect errors so Next.js performs navigation
+    if (
+      error &&
+      typeof error === "object" &&
+      "digest" in error &&
+      String((error as { digest?: unknown }).digest).startsWith("NEXT_REDIRECT")
+    ) {
+      throw error;
+    }
     console.error("Login action error:", error);
-    return { success: false, error: "An unexpected error occurred during sign-in. Please try again." };
+    return {
+      success: false,
+      error: "An unexpected error occurred during sign-in. Please try again.",
+    };
   }
 }
 

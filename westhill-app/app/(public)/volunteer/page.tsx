@@ -3,10 +3,21 @@ import PageHero from "@/components/PageHero";
 import VolunteerForm from "@/components/forms/VolunteerForm";
 import { getSiteSettings } from "@/lib/queries";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Volunteer Opportunities | West Hill Community Centre",
+  title: "Volunteer Opportunities & Civic Service",
   description:
-    "Join our dedicated volunteer team in East Scarborough. Opportunities for youth mentors, seniors facilitators, event assistants, and food security helpers.",
+    "Join our volunteer family in East Scarborough. Opportunities for youth mentors, recreation facilitators, senior lunch assistants, and food distribution helpers.",
+  alternates: {
+    canonical: getCanonicalUrl("/volunteer"),
+  },
+  openGraph: {
+    title: "Volunteer Opportunities & Civic Service | West Hill Community Centre",
+    description:
+      "Join our volunteer family in East Scarborough. Opportunities for youth mentors, recreation facilitators, senior lunch assistants, and food distribution helpers.",
+    url: getCanonicalUrl("/volunteer"),
+  },
 };
 
 export default async function VolunteerPage() {
@@ -53,13 +64,13 @@ export default async function VolunteerPage() {
                   color: "var(--wh-navy)",
                 }}
               >
-                YOUTH HUB
+                YOUTH DEVELOPMENT & LEADERSHIP
               </span>
               <h3 style={{ color: "var(--wh-navy)", marginBottom: "12px", fontSize: "1.25rem", fontWeight: 700 }}>
-                Youth Homework & Coding Tutor
+                Youth Mentorship & Leadership Tutor
               </h3>
               <p style={{ fontSize: "0.9rem", lineHeight: 1.5, color: "var(--wh-text-body)", marginBottom: "20px", flexGrow: 1 }}>
-                Provide after-school homework support, mentor high school students in STEM / math, or guide beginner coding exercises on weekday afternoons.
+                Provide after-school homework support, mentor high school students in STEM / math, or guide leadership workshops on weekday afternoons.
               </p>
               <a href="#volunteer-application" className="btn btn-secondary" style={{ padding: "10px 18px", fontSize: "0.82rem", textAlign: "center" }}>
                 Apply to Volunteer

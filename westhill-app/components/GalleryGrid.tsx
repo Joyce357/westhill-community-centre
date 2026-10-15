@@ -96,9 +96,11 @@ export default function GalleryGrid({ media }: GalleryGridProps) {
                       videoRefs.current[index] = el;
                     }}
                     src={item.src}
+                    poster={item.thumbnail}
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                   />
                   <div className="video-play-overlay">
                     <i className="fas fa-play"></i>
@@ -150,10 +152,12 @@ export default function GalleryGrid({ media }: GalleryGridProps) {
             {activeMedia.type === "video" ? (
               <video
                 src={activeMedia.src}
+                poster={activeMedia.thumbnail}
                 controls
                 autoPlay
+                playsInline
                 className="lightbox-img"
-                style={{ maxWidth: "100%", maxHeight: "75vh" }}
+                style={{ maxWidth: "100%", maxHeight: "75vh", borderRadius: "8px" }}
               />
             ) : (
               // eslint-disable-next-line @next/next/no-img-element

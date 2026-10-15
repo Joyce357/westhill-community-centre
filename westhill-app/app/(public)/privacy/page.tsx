@@ -2,9 +2,19 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { SITE_SETTINGS } from "@/lib/data";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Privacy Policy | West Hill Community Centre",
-  description: "Learn about how West Hill Community Centre collects, protects, and uses your personal information.",
+  title: "Privacy Policy",
+  description: "Learn about how West Hill Community Centre collects, protects, and handles personal data and privacy rights in Ontario.",
+  alternates: {
+    canonical: getCanonicalUrl("/privacy"),
+  },
+  openGraph: {
+    title: "Privacy Policy | West Hill Community Centre",
+    description: "Learn about how West Hill Community Centre collects, protects, and handles personal data and privacy rights in Ontario.",
+    url: getCanonicalUrl("/privacy"),
+  },
 };
 
 export default function PrivacyPage() {

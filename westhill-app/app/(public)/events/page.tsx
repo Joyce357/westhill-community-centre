@@ -4,10 +4,21 @@ import EventsGrid from "@/components/EventsGrid";
 import EventCalendar from "@/components/EventCalendar";
 import { getPublishedEvents, getSiteSettings } from "@/lib/queries";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Events Calendar | West Hill Community Centre",
+  title: "Events Calendar & Community Gatherings",
   description:
-    "Upcoming community events, youth workshops, job fairs, and neighbourhood celebrations at West Hill Community Centre.",
+    "Upcoming community events, youth leadership workshops, job fairs, and neighbourhood celebrations at West Hill Community Centre in Scarborough.",
+  alternates: {
+    canonical: getCanonicalUrl("/events"),
+  },
+  openGraph: {
+    title: "Events Calendar & Community Gatherings | West Hill Community Centre",
+    description:
+      "Upcoming community events, youth leadership workshops, job fairs, and neighbourhood celebrations at West Hill Community Centre in Scarborough.",
+    url: getCanonicalUrl("/events"),
+  },
 };
 
 export default async function EventsPage() {
@@ -54,7 +65,7 @@ export default async function EventsPage() {
                 </p>
                 <p style={{ fontSize: "0.9rem", color: "var(--wh-text-muted)" }}>
                   <i className="fas fa-info-circle" style={{ color: "var(--wh-orange-accent)", marginRight: "8px" }}></i>
-                  Free parking and accessible entrances are available at our 4234 Lawrence Ave E location.
+                  Free parking and accessible entrances are available at our Unit 4, 4234 Lawrence Ave East location.
                 </p>
               </div>
 

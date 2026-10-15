@@ -1,20 +1,11 @@
 [
   {
-    "id": "youth-hub",
-    "title": "Youth Hub",
-    "category": "Youth Services",
-    "description": "A welcoming drop-in space for Scarborough youth to study, access technology, and build positive peer relationships.",
-    "icon": "fas fa-laptop-code",
-    "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600",
-    "link": "programs.html?id=youth-hub"
-  },
-  {
     "id": "seniors-support",
-    "title": "Seniors Support",
+    "title": "West Hill Seniors Program",
     "category": "Support Services",
-    "description": "Promoting wellness and active social connections among Scarborough seniors with lunch programs and wellness checking.",
+    "description": "Weekly community program for older adults featuring chair exercise, digital skills, Housing Tuesday, health talks, wellness, safety, and social connection.",
     "icon": "fas fa-heartbeat",
-    "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=600",
+    "image": "/assets/images/gallery/Senoirs-Program-incolaboration-with-Toronto-public-Library-04.jpeg",
     "link": "programs.html?id=seniors-support"
   },
   {
@@ -28,9 +19,9 @@
   },
   {
     "id": "women-family",
-    "title": "Women & Family Support",
+    "title": "Women’s Wellness Program",
     "category": "Family Services",
-    "description": "Providing safe support networks, parenting classes, counseling, and maternal resources for mothers and families.",
+    "description": "A welcoming community program focused on wellness, health education, and social connection for women.",
     "icon": "fas fa-child",
     "image": "images/family_support.png",
     "link": "programs.html?id=women-family"

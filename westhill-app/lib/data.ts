@@ -1,11 +1,22 @@
 export interface ProgramItem {
   id: string;
+  slug?: string;
   title: string;
   category: string;
+  categorySlug?: string;
   description: string;
+  fullDescription?: string;
   icon: string;
   image: string;
   link: string;
+  displayLabel?: string | null;
+  schedule?: string | null;
+  location?: string | null;
+  eligibility?: string | null;
+  registrationInfo?: string | null;
+  isFeatured?: boolean;
+  isPublished?: boolean;
+  displayOrder?: number;
 }
 
 export interface EventItem {
@@ -33,11 +44,13 @@ export interface GalleryMediaItem {
   type: "image" | "video";
   src: string;
   title: string;
+  category?: string;
+  thumbnail?: string;
 }
 
 export const SITE_SETTINGS = {
   orgName: "West Hill Community Centre",
-  address: "4234 Lawrence Avenue East, Units 2–3, Scarborough, Ontario M1E 4R4",
+  address: "Unit 4, 4234 Lawrence Avenue East, Scarborough, Ontario M1E 4R4",
   phone: "(416) 555-0199",
   primaryEmail: "info@westhillcommunitycentre.ca",
   volunteerEmail: "volunteer@westhillcommunity.org",
@@ -54,21 +67,12 @@ export const SITE_SETTINGS = {
 
 export const INITIAL_PROGRAMS: ProgramItem[] = [
   {
-    id: "youth-hub",
-    title: "Youth Hub",
-    category: "Youth Services",
-    description: "A welcoming drop-in space for Scarborough youth to study, access technology, and build positive peer relationships.",
-    icon: "fas fa-laptop-code",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600",
-    link: "/programs#youth-hub",
-  },
-  {
     id: "seniors-support",
-    title: "Seniors Support",
+    title: "West Hill Seniors Program",
     category: "Support Services",
-    description: "Promoting wellness and active social connections among Scarborough seniors with lunch programs and wellness checking.",
+    description: "Weekly community program for older adults featuring chair exercise, digital skills, Housing Tuesday, health talks, wellness, safety, and social connection.",
     icon: "fas fa-heartbeat",
-    image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=600",
+    image: "/assets/images/gallery/Senoirs-Program-incolaboration-with-Toronto-public-Library-04.jpeg",
     link: "/programs#seniors-support",
   },
   {
@@ -82,9 +86,9 @@ export const INITIAL_PROGRAMS: ProgramItem[] = [
   },
   {
     id: "women-family",
-    title: "Women & Family Support",
+    title: "Women’s Wellness Program",
     category: "Family Services",
-    description: "Providing safe support networks, parenting classes, counseling, and maternal resources for mothers and families.",
+    description: "A welcoming community program focused on wellness, health education, and social connection for women.",
     icon: "fas fa-child",
     image: "/images/family_support.png",
     link: "/programs#women-family",
@@ -177,7 +181,7 @@ export const INITIAL_EVENTS: EventItem[] = [
     month: "JUN",
     date: "2026-06-12",
     time: "4:00 PM - 6:00 PM",
-    location: "Youth Hub Lounge",
+    location: "Community Activity Room",
     category: "Youth Services",
     description: "Interactive session focusing on communication skills, community project planning, and collaborative teamwork for youth.",
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=600",
@@ -211,10 +215,10 @@ export const INITIAL_EVENTS: EventItem[] = [
 export const TESTIMONIALS: TestimonialItem[] = [
   {
     id: "1",
-    quote: "West Hill Community Centre gave my son a safe and positive space to study after school. The mentors at the Youth Hub inspired him to pursue computer science in college.",
+    quote: "West Hill Community Centre gave my son a safe and positive space to study after school. The mentors at the Centre inspired him to pursue computer science in college.",
     author: "Amara O.",
     role: "Local Parent",
-    program: "Youth Hub & Tutoring",
+    program: "Youth Development & Leadership",
   },
   {
     id: "2",
@@ -233,7 +237,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
 ];
 
 export const DONATION_IMPACTS: Record<number, string> = {
-  25: "Provides bus tokens and study snack packs for youth attending the Youth Hub.",
+  25: "Provides bus tokens and study snack packs for youth attending youth development programs.",
   50: "Funds a hot, nutritious lunch and social outing for seniors at our center.",
   100: "Provides a private housing counseling session for a family facing emergency relocation.",
   250: "Funds a complete 4-week employment workshop series for a neighborhood resident.",

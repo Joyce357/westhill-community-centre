@@ -3,10 +3,21 @@ import PageHero from "@/components/PageHero";
 import PartnershipForm from "@/components/forms/PartnershipForm";
 import { getSiteSettings, getPublishedPartners } from "@/lib/queries";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Partners & Community Builders | West Hill Community Centre",
+  title: "Partners & Community Builders",
   description:
-    "Explore community partnerships, sponsorship tiers, and collaborative initiatives supporting Scarborough residents.",
+    "Explore community partnerships, sponsorship opportunities, and grassroots collaborations building a stronger East Scarborough.",
+  alternates: {
+    canonical: getCanonicalUrl("/partners"),
+  },
+  openGraph: {
+    title: "Partners & Community Builders | West Hill Community Centre",
+    description:
+      "Explore community partnerships, sponsorship opportunities, and grassroots collaborations building a stronger East Scarborough.",
+    url: getCanonicalUrl("/partners"),
+  },
 };
 
 export default async function PartnersPage() {
@@ -71,7 +82,7 @@ export default async function PartnersPage() {
                   <i className="fas fa-medal" style={{ color: "var(--wh-community-orange)", marginRight: "8px" }}></i> Youth Advocate Level
                 </h4>
                 <p style={{ fontSize: "0.92rem", lineHeight: 1.5, color: "var(--wh-text-body)", marginLeft: "25px" }}>
-                  Sponsors educational field trips, mentorship materials, and athletic supplies for youth hub participants.
+                  Sponsors educational field trips, mentorship materials, and athletic supplies for youth leadership participants.
                 </p>
               </div>
 

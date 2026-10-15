@@ -2,9 +2,19 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { SITE_SETTINGS } from "@/lib/data";
 
+import { getCanonicalUrl } from "@/lib/site";
+
 export const metadata: Metadata = {
-  title: "Accessibility Statement | West Hill Community Centre",
-  description: "Our commitment to accessibility, inclusion, and AODA compliance at West Hill Community Centre.",
+  title: "Accessibility Statement & AODA Standards",
+  description: "Our commitment to accessibility, barrier-free access, inclusion, and AODA compliance at West Hill Community Centre.",
+  alternates: {
+    canonical: getCanonicalUrl("/accessibility"),
+  },
+  openGraph: {
+    title: "Accessibility Statement & AODA Standards | West Hill Community Centre",
+    description: "Our commitment to accessibility, barrier-free access, inclusion, and AODA compliance at West Hill Community Centre.",
+    url: getCanonicalUrl("/accessibility"),
+  },
 };
 
 export default function AccessibilityPage() {
@@ -44,7 +54,7 @@ export default function AccessibilityPage() {
             3. Physical Facility Accessibility
           </h2>
           <p style={{ marginBottom: "20px" }}>
-            Our physical community hub located at 4234 Lawrence Avenue East is fully equipped to welcome all residents, featuring:
+            Our physical community hub located at Unit 4, 4234 Lawrence Ave East is fully equipped to welcome all residents, featuring:
           </p>
           <ul style={{ margin: "0 0 20px 20px", listStyleType: "disc" }}>
             <li>Wheelchair-accessible entryways and dynamic automated doors.</li>
