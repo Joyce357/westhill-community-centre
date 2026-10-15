@@ -56,6 +56,25 @@ export async function createGalleryItemAction(formData: FormData) {
   return { success: true };
 }
 
+async function revalidatePlacementsForGalleryItem(galleryItemId: string) {
+  try {
+    const placements = await prisma.siteMediaPlacement.findMany({
+      where: { galleryItemId },
+      select: { page: true },
+    });
+    for (const p of placements) {
+      if (!p.page || p.page === "homepage") {
+        revalidatePath("/");
+      } else {
+        revalidatePath("/" + p.page);
+      }
+    }
+    revalidatePath("/admin/site-media");
+  } catch {
+    // Non-blocking
+  }
+}
+
 export async function updateGalleryItemAction(id: string, formData: FormData) {
   await requireAuth();
 
@@ -89,6 +108,7 @@ export async function updateGalleryItemAction(id: string, formData: FormData) {
     },
   });
 
+  await revalidatePlacementsForGalleryItem(id);
   revalidatePath("/");
   revalidatePath("/gallery");
   revalidatePath("/programs");
@@ -105,6 +125,7 @@ export async function toggleGalleryItemPublishedAction(id: string, isPublished: 
     data: { isPublished },
   });
 
+  await revalidatePlacementsForGalleryItem(id);
   revalidatePath("/");
   revalidatePath("/gallery");
   revalidatePath("/programs");
@@ -132,6 +153,7 @@ export async function updateGalleryItemOrderAction(id: string, displayOrder: num
 export async function deleteGalleryItemAction(id: string) {
   await requireAuth();
 
+  await revalidatePlacementsForGalleryItem(id);
   await prisma.galleryItem.delete({
     where: { id },
   });

@@ -10,12 +10,16 @@ interface ProgramsDirectoryViewProps {
   programs: ProgramItem[];
   settingsAddress: string;
   grandOpeningMedia?: { mediaUrl: string; altText: string };
+  archiveMedia1?: { mediaUrl: string; altText: string };
+  archiveMedia2?: { mediaUrl: string; altText: string };
 }
 
 export default function ProgramsDirectoryView({
   programs,
   settingsAddress,
   grandOpeningMedia,
+  archiveMedia1,
+  archiveMedia2,
 }: ProgramsDirectoryViewProps) {
   const [activeFilter, setActiveFilter] = useState<"all" | "ongoing" | "initiatives" | "partners" | "archives">("all");
   const [showInquiryForm, setShowInquiryForm] = useState(false);
@@ -814,8 +818,8 @@ export default function ProgramsDirectoryView({
               >
                 <div style={{ position: "relative", height: "180px", width: "100%" }}>
                   <Image
-                    src="/assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (4).jpeg"
-                    alt="Community donation and care distribution"
+                    src={archiveMedia1?.mediaUrl || "/assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (4).jpeg"}
+                    alt={archiveMedia1?.altText || "Community donation and care distribution"}
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
                     style={{ objectFit: "cover" }}
@@ -856,8 +860,8 @@ export default function ProgramsDirectoryView({
               >
                 <div style={{ position: "relative", height: "180px", width: "100%" }}>
                   <Image
-                    src="/images/Youth Award.jpeg"
-                    alt="Youth tech hackathon and recognition"
+                    src={archiveMedia2?.mediaUrl || "/images/Youth Award.jpeg"}
+                    alt={archiveMedia2?.altText || "Youth tech hackathon and recognition"}
                     fill
                     sizes="(max-width: 768px) 100vw, 400px"
                     style={{ objectFit: "cover" }}

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
-
 import { getCanonicalUrl } from "@/lib/site";
+import { getSiteMediaSlot } from "@/lib/queries";
 
 export const metadata: Metadata = {
   title: "Our Story & Community Charter",
@@ -19,7 +19,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const [visionMedia, leadershipMedia] = await Promise.all([
+    getSiteMediaSlot("about-vision", {
+      mediaUrl: "/assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (5).jpeg",
+      altText: "Community gathering and advocacy at West Hill Community Centre",
+      title: "A Vision Brought to Life",
+    }),
+    getSiteMediaSlot("about-leadership", {
+      mediaUrl: "/images/coach_john_emore.jpeg",
+      altText: "Coach John Emore - President of West Hill Community Association",
+      title: "Coach John Emore",
+    }),
+  ]);
+
   return (
     <>
       <PageHero
@@ -46,8 +59,8 @@ export default function AboutPage() {
             </div>
             <div className="active" style={{ opacity: 1, transform: "none" }}>
               <Image
-                src="/images/hero_community.png"
-                alt="Diverse community gathering in Scarborough"
+                src={visionMedia.mediaUrl}
+                alt={visionMedia.altText}
                 width={600}
                 height={400}
                 style={{
@@ -55,6 +68,7 @@ export default function AboutPage() {
                   boxShadow: "var(--wh-shadow-soft)",
                   width: "100%",
                   height: "auto",
+                  objectFit: "cover",
                 }}
               />
             </div>
@@ -133,8 +147,8 @@ export default function AboutPage() {
           <div className="grid-2" style={{ gap: "50px", alignItems: "center", marginBottom: "60px", marginTop: "60px" }}>
             <div>
               <Image
-                src="/images/coach_john_emore.jpeg"
-                alt="Coach John Emore - President of West Hill Community Association"
+                src={leadershipMedia.mediaUrl}
+                alt={leadershipMedia.altText}
                 width={500}
                 height={500}
                 style={{

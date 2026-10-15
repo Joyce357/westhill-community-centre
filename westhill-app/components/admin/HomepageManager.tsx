@@ -178,12 +178,55 @@ export default function HomepageManager({
               Controls the top full-bleed photograph, headline banner, and action buttons.
             </p>
 
+            <div
+              style={{
+                padding: "14px 16px",
+                backgroundColor: "rgba(101, 175, 218, 0.12)",
+                borderRadius: "var(--wh-radius-md)",
+                border: "1px solid var(--wh-pale-sky)",
+                marginBottom: "20px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: "12px",
+              }}
+            >
+              <div>
+                <div style={{ fontWeight: 700, fontSize: "0.9rem", color: "var(--wh-navy)", display: "flex", alignItems: "center", gap: "8px" }}>
+                  <i className="fas fa-images" style={{ color: "var(--wh-sun-gold)" }}></i>
+                  <span>Multi-Image Hero Slideshow Active</span>
+                </div>
+                <div style={{ fontSize: "0.82rem", color: "var(--wh-text-muted)", marginTop: "3px" }}>
+                  The homepage hero now supports multiple rotating slides. Select, reorder, or remove slides in Site Media.
+                </div>
+              </div>
+              <a
+                href="/admin/site-media"
+                style={{
+                  padding: "8px 14px",
+                  backgroundColor: "var(--wh-navy)",
+                  color: "#FFFFFF",
+                  borderRadius: "var(--wh-radius-sm)",
+                  textDecoration: "none",
+                  fontSize: "0.84rem",
+                  fontWeight: 600,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                }}
+              >
+                <i className="fas fa-sliders"></i>
+                <span>Manage Hero Slides</span>
+              </a>
+            </div>
+
             <GalleryItemSelector
               name="heroGalleryItemId"
-              label="Hero Background Photograph"
+              label="Primary / Static Fallback Hero Photograph"
               initialSelectedId={initialContent.heroGalleryItemId}
               galleryItems={galleryItems}
-              helperText="Select a storefront or community image from your Neon Gallery. The public hero resolves the media URL and alt text directly from this record."
+              helperText="Primary background photo used when single-image mode is active or as the base presentation record."
               defaultFallbackLabel="Storefront entrance with opening balloon display"
             />
 

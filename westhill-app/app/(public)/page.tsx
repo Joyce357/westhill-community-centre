@@ -494,8 +494,8 @@ export default async function HomePage() {
             <div className="civic-pathway-card">
               <div className="civic-pathway-media">
                 <Image
-                  src="/images/Senoirs-Program-incolaboration-with-Toronto-public-Library-12.jpeg"
-                  alt="Young participants and community members"
+                  src={media.pathway1.mediaUrl}
+                  alt={media.pathway1.altText}
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
                   style={{ objectFit: "cover" }}
@@ -527,8 +527,8 @@ export default async function HomePage() {
             <div className="civic-pathway-card">
               <div className="civic-pathway-media">
                 <Image
-                  src="/assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (4).jpeg"
-                  alt="Active community volunteers at West Hill centre"
+                  src={media.pathway2.mediaUrl}
+                  alt={media.pathway2.altText}
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
                   style={{ objectFit: "cover" }}
@@ -560,8 +560,8 @@ export default async function HomePage() {
             <div className="civic-pathway-card">
               <div className="civic-pathway-media">
                 <Image
-                  src="/images/westhill-storefront.jpeg"
-                  alt="West Hill Community Centre exterior storefront"
+                  src={media.pathway3.mediaUrl}
+                  alt={media.pathway3.altText}
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
                   style={{ objectFit: "cover" }}

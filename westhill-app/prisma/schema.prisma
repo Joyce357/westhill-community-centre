@@ -217,6 +217,7 @@ model GalleryItem {
   isPublished  Boolean   @default(true)
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
+  placements   SiteMediaPlacement[]
 }
 
 enum ResourceType {
@@ -305,4 +306,21 @@ model HomepageContent {
   seoOgGalleryItemId     String?
 
   updatedAt              DateTime @updatedAt
+}
+
+model SiteMediaPlacement {
+  id            String       @id @default(cuid())
+  slotKey       String
+  page          String
+  label         String
+  galleryItemId String?
+  displayOrder  Int          @default(0)
+  isActive      Boolean      @default(true)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  galleryItem   GalleryItem? @relation(fields: [galleryItemId], references: [id], onDelete: SetNull)
+
+  @@index([page])
+  @@index([slotKey])
 }

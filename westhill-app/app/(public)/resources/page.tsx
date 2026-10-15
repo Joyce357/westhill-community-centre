@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
-import { getPublishedResources } from "@/lib/queries";
+import { getPublishedResources, getSiteMediaSlot } from "@/lib/queries";
 
 import { getCanonicalUrl } from "@/lib/site";
 
@@ -22,7 +22,23 @@ export const metadata: Metadata = {
 };
 
 export default async function ResourcesPage() {
-  const allResources = await getPublishedResources();
+  const [
+    allResources,
+    housingMedia,
+    employmentMedia,
+    familyMedia,
+    youthMedia,
+    seniorsMedia,
+    healthMedia,
+  ] = await Promise.all([
+    getPublishedResources(),
+    getSiteMediaSlot("resources-hub-housing"),
+    getSiteMediaSlot("resources-hub-employment"),
+    getSiteMediaSlot("resources-hub-family"),
+    getSiteMediaSlot("resources-hub-youth"),
+    getSiteMediaSlot("resources-hub-seniors"),
+    getSiteMediaSlot("resources-hub-health"),
+  ]);
 
   const downloadItems = allResources.filter(
     (r) => (r.category || "").toLowerCase() === "downloads" || r.resourceType === "DOCUMENT" || r.resourceType === "GUIDE"
@@ -52,13 +68,13 @@ export default async function ResourcesPage() {
           <div className="resources-grid">
             {/* Category 1: Housing Support */}
             <div className="resource-hub-card active" style={{ opacity: 1, transform: "none" }}>
-              <div className="resource-card-image">
+              <div className="resource-card-image" style={{ height: "200px", position: "relative", overflow: "hidden" }}>
                 <Image
-                  src="/images/housing_support.png"
-                  alt="Housing Support Services"
-                  width={400}
-                  height={250}
-                  style={{ width: "100%", height: "auto" }}
+                  src={housingMedia.mediaUrl}
+                  alt={housingMedia.altText}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  style={{ objectFit: "cover" }}
                 />
                 <span className="resource-card-badge">
                   <i className="fas fa-house-chimney"></i> Housing
@@ -83,13 +99,13 @@ export default async function ResourcesPage() {
 
             {/* Category 2: Employment & Career Resources */}
             <div className="resource-hub-card active" style={{ opacity: 1, transform: "none" }}>
-              <div className="resource-card-image">
+              <div className="resource-card-image" style={{ height: "200px", position: "relative", overflow: "hidden" }}>
                 <Image
-                  src="/images/employment_support.png"
-                  alt="Employment Support Services"
-                  width={400}
-                  height={250}
-                  style={{ width: "100%", height: "auto" }}
+                  src={employmentMedia.mediaUrl}
+                  alt={employmentMedia.altText}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  style={{ objectFit: "cover" }}
                 />
                 <span className="resource-card-badge">
                   <i className="fas fa-briefcase"></i> Careers
@@ -114,13 +130,13 @@ export default async function ResourcesPage() {
 
             {/* Category 3: Family & Children Services */}
             <div className="resource-hub-card active" style={{ opacity: 1, transform: "none" }}>
-              <div className="resource-card-image">
+              <div className="resource-card-image" style={{ height: "200px", position: "relative", overflow: "hidden" }}>
                 <Image
-                  src="/images/family_support.png"
-                  alt="Family and Children Services"
-                  width={400}
-                  height={250}
-                  style={{ width: "100%", height: "auto" }}
+                  src={familyMedia.mediaUrl}
+                  alt={familyMedia.altText}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  style={{ objectFit: "cover" }}
                 />
                 <span className="resource-card-badge">
                   <i className="fas fa-child-reaching"></i> Families
@@ -145,13 +161,13 @@ export default async function ResourcesPage() {
 
             {/* Category 4: Youth Opportunities */}
             <div className="resource-hub-card active" style={{ opacity: 1, transform: "none" }}>
-              <div className="resource-card-image">
+              <div className="resource-card-image" style={{ height: "200px", position: "relative", overflow: "hidden" }}>
                 <Image
-                  src="/images/youth_opportunities.png"
-                  alt="Youth Opportunities"
-                  width={400}
-                  height={250}
-                  style={{ width: "100%", height: "auto" }}
+                  src={youthMedia.mediaUrl}
+                  alt={youthMedia.altText}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  style={{ objectFit: "cover" }}
                 />
                 <span className="resource-card-badge">
                   <i className="fas fa-graduation-cap"></i> Youth
@@ -176,13 +192,13 @@ export default async function ResourcesPage() {
 
             {/* Category 5: Seniors Resources */}
             <div className="resource-hub-card active" style={{ opacity: 1, transform: "none" }}>
-              <div className="resource-card-image">
+              <div className="resource-card-image" style={{ height: "200px", position: "relative", overflow: "hidden" }}>
                 <Image
-                  src="/images/seniors_resources.png"
-                  alt="Seniors Resources"
-                  width={400}
-                  height={250}
-                  style={{ width: "100%", height: "auto" }}
+                  src={seniorsMedia.mediaUrl}
+                  alt={seniorsMedia.altText}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  style={{ objectFit: "cover" }}
                 />
                 <span className="resource-card-badge">
                   <i className="fas fa-person-cane"></i> Seniors
@@ -207,13 +223,13 @@ export default async function ResourcesPage() {
 
             {/* Category 6: Health & Wellness Resources */}
             <div className="resource-hub-card active" style={{ opacity: 1, transform: "none" }}>
-              <div className="resource-card-image">
+              <div className="resource-card-image" style={{ height: "200px", position: "relative", overflow: "hidden" }}>
                 <Image
-                  src="/images/health_wellness.png"
-                  alt="Health and Wellness Resources"
-                  width={400}
-                  height={250}
-                  style={{ width: "100%", height: "auto" }}
+                  src={healthMedia.mediaUrl}
+                  alt={healthMedia.altText}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  style={{ objectFit: "cover" }}
                 />
                 <span className="resource-card-badge">
                   <i className="fas fa-heart-pulse"></i> Health

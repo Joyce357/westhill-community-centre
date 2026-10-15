@@ -401,6 +401,9 @@ export interface ResolvedHomepageData {
     welcome: { mediaUrl: string; altText: string; title: string | null; isDefault: boolean };
     milestone: { mediaUrl: string; altText: string };
     ogImage?: { mediaUrl: string; altText: string } | null;
+    pathway1: { mediaUrl: string; altText: string };
+    pathway2: { mediaUrl: string; altText: string };
+    pathway3: { mediaUrl: string; altText: string };
   };
 }
 
@@ -560,49 +563,57 @@ export async function getHomepageContent(): Promise<ResolvedHomepageData> {
     },
   ];
 
-  // Fetch additional published gallery images dynamically from Neon
-  let dynamicGallerySlides: Array<{ mediaUrl: string; altText: string }> = [];
+  // Fetch administrator-configured hero slides from SiteMediaPlacement
+  let heroSlides: Array<{ mediaUrl: string; altText: string }> = [];
   try {
     if (process.env.DATABASE_URL) {
-      const extraItems = await prisma.galleryItem.findMany({
-        where: {
-          isPublished: true,
-          mediaType: "IMAGE",
-          ...(content.heroGalleryItemId ? { id: { not: content.heroGalleryItemId } } : {}),
-        },
-        orderBy: [{ displayOrder: "asc" }, { createdAt: "desc" }],
-        take: 6,
+      const slidePlacements = await prisma.siteMediaPlacement.findMany({
+        where: { slotKey: "homepage-hero-slide", isActive: true },
+        include: { galleryItem: true },
+        orderBy: { displayOrder: "asc" },
       });
-      dynamicGallerySlides = extraItems.map((item) => ({
-        mediaUrl: item.mediaUrl,
-        altText: item.altText || item.title || "West Hill Community Centre celebration",
-      }));
+      heroSlides = slidePlacements
+        .filter((sp) => sp.galleryItem && sp.galleryItem.isPublished)
+        .map((sp) => ({
+          mediaUrl: sp.galleryItem!.mediaUrl,
+          altText: sp.galleryItem!.altText || sp.galleryItem!.title || "West Hill Community Centre",
+        }));
     }
   } catch (err) {
-    console.warn("Failed to fetch additional gallery slides for hero:", err);
+    console.warn("Failed to fetch site media hero slides:", err);
   }
 
-  // Combine lead slide + dynamic gallery images, falling back to curated authentic opening photos
-  const heroSlides: Array<{ mediaUrl: string; altText: string }> = [leadHeroSlide];
-  for (const s of dynamicGallerySlides) {
-    if (!heroSlides.some((existing) => existing.mediaUrl === s.mediaUrl)) {
-      heroSlides.push(s);
-    }
-    if (heroSlides.length >= 5) break;
-  }
-  if (heroSlides.length < 3) {
+  // Fallback to lead slide + curated authentic slides if no custom slides configured
+  if (heroSlides.length === 0) {
+    heroSlides.push(leadHeroSlide);
     for (const d of DEFAULT_ADDITIONAL_SLIDES) {
       if (!heroSlides.some((existing) => existing.mediaUrl === d.mediaUrl)) {
         heroSlides.push(d);
       }
-      if (heroSlides.length >= 5) break;
+      if (heroSlides.length >= 4) break;
     }
   }
+
+  // Fetch pathway card placements
+  const [p1, p2, p3] = await Promise.all([
+    getSiteMediaSlot("homepage-pathway-1", {
+      mediaUrl: "/images/Senoirs-Program-incolaboration-with-Toronto-public-Library-12.jpeg",
+      altText: "Young participants and community members",
+    }),
+    getSiteMediaSlot("homepage-pathway-2", {
+      mediaUrl: "/assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (4).jpeg",
+      altText: "Active community volunteers at West Hill centre",
+    }),
+    getSiteMediaSlot("homepage-pathway-3", {
+      mediaUrl: "/images/westhill-storefront.jpeg",
+      altText: "West Hill Community Centre exterior storefront",
+    }),
+  ]);
 
   return {
     content,
     media: {
-      hero: leadHeroSlide,
+      hero: heroSlides[0] || leadHeroSlide,
       heroSlides,
       welcome: {
         mediaUrl: welcomeMedia?.mediaUrl || "/assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (5).jpeg",
@@ -615,6 +626,9 @@ export async function getHomepageContent(): Promise<ResolvedHomepageData> {
         altText: milestoneMedia?.altText || fallbackGrandOpening!.altText,
       },
       ogImage: ogMedia ? { mediaUrl: ogMedia.mediaUrl, altText: ogMedia.altText || "West Hill Community Centre" } : null,
+      pathway1: { mediaUrl: p1.mediaUrl, altText: p1.altText },
+      pathway2: { mediaUrl: p2.mediaUrl, altText: p2.altText },
+      pathway3: { mediaUrl: p3.mediaUrl, altText: p3.altText },
     },
   };
 }
@@ -879,6 +893,81 @@ export async function getPublishedPartners(): Promise<PublishedPartnerItem[]> {
       isFeatured: false,
     },
   ];
+}
+
+// ============================================================================
+// SITE MEDIA PLACEMENT RESOLUTION (GLOBAL CMS PLACEMENTS)
+// ============================================================================
+
+export interface ResolvedMediaSlot {
+  id?: string;
+  mediaUrl: string;
+  altText: string;
+  title?: string | null;
+  category?: string | null;
+  isAssigned: boolean;
+}
+
+export async function getSiteMediaSlot(
+  slotKey: string,
+  fallback?: { mediaUrl: string; altText: string; title?: string }
+): Promise<ResolvedMediaSlot> {
+  try {
+    if (process.env.DATABASE_URL) {
+      const placement = await prisma.siteMediaPlacement.findFirst({
+        where: { slotKey, isActive: true },
+        include: { galleryItem: true },
+        orderBy: { displayOrder: "asc" },
+      });
+
+      if (placement?.galleryItem && placement.galleryItem.isPublished) {
+        return {
+          id: placement.id,
+          mediaUrl: placement.galleryItem.mediaUrl,
+          altText: placement.galleryItem.altText || placement.galleryItem.title,
+          title: placement.galleryItem.title,
+          category: placement.galleryItem.category,
+          isAssigned: true,
+        };
+      }
+    }
+  } catch (err) {
+    console.warn(`Failed to fetch media slot for ${slotKey}:`, err);
+  }
+
+  return {
+    mediaUrl: fallback?.mediaUrl || "/assets/images/og-share.png",
+    altText: fallback?.altText || "West Hill Community Centre",
+    title: fallback?.title || null,
+    category: null,
+    isAssigned: false,
+  };
+}
+
+export async function getAllSiteMediaPlacements() {
+  try {
+    if (process.env.DATABASE_URL) {
+      return await prisma.siteMediaPlacement.findMany({
+        include: {
+          galleryItem: {
+            select: {
+              id: true,
+              title: true,
+              mediaUrl: true,
+              thumbnailUrl: true,
+              altText: true,
+              category: true,
+              isPublished: true,
+            },
+          },
+        },
+        orderBy: [{ page: "asc" }, { displayOrder: "asc" }, { createdAt: "asc" }],
+      });
+    }
+  } catch (err) {
+    console.warn("Failed to fetch all site media placements:", err);
+  }
+  return [];
 }
 
 

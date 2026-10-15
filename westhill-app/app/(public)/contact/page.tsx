@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/forms/ContactForm";
-import { getSiteSettings } from "@/lib/queries";
+import { getSiteSettings, getSiteMediaSlot } from "@/lib/queries";
 
 import { getCanonicalUrl } from "@/lib/site";
 
@@ -22,7 +22,14 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactPage() {
-  const settings = await getSiteSettings();
+  const [settings, storefrontMedia] = await Promise.all([
+    getSiteSettings(),
+    getSiteMediaSlot("contact-storefront", {
+      mediaUrl: "/images/westhill-storefront.jpeg",
+      altText: "West Hill Community Centre storefront entrance",
+      title: "West Hill Storefront",
+    }),
+  ]);
 
   return (
     <>
@@ -146,8 +153,8 @@ export default async function ContactPage() {
                 }}
               >
                 <Image
-                  src="/images/westhill-storefront.jpeg"
-                  alt="West Hill Community Centre storefront"
+                  src={storefrontMedia.mediaUrl}
+                  alt={storefrontMedia.altText}
                   fill
                   sizes="(max-width: 768px) 100vw, 500px"
                   style={{

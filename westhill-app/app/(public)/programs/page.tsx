@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getPublishedPrograms, getSiteSettings, getGrandOpeningMedia } from "@/lib/queries";
+import { getPublishedPrograms, getSiteSettings, getGrandOpeningMedia, getSiteMediaSlot } from "@/lib/queries";
 import ProgramsDirectoryView from "@/components/ProgramsDirectoryView";
 
 import { getCanonicalUrl } from "@/lib/site";
@@ -20,10 +20,18 @@ export const metadata: Metadata = {
 };
 
 export default async function ProgramsPage() {
-  const [programs, settings, grandOpeningMedia] = await Promise.all([
+  const [programs, settings, grandOpeningMedia, archiveMedia1, archiveMedia2] = await Promise.all([
     getPublishedPrograms(),
     getSiteSettings(),
     getGrandOpeningMedia(),
+    getSiteMediaSlot("programs-archive-1", {
+      mediaUrl: "/assets/images/westhillcenterOpening/WhatsApp Image 2026-06-09 at 11.10.51 PM (4).jpeg",
+      altText: "Community donation and care distribution",
+    }),
+    getSiteMediaSlot("programs-archive-2", {
+      mediaUrl: "/images/Youth Award.jpeg",
+      altText: "Youth tech hackathon and recognition",
+    }),
   ]);
 
   return (
@@ -31,6 +39,8 @@ export default async function ProgramsPage() {
       programs={programs}
       settingsAddress={settings.address}
       grandOpeningMedia={grandOpeningMedia}
+      archiveMedia1={archiveMedia1}
+      archiveMedia2={archiveMedia2}
     />
   );
 }
